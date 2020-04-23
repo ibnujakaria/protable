@@ -1,0 +1,23 @@
+{
+  "name": "pro-table",
+  "version": "0.0.1-dev",
+  "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
+  "main": "ProTable.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ibnujakaria/pro-table.git"
+  },
+  "keywords": [
+    "Data",
+    "Table"
+  ],
+  "author": "Ibnu Zakariyya <ibnujakaria@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ibnujakaria/pro-table/issues"
+  },
+  "homepage": "https://github.com/ibnujakaria/pro-table#readme"
+}
