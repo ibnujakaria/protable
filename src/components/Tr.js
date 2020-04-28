@@ -9,7 +9,7 @@ class Tr {
         $dom: document.createElement('td')
       }
 
-      td.$dom.innerText = _item
+      td.$dom.innerText = _item || '-'
       this.$tds.push(td)
       this.$dom.appendChild(td.$dom)
     })

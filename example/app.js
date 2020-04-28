@@ -1,13 +1,15 @@
-import ProTable from '../src/index'
+import { fromArray } from '../src/index'
 
-ProTable.fromArray('#table-from-array', [
+fromArray('#table-from-array', [
   {
     nama: 'Nurul Huda',
-    domisili: 'Bangkalan'
+    domisili: 'Bangkalan',
+    status: 'Menikah'
   },
   {
+    domisili: 'Bangkalan',
     nama: 'Lendis Fabri',
-    domisili: 'Bangkalan'
+    blog: 'https://kopiding.in'
   },
   {
     nama: 'Abdullah Wahid',
