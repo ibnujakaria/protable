@@ -7,7 +7,6 @@ class Th {
       for (const attr in options.attrs) {
         this.$dom.setAttribute(attr, options.attrs[attr])
       }
-      this.$dom.style.color = 'red'
     }
 
     if (options && options.classes) {

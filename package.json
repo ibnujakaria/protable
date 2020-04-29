@@ -1,6 +1,6 @@
 {
   "name": "pro-table",
-  "version": "0.0.1-dev",
+  "version": "0.0.2-dev",
   "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
   "main": "src/index.js",
   "scripts": {

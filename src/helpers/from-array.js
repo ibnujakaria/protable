@@ -1,4 +1,4 @@
-import { ProTable } from '../components/ProTable'
+import { ProTable } from '../components/table/ProTable'
 
 const fromArray = (elId, array, options) => {
   const columns = generateColumns(array)

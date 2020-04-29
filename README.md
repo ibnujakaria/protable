@@ -1,5 +1,5 @@
 # pro-table
-An data-table alternative written with modern javascript.
+A data-table alternative written with modern javascript.
 
 
 ## Create From Array
