@@ -7,7 +7,8 @@ class ProTable {
     this.$elId = elId
 
     const defaultOptions = {
-      classes: []
+      classes: [],
+      thead: {}
     }
 
     this.options = { ...defaultOptions, ...options }
@@ -16,7 +17,7 @@ class ProTable {
   }
 
   generateTable ({ columns, rows }) {
-    this.thead = new THead(columns)
+    this.thead = new THead(columns, this.options.thead)
     this.tbody = new TBody({ columns, rows })
 
     this.$table = document.createElement('table')

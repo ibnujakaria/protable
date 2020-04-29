@@ -1,7 +1,10 @@
 import { fromArray } from '../src/index'
 
 const options = {
-  classes: ['table', 'table-bordered', 'mt-3']
+  classes: ['table', 'table-bordered', 'mt-3'],
+  thead: {
+    thClasses: ['align-middle']
+  }
 }
 
 fromArray('#table-from-array', [
@@ -33,7 +36,10 @@ fromArray('#table-from-array-2', [
       month: 'January',
       year: 1996
     },
-    city: 'Surabaya'
+    address: {
+      city: 'Surabaya',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
   },
   {
     name: 'Wahid Abdullah',
@@ -42,7 +48,10 @@ fromArray('#table-from-array-2', [
       month: 'February',
       year: 1996
     },
-    city: 'Bangkalan'
+    address: {
+      city: 'Bangkalan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
   },
   {
     name: 'Lendis Fabri',
@@ -51,6 +60,9 @@ fromArray('#table-from-array-2', [
       month: 'Maret',
       year: 1996
     },
-    city: 'Lamongan'
+    address: {
+      city: 'Lamongan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
   }
 ], options)

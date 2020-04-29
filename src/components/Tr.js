@@ -27,6 +27,11 @@ class Tr {
     this.$dom.appendChild(th.$dom)
   }
 
+  pushTh (th) {
+    this.childs.push(th)
+    this.$dom.appendChild(th.$dom)
+  }
+
   addThs (array) {
     array.forEach(_item => {
       this.addTh(_item)

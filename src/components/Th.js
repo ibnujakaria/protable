@@ -10,6 +10,10 @@ class Th {
       this.$dom.style.color = 'red'
     }
 
+    if (options && options.classes) {
+      options.classes.forEach(_class => this.$dom.classList.add(_class))
+    }
+
     this.$dom.innerHTML = `${string[0].toUpperCase()}${string.toLowerCase().substr(1)}` || '-'
   }
 }
