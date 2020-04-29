@@ -1,3 +1,10 @@
+[![](https://img.shields.io/npm/v/pro-table)](https://www.npmjs.com/package/pro-table)
+[![](https://img.shields.io/npm/dt/pro-table)](https://www.npmjs.com/package/pro-table)
+[![](https://img.shields.io/jsdelivr/npm/hm/pro-table)](https://www.jsdelivr.com/package/npm/pro-table)
+[![](https://img.shields.io/github/size/ibnujakaria/pro-table/dist/js/pro-table.js)]()
+[![](https://img.shields.io/github/release-date/ibnujakaria/pro-table)](https://github.com/ibnujakaria/pro-table/)
+[![](https://img.shields.io/npm/l/pro-table)](https://www.npmjs.com/package/pro-table)
+
 # pro-table
 A data-table alternative written with modern javascript.
 
@@ -37,9 +44,9 @@ fromArray('#table-from-array', [
 
 Table Output:
 
-<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Menikah</td><td>https://jagongoding.com</td><td>-</td></tr><tr><td>Abdullah Wahid</td><td>-</td><td>-</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>-</td><td>https://kopiding.in</td><td>Lamongan</td></tr><tr><td>Elmo Bachtiar</td><td>Lajang</td><td>-</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Menikah</td><td><a href="https://jagongoding.com">https://jagongoding.com</a></td><td>-</td></tr><tr><td>Abdullah Wahid</td><td>-</td><td>-</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>-</td><td><a href="https://kopiding.in">https://kopiding.in</a></td><td>Lamongan</td></tr><tr><td>Elmo Bachtiar</td><td>Lajang</td><td>-</td><td>-</td></tr></tbody></table>
 
-### Complex Table
+## Create Complex Table From Array
 
 ```js
 fromArray('#table-from-array-2', [
@@ -75,4 +82,8 @@ fromArray('#table-from-array-2', [
 
 Table Output:
 
-<table><thead><tr><th rowspan="2">Name</th><th colspan="3" style="color: red;">Birth</th><th rowspan="2">City</th></tr><tr><th>Day</th><th>Month</th><th>Year</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>1</td><td>January</td><td>1996</td><td>Surabaya</td></tr><tr><td>Wahid Abdullah</td><td>2</td><td>February</td><td>1996</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>3</td><td>Maret</td><td>1996</td><td>Lamongan</td></tr></tbody></table>
+<table><thead><tr><th rowspan="2">Name</th><th colspan="3">Birth</th><th rowspan="2">City</th></tr><tr><th>Day</th><th>Month</th><th>Year</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>1</td><td>January</td><td>1996</td><td>Surabaya</td></tr><tr><td>Wahid Abdullah</td><td>2</td><td>February</td><td>1996</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>3</td><td>Maret</td><td>1996</td><td>Lamongan</td></tr></tbody></table>
+
+## License
+
+The Pro Table library is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
