@@ -1,64 +1,40 @@
 import { THead } from './THead'
 import { Tr } from './Tr'
+import TBody from './TBody'
 
 class ProTable {
   constructor(elId, options) {
     this.$elId = elId
 
-    const defaultOptions = {}
-    this.$options = { ...defaultOptions, options }
-    this.$theads = []
-    this.$trs = []
+    const defaultOptions = {
+      classes: []
+    }
+
+    this.options = { ...defaultOptions, ...options }
+    this.thead = null
+    this.tbody = null
   }
 
   generateTable ({ columns, rows }) {
-    this.generateTheads(columns)
-    this.generateTrs(rows)
+    this.thead = new THead(columns)
+    this.tbody = new TBody(rows)
 
-    this.$table = {
-      $dom: document.createElement('table'),
-      $thead: document.createElement('thead'),
-      $tbody: document.createElement('tbody')
+    this.$table = document.createElement('table')
+    this.$table.appendChild(this.thead.$dom)
+    this.$table.appendChild(this.tbody.$dom)
+
+    // apply options
+    if (this.options.classes) {
+      this.options.classes.forEach(_class => {
+        this.$table.classList.add(_class)
+      })
     }
 
-    const trThead = document.createElement('tr')
-    this.$theads.forEach(_thead => {
-      trThead.appendChild(_thead.$dom)
-    })
-
-    this.$table.$thead.appendChild(trThead)
-    this.$trs.forEach(_tr => {
-      this.$table.$tbody.appendChild(_tr.$dom)
-    })
-
-    this.$table.$dom.appendChild(this.$table.$thead)
-    this.$table.$dom.appendChild(this.$table.$tbody)
-  }
-
-  generateTheads (columns) {
-    columns.forEach(_column => {
-      this.$theads.push(
-        new THead(_column)
-      )
-    })
-  }
-  
-  generateTrs (array) {
-    array.forEach(_item => {
-      const row = []
-
-      this.$theads.forEach(_thead => {
-        row.push(_item[_thead.$key])
-      })
-
-      this.$trs.push(
-        new Tr(row)
-      )
-    })
+    console.log(this.$table)
   }
 
   draw () {
-    document.querySelector(this.$elId).appendChild(this.$table.$dom)
+    document.querySelector(this.$elId).appendChild(this.$table)
   }
 }
 
