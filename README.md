@@ -37,7 +37,7 @@ fromArray('#table-from-array', [
 
 Table Output:
 
-<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Menikah</td><td>https://jagongoding.com</td></tr><tr><td>Abdullah Wahid</td><td>Bangkalan</td></tr><tr><td>Lamongan</td><td>Lendis Fabri</td><td>https://kopiding.in</td></tr><tr><td>Elmo Bachtiar</td><td>Lajang</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Menikah</td><td>https://jagongoding.com</td><td>-</td></tr><tr><td>Abdullah Wahid</td><td>-</td><td>-</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>-</td><td>https://kopiding.in</td><td>Lamongan</td></tr><tr><td>Elmo Bachtiar</td><td>Lajang</td><td>-</td><td>-</td></tr></tbody></table>
 
 ### Complex Table
 

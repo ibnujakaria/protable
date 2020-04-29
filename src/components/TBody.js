@@ -1,37 +1,39 @@
 import Tr from "./Tr"
 
 class TBody {
-  constructor(rows) {
+  constructor({ columns, rows }) {
     this.$dom = document.createElement('tbody')
-    this.trs = this.generateTrs(rows)
+    this.trs = this.generateTrs(columns, rows)
 
     // appending trs to dom
     this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
   }
 
-  generateTrs (rows) {
+  generateTrs (columns, rows) {
     const trs = []
 
-    rows.forEach(_columns => {
+    rows.forEach(_row => {
       const tr = new Tr()
-      tr.addTds(this.generateTds(_columns))
-      trs.push(tr)      
+      tr.addTds(this.generateTds(columns, _row))
+      trs.push(tr)
     })
 
     return trs
   }
 
-  generateTds (columns) {
+  generateTds (columns, _row) {
     let tds = []
 
-    for (const key in columns) {
-      if (columns[key] !== null && columns[key].constructor === Object) {
+    columns.forEach(_column => {
+      if (_column !== null && _column.constructor === Object) {
         // call generateTds recursively
-        tds = tds.concat(this.generateTds(columns[key]))
+        tds = tds.concat(
+          this.generateTds(Object.values(_column)[0], _row[Object.keys(_column)[0]])
+        )
       } else {
-        tds.push(columns[key])
+        tds.push(_row[_column])
       }
-    }
+    })
 
     return tds
   }

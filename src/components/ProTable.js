@@ -17,7 +17,7 @@ class ProTable {
 
   generateTable ({ columns, rows }) {
     this.thead = new THead(columns)
-    this.tbody = new TBody(rows)
+    this.tbody = new TBody({ columns, rows })
 
     this.$table = document.createElement('table')
     this.$table.appendChild(this.thead.$dom)

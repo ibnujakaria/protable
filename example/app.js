@@ -1,5 +1,9 @@
 import { fromArray } from '../src/index'
 
+const options = {
+  classes: ['table', 'table-bordered', 'mt-3']
+}
+
 fromArray('#table-from-array', [
   {
     name: 'Nurul Huda',
@@ -19,11 +23,7 @@ fromArray('#table-from-array', [
     name: 'Elmo Bachtiar',
     relationship: 'Lajang'
   }
-])
-
-const options = {
-  classes: ['table', 'table-bordered', 'mt-3']
-}
+], options)
 
 fromArray('#table-from-array-2', [
   {
@@ -53,4 +53,4 @@ fromArray('#table-from-array-2', [
     },
     city: 'Lamongan'
   }
-])
+], options)
