@@ -19,6 +19,11 @@ class THead {
 
     this.$dom = document.createElement('thead')
     this.trs = this.generateTrs(columns)
+    this.columnsCount = (() => {
+      return this.trs[0].childs
+        .map(th => th.options.attrs.colspan)
+        .reduce((a, b) => a + b)
+    })()
 
     console.log('trs', this.trs)
     this.columns = columns
@@ -43,7 +48,7 @@ class THead {
     // add rowspan to th that has not colspan attr
     // and fix colspan as its child
     tr.childs.forEach(_th => {
-      if (!_th.$dom.getAttribute('colspan')) {
+      if (_th.options.attrs.colspan === 1) {
         _th.$dom.setAttribute('rowspan', trs.length)
       }
     })
@@ -82,7 +87,6 @@ class THead {
 
     columns.forEach(_col => {
       if ((_col !== null && _col.constructor === Object)) {
-        console.log('getColspan', 'isObject', Object.keys(_col)[0])
         colspan += this.getColspan(_col[Object.keys(_col)[0]]) - 1
       }
     })

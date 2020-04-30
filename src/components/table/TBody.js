@@ -1,12 +1,15 @@
 import Tr from "./Tr"
 
 class TBody {
-  constructor({ columns, rows }) {
+  constructor(proTable) {
     this.$dom = document.createElement('tbody')
-    this.trs = this.generateTrs(columns, rows)
+    this.proTable = proTable
+    this.trs = this.generateTrs(this.proTable.columns, this.proTable.rows)
+    console.log(this.trs)
 
-    // appending trs to dom
-    this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
+    console.log('TBody', 'constructor')
+
+    this.render()
   }
 
   generateTrs (columns, rows) {
@@ -36,6 +39,34 @@ class TBody {
     })
 
     return tds
+  }
+
+  /**
+   * rendering trs
+   *
+   * @memberof TBody
+   */
+  render () {
+    const limit = this.proTable.options.limit
+    const page = this.proTable.options.page
+    const start = ((page - 1) * limit) + 1
+
+    console.log(this.trs.slice(start))
+
+    this.trs
+      .filter(this.filter)
+      .slice(start, this.proTable.options.limit * page)
+      .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+  }
+
+  /**
+   * Filter by Tr
+   *
+   * @param {*} _tr
+   * @memberof TBody
+   */
+  filter (_tr) {
+    return true
   }
 }
 

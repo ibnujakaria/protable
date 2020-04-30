@@ -3,10 +3,15 @@ class Th {
     this.key = string
     this.$dom = document.createElement('th')
 
-    if (options && options.attrs) {
-      for (const attr in options.attrs) {
-        this.$dom.setAttribute(attr, options.attrs[attr])
-      }
+    this.options = {
+      attrs: {
+        colspan: 1
+      },
+      ...options
+    }
+
+    for (const attr in this.options.attrs) {
+      this.$dom.setAttribute(attr, this.options.attrs[attr])
     }
 
     if (options && options.classes) {

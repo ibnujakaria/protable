@@ -1,6 +1,7 @@
 import { THead } from './THead'
 import { Tr } from './Tr'
 import TBody from './TBody'
+import TFooter from './TFooter'
 
 class ProTable {
   constructor(elId, options) {
@@ -8,7 +9,10 @@ class ProTable {
 
     const defaultOptions = {
       classes: [],
-      thead: {}
+      thead: {},
+      limit: 10,
+      page: 1,
+      pagination: 'simple'
     }
 
     this.options = { ...defaultOptions, ...options }
@@ -17,12 +21,12 @@ class ProTable {
   }
 
   generateTable ({ columns, rows }) {
-    this.thead = new THead(columns, this.options.thead)
-    this.tbody = new TBody({ columns, rows })
-
+    this.columns = columns
+    this.rows = rows
     this.$table = document.createElement('table')
-    this.$table.appendChild(this.thead.$dom)
-    this.$table.appendChild(this.tbody.$dom)
+    this.generateThead({ columns, rows })
+    this.generateTbody()
+    this.generateTFooter()
 
     // apply options
     if (this.options.classes) {
@@ -32,6 +36,40 @@ class ProTable {
     }
 
     console.log(this.$table)
+  }
+
+  generateThead ({ columns, rows }) {
+    this.thead = new THead(columns, this.options.thead)
+    this.$table.appendChild(this.thead.$dom)
+  }
+  
+  generateTbody () {
+    if (this.tbody) {
+      this.$table.removeChild(this.tbody.$dom)
+    }
+
+    this.tbody = new TBody(this)
+    this.$table.appendChild(this.tbody.$dom)
+  }
+
+  generateTFooter () {
+    if (this.tfooter) {
+      this.$table.removeChild(this.tfooter.$dom)
+    }
+
+    this.tfooter = new TFooter(this)
+    this.$table.appendChild(this.tfooter.$dom)
+  }
+
+  setPage (page) {
+    this.options.page = page
+
+    if (page < 1) {
+      this.options.page = 1
+    }
+
+    this.generateTbody()
+    this.generateTFooter()
   }
 
   draw () {
