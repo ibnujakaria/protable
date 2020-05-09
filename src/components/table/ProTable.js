@@ -1,7 +1,7 @@
 import { THead } from './THead'
 import { Tr } from './Tr'
 import TBody from './TBody'
-import TFooter from './TFooter'
+import TFoot from './TFoot'
 
 class ProTable {
   constructor(elId, options) {
@@ -26,7 +26,7 @@ class ProTable {
     this.$table = document.createElement('table')
     this.generateThead({ columns, rows })
     this.generateTbody()
-    this.generateTFooter()
+    this.generateTFoot()
 
     // apply options
     if (this.options.classes) {
@@ -52,12 +52,12 @@ class ProTable {
     this.$table.appendChild(this.tbody.$dom)
   }
 
-  generateTFooter () {
+  generateTFoot () {
     if (this.tfooter) {
       this.$table.removeChild(this.tfooter.$dom)
     }
 
-    this.tfooter = new TFooter(this)
+    this.tfooter = new TFoot(this)
     this.$table.appendChild(this.tfooter.$dom)
   }
 
@@ -69,7 +69,7 @@ class ProTable {
     }
 
     this.generateTbody()
-    this.generateTFooter()
+    this.generateTFoot()
   }
 
   draw () {
