@@ -53,12 +53,12 @@ class ProTable {
   }
 
   generateTFoot () {
-    if (this.tfooter) {
-      this.$table.removeChild(this.tfooter.$dom)
+    if (this.tfoot) {
+      this.$table.removeChild(this.tfoot.$dom)
     }
 
-    this.tfooter = new TFoot(this)
-    this.$table.appendChild(this.tfooter.$dom)
+    this.tfoot = new TFoot(this)
+    this.$table.appendChild(this.tfoot.$dom)
   }
 
   setPage (page) {
@@ -68,8 +68,8 @@ class ProTable {
       this.options.page = 1
     }
 
-    this.generateTbody()
-    this.generateTFoot()
+    this.tbody.render()
+    this.tfoot.render()
   }
 
   draw () {

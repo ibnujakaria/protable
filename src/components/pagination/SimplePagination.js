@@ -3,12 +3,17 @@ class SimplePagination {
     this.proTable = proTable
 
     this.$dom = document.createElement('div')
-    this.$span = document.createElement('span')
-    this.$dom.appendChild(this.$span)
 
+    this._createSpan()
     this._createPrevButton()
     this._createNextButton()
     this.render()
+  }
+
+  _createSpan () {
+    this.$span = document.createElement('span')
+    this.$span.style.marginRight = '1rem'
+    this.$dom.appendChild(this.$span)
   }
   
   _createNextButton () {

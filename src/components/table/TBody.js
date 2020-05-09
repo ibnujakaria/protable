@@ -53,6 +53,11 @@ class TBody {
 
     console.log(this.trs.slice(start))
 
+    // delete rendered trs
+    while (this.$dom.lastChild) {
+      this.$dom.removeChild(this.$dom.lastChild)
+    }
+
     this.trs
       .filter(this.filter)
       .slice(start, this.proTable.options.limit * page)

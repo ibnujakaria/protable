@@ -10,13 +10,13 @@ class TFoot {
     this.trs = []
 
     if (this.proTable.options.pagination == 'simple') {
-      this.renderSimplePagination()
+      this.createSimplePagination()
     }
 
     this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
   }
 
-  renderSimplePagination () {
+  createSimplePagination () {
     if (this.proTable.tbody.trs.length < this.proTable.options.limit) {
       return
     }
@@ -37,6 +37,12 @@ class TFoot {
 
     tr.pushTd(td)
     this.trs.push(tr)
+  }
+
+  render () {
+    if (this.proTable.options.pagination == 'simple') {
+      this.simplePagination.render()
+    }
   }
 }
 
