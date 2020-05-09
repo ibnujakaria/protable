@@ -72,6 +72,14 @@ class ProTable {
     this.tfoot.render()
   }
 
+  setLimit (limit) {
+    this.options.page = 1
+    this.options.limit = parseInt(limit)
+
+    this.tbody.render()
+    this.tfoot.render()
+  }
+
   draw () {
     document.querySelector(this.$elId).appendChild(this.$table)
   }

@@ -49,7 +49,7 @@ class TBody {
   render () {
     const limit = this.proTable.options.limit
     const page = this.proTable.options.page
-    const start = ((page - 1) * limit) + 1
+    const start = ((page - 1) * limit)
 
     console.log(this.trs.slice(start))
 

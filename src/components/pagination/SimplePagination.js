@@ -1,13 +1,21 @@
+import RowsPerPage from "./RowsPerPage"
+
 class SimplePagination {
   constructor(proTable) {
     this.proTable = proTable
 
     this.$dom = document.createElement('div')
 
+    this._createRowsPerPage()
     this._createSpan()
     this._createPrevButton()
     this._createNextButton()
     this.render()
+  }
+
+  _createRowsPerPage () {
+    this.rowsPerPage = new RowsPerPage(this.proTable)
+    this.$dom.appendChild(this.rowsPerPage.$dom)
   }
 
   _createSpan () {
