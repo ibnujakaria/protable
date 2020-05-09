@@ -44,10 +44,12 @@ class SimplePagination {
     const start = ((page - 1) * limit) + 1
     const to = start + limit - 1
     const totalRows = this.proTable.tbody.trs.length
+    const lastPage = Math.ceil(totalRows / limit)
 
     this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`
 
     this.$btnPrev.disabled = page === 1
+    this.$btnNext.disabled = page === lastPage
   }
 }
 
