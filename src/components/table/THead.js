@@ -2,21 +2,21 @@ import Tr from "./Tr"
 import Th from "./Th"
 
 class THead {
+
   /**
    * Creates an instance of THead.
    *
    * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
    * 
-   * @param { * } columns
-   * @param { * } options
+   * @param {*} { columns, proTable, options }
    * @memberof THead
    */
-  constructor (columns, options) {
+  constructor ({ columns, proTable, options }) {
     this.options = {
       thClasses: [],
       ...options
     }
-
+    this.proTable = proTable
     this.$dom = document.createElement('thead')
     this.trs = this.generateTrs(columns)
     this.columnsCount = (() => {
@@ -63,17 +63,25 @@ class THead {
     columns.forEach(_col => {
       if (_col !== null && _col.constructor === Object) {
         const key = Object.keys(_col)[0]
-        ths.push(new Th(key, {
-          attrs: {
-            colspan: this.getColspan(_col[key])
-          },
-          classes: this.options.thClasses
+        ths.push(new Th({
+          key,
+          proTable: this.proTable,
+          options: {
+            attrs: {
+              colspan: this.getColspan(_col[key])
+            },
+            classes: this.options.thClasses
+          }
         }))
         childs = childs.concat(_col[key])
       } else {
         ths.push(
-          new Th(_col, {
-            classes: this.options.thClasses
+          new Th({
+            key: _col, 
+            proTable: this.proTable,
+            options: {
+              classes: this.options.thClasses
+            }
           })
         )
       }
@@ -92,6 +100,12 @@ class THead {
     })
 
     return colspan
+  }
+
+  render () {
+    this.trs.forEach(_tr => {
+      _tr.childs.forEach(_child => _child.render())
+    })
   }
 }
 

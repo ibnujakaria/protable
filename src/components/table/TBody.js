@@ -34,9 +34,11 @@ class TBody {
           this.generateTds(Object.values(_column)[0], _row[Object.keys(_column)[0]])
         )
       } else {
-        tds.push(_row[_column])
+        tds.push({ key: _column, label: _row[_column] })
       }
     })
+
+    console.log('generateTds', tds)
 
     return tds
   }
@@ -60,6 +62,7 @@ class TBody {
 
     this.trs
       .filter(this.filter)
+      .sort((a, b) => this.sort(a, b))
       .slice(start, this.proTable.options.limit * page)
       .forEach(_tr => this.$dom.appendChild(_tr.$dom))
   }
@@ -72,6 +75,24 @@ class TBody {
    */
   filter (_tr) {
     return true
+  }
+
+  sort (a, b) {
+    const order = this.proTable.options.order
+
+    if (order.key) {
+      const tdA = a.childs.find(_td => _td.key === order.key)
+      const tdB = b.childs.find(_td => _td.key === order.key)
+      
+      // ascending
+      if (order.direction === 'asc') {
+        return tdA.$dom.innerText > tdB.$dom.innerText ? 1 : -1
+      } else {
+        return tdA.$dom.innerText > tdB.$dom.innerText ? -1 : 1
+      }
+    }
+
+    return 0
   }
 }
 

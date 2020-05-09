@@ -1,9 +1,10 @@
 class Td {
-  constructor (string, options) {
-    if (string instanceof Node) {
-      this.buildDOMFromNode(string)
+  constructor ({ key, child, options }) {
+    this.key = key
+    if (child instanceof Node) {
+      this.buildDOMFromNode(child)
     } else {
-      this.buildDOMFromString(string)
+      this.buildDOMFromString(child)
     }
 
     this.options = {
@@ -23,14 +24,12 @@ class Td {
     }
   }
 
-  buildDOMFromString (string) {
-    this.key = string
+  buildDOMFromString (child) {
     this.$dom = document.createElement('td')
-    this.$dom.innerHTML = string || '-'
+    this.$dom.innerHTML = child || '-'
   }
 
   buildDOMFromNode (node) {
-    this.key = node.toString()
     this.$dom = document.createElement('td')
     this.$dom.appendChild(node)
   }

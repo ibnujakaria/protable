@@ -12,7 +12,11 @@ class ProTable {
       thead: {},
       limit: 10,
       page: 1,
-      pagination: 'simple'
+      pagination: 'simple',
+      order: {
+        key: null,
+        direction: null
+      }
     }
 
     this.options = { ...defaultOptions, ...options }
@@ -39,7 +43,11 @@ class ProTable {
   }
 
   generateThead ({ columns, rows }) {
-    this.thead = new THead(columns, this.options.thead)
+    this.thead = new THead({
+      columns,
+      proTable: this,
+      options: this.options.thead
+    })
     this.$table.appendChild(this.thead.$dom)
   }
   
@@ -78,6 +86,13 @@ class ProTable {
 
     this.tbody.render()
     this.tfoot.render()
+  }
+
+  setOrder ({ key, direction }) {
+    this.options.order = { key, direction }
+    
+    this.thead.render()
+    this.setPage(1)
   }
 
   draw () {

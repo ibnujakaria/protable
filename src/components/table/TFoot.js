@@ -26,12 +26,15 @@ class TFoot {
     const columnsCount = this.proTable.thead.columnsCount
     const tr = new Tr()
 
-    const td = new Td(this.simplePagination.$dom, {
-      attrs: {
-        colspan: columnsCount
-      },
-      style: {
-        textAlign: 'right'
+    const td = new Td({
+      child: this.simplePagination.$dom,
+      options: {
+          attrs: {
+          colspan: columnsCount
+        },
+        style: {
+          textAlign: 'right'
+        }
       }
     })
 
@@ -40,7 +43,7 @@ class TFoot {
   }
 
   render () {
-    if (this.proTable.options.pagination == 'simple') {
+    if (this.proTable.options.pagination == 'simple' && this.simplePagination) {
       this.simplePagination.render()
     }
   }

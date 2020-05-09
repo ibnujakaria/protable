@@ -7,8 +7,8 @@ class Tr {
     this.childs = []
   }
 
-  addTd (column) {
-    const td = new Td(column)
+  addTd ({ key, label }) {
+    const td = new Td({ key, child: label })
     this.childs.push(td)
     this.$dom.appendChild(td.$dom)
   }
@@ -19,6 +19,8 @@ class Tr {
   }
 
   addTds (array) {
+    // _item = { key, label }
+
     array.forEach(_item => {
       this.addTd(_item)
     })
