@@ -106,73 +106,74 @@ const options = {
   }
 }
 
-Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-from-array', [
-  {
-    name: 'Nurul Huda',
-    relationship: 'Menikah',
-    blog: 'https://jagongoding.com'
-  },
-  {
-    name: 'Abdullah Wahid',
-    city: 'Bangkalan'
-  },
-  {
-    city: 'Lamongan',
-    name: 'Lendis Fabri',
-    blog: 'https://kopiding.in'
-  },
-  {
-    name: 'Elmo Bachtiar',
-    relationship: 'Lajang'
-  }
-], options)
+// fromArray('#table-from-array', [
+//   {
+//     name: 'Nurul Huda',
+//     relationship: 'Menikah',
+//     blog: 'https://jagongoding.com'
+//   },
+//   {
+//     name: 'Abdullah Wahid',
+//     city: 'Bangkalan'
+//   },
+//   {
+//     city: 'Lamongan',
+//     name: 'Lendis Fabri',
+//     blog: 'https://kopiding.in'
+//   },
+//   {
+//     name: 'Elmo Bachtiar',
+//     relationship: 'Lajang'
+//   }
+// ], options)
 
-Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-from-array-2', [
-  {
-    name: 'Nurul Huda',
-    birth: {
-      day: 1,
-      month: 'January',
-      year: 1996
-    },
-    address: {
-      city: 'Surabaya',
-      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-    }
-  },
-  {
-    name: 'Wahid Abdullah',
-    birth: {
-      day: 2,
-      month: 'February',
-      year: 1996
-    },
-    address: {
-      city: 'Bangkalan',
-      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-    }
-  },
-  {
-    name: 'Lendis Fabri',
-    birth: {
-      day: 3,
-      month: 'Maret',
-      year: 1996
-    },
-    address: {
-      city: 'Lamongan',
-      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-    }
-  }
-], options)
+// fromArray('#table-from-array-2', [
+//   {
+//     name: 'Nurul Huda',
+//     birth: {
+//       day: 1,
+//       month: 'January',
+//       year: 1996
+//     },
+//     address: {
+//       city: 'Surabaya',
+//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+//     }
+//   },
+//   {
+//     name: 'Wahid Abdullah',
+//     birth: {
+//       day: 2,
+//       month: 'February',
+//       year: 1996
+//     },
+//     address: {
+//       city: 'Bangkalan',
+//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+//     }
+//   },
+//   {
+//     name: 'Lendis Fabri',
+//     birth: {
+//       day: 3,
+//       month: 'Maret',
+//       year: 1996
+//     },
+//     address: {
+//       city: 'Lamongan',
+//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+//     }
+//   }
+// ], options)
 
 
-fetch('http://dummy.restapiexample.com/api/v1/employees')
-  .then(response => response.json())
-  .then(response => {
-    Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-employee-container', response.data, options)
-  })
+// fetch('http://dummy.restapiexample.com/api/v1/employees')
+//   .then(response => response.json())
+//   .then(response => {
+//     fromArray('#table-employee-container', response.data, options)
+//   })
 
+Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromTable"])('#table-1', options)
 
 /***/ }),
 
@@ -381,12 +382,11 @@ class Input {
 /*!******************************************!*\
   !*** ./src/components/table/ProTable.js ***!
   \******************************************/
-/*! exports provided: default, ProTable */
-/*! exports used: ProTable */
+/*! exports provided: default */
+/*! exports used: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProTable; });
 /* harmony import */ var _THead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./THead */ "./src/components/table/THead.js");
 /* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
 /* harmony import */ var _TBody__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TBody */ "./src/components/table/TBody.js");
@@ -510,8 +510,7 @@ class ProTable {
   }
 }
 
-/* unused harmony default export */ var _unused_webpack_default_export = ({ ProTable });
-
+/* harmony default export */ __webpack_exports__["a"] = (ProTable);
 
 
 /***/ }),
@@ -1105,12 +1104,11 @@ class Tr {
 /*!***********************************!*\
   !*** ./src/helpers/from-array.js ***!
   \***********************************/
-/*! exports provided: default, fromArray */
-/*! exports used: fromArray */
+/*! exports provided: default */
+/*! exports used: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return fromArray; });
 /* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
 
 
@@ -1119,7 +1117,7 @@ const fromArray = (elId, array, options) => {
 
   console.log('columns', columns)
 
-  const proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__[/* ProTable */ "a"](elId, options)
+  const proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"](elId, options)
   proTable.generateTable({
     columns,
     rows: array
@@ -1156,8 +1154,67 @@ const generateColumns = array => {
   return columns
 }
 
-/* unused harmony default export */ var _unused_webpack_default_export = ({ fromArray });
+/* harmony default export */ __webpack_exports__["a"] = (fromArray);
 
+
+/***/ }),
+
+/***/ "./src/helpers/from-dom-table.js":
+/*!***************************************!*\
+  !*** ./src/helpers/from-dom-table.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
+
+
+const fromDOMTable = (selector, options) => {
+  const dom = document.querySelector(selector)
+  const columns = getColumnsFromDom(dom)
+  const rows = getRowsFromDom(dom, columns)
+
+  console.log('fromTable', 'dom:', dom)
+  console.log('fromTable', 'columns:', columns)
+  console.log('fromTable', 'rows:', rows)
+
+  const proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"](null, options)
+  proTable.generateTable({
+    columns,
+    rows
+  })
+
+  console.log('fromTable', 'proTable:', proTable.$dom)
+
+  // replace the dom input
+  dom.replaceWith(proTable.$dom)
+}
+
+function getColumnsFromDom (table) {
+  const firstTr = table.querySelector('thead tr')
+
+  return Array.from(firstTr.children)
+    .map(_child => _child.innerText)
+}
+
+function getRowsFromDom (table, columns) {
+  const trs = table.querySelectorAll('tbody tr')
+
+  return Array.from(trs)
+    .map(_tr => {
+      const row = {}
+
+      columns.forEach((_column, _index) => {
+        row[_column] = _tr.children[_index].innerText
+      })
+
+      return row
+    })
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (fromDOMTable);
 
 
 /***/ }),
@@ -1166,7 +1223,7 @@ const generateColumns = array => {
 /*!**********************!*\
   !*** ./src/index.js ***!
   \**********************/
-/*! exports provided: default, fromArray, ProTable */
+/*! exports provided: default, fromArray, fromTable, ProTable */
 /*! all exports used */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1175,15 +1232,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/from-array */ "./src/helpers/from-array.js");
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromArray", function() { return _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__["a"]; });
 
-/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/table/ProTable */ "./src/components/table/ProTable.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProTable", function() { return _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__["a"]; });
+/* harmony import */ var _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/from-dom-table */ "./src/helpers/from-dom-table.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromTable", function() { return _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__["a"]; });
+
+/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/table/ProTable */ "./src/components/table/ProTable.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProTable", function() { return _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__["a"]; });
+
 
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  fromArray: _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__[/* fromArray */ "a"],
-  ProTable: _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__[/* ProTable */ "a"]
+  fromArray: _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"],
+  ProTable: _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
 });
 
 

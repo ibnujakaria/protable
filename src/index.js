@@ -1,5 +1,6 @@
-import { fromArray } from './helpers/from-array'
-import { ProTable } from './components/table/ProTable'
+import fromArray from './helpers/from-array'
+import fromTable from './helpers/from-dom-table'
+import ProTable from './components/table/ProTable'
 
 export default {
   fromArray,
@@ -8,5 +9,6 @@ export default {
 
 export {
   fromArray,
+  fromTable,
   ProTable
 }

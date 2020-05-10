@@ -1,4 +1,4 @@
-import { ProTable } from '../components/table/ProTable'
+import ProTable from '../components/table/ProTable'
 
 const fromArray = (elId, array, options) => {
   const columns = generateColumns(array)
@@ -42,5 +42,4 @@ const generateColumns = array => {
   return columns
 }
 
-export default { fromArray }
-export { fromArray }
+export default fromArray

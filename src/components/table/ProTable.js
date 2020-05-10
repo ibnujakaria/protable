@@ -116,5 +116,4 @@ class ProTable {
   }
 }
 
-export default { ProTable }
-export { ProTable}
+export default ProTable
