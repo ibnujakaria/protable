@@ -2,16 +2,18 @@ import { THead } from './THead'
 import { Tr } from './Tr'
 import TBody from './TBody'
 import TFoot from './TFoot'
+import Header from '../Header'
 
 class ProTable {
   constructor(elId, options) {
-    this.$elId = elId
+    this.elId = elId
 
     const defaultOptions = {
       classes: [],
       thead: {},
       limit: 10,
       page: 1,
+      keyword: null,
       pagination: 'simple',
       order: {
         key: null,
@@ -22,15 +24,19 @@ class ProTable {
     this.options = { ...defaultOptions, ...options }
     this.thead = null
     this.tbody = null
+    this.$dom = document.createElement('section')
+    this.$dom.classList.add('pro-table')
   }
 
   generateTable ({ columns, rows }) {
     this.columns = columns
     this.rows = rows
     this.$table = document.createElement('table')
-    this.generateThead({ columns, rows })
-    this.generateTbody()
-    this.generateTFoot()
+    this.$dom.appendChild(this.$table)
+    this._generateHeader()
+    this._generateThead({ columns, rows })
+    this._generateTbody()
+    this._generateTFoot()
 
     // apply options
     if (this.options.classes) {
@@ -42,7 +48,12 @@ class ProTable {
     console.log(this.$table)
   }
 
-  generateThead ({ columns, rows }) {
+  _generateHeader () {
+    this.header = new Header({ proTable: this })
+    this.$dom.prepend(this.header.$dom)
+  }
+
+  _generateThead ({ columns, rows }) {
     this.thead = new THead({
       columns,
       proTable: this,
@@ -51,7 +62,7 @@ class ProTable {
     this.$table.appendChild(this.thead.$dom)
   }
   
-  generateTbody () {
+  _generateTbody () {
     if (this.tbody) {
       this.$table.removeChild(this.tbody.$dom)
     }
@@ -60,13 +71,18 @@ class ProTable {
     this.$table.appendChild(this.tbody.$dom)
   }
 
-  generateTFoot () {
+  _generateTFoot () {
     if (this.tfoot) {
       this.$table.removeChild(this.tfoot.$dom)
     }
 
     this.tfoot = new TFoot(this)
     this.$table.appendChild(this.tfoot.$dom)
+  }
+
+  setKeyword (keyword) {
+    this.options.keyword = keyword
+    this.setPage(1)
   }
 
   setPage (page) {
@@ -96,7 +112,7 @@ class ProTable {
   }
 
   draw () {
-    document.querySelector(this.$elId).appendChild(this.$table)
+    document.querySelector(this.elId).appendChild(this.$dom)
   }
 }
 

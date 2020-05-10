@@ -51,7 +51,7 @@ class SimplePagination {
     const page = this.proTable.options.page
     const start = ((page - 1) * limit) + 1
     const to = start + limit - 1
-    const totalRows = this.proTable.tbody.trs.length
+    const totalRows = this.proTable.tbody.filteredTrs.length
     const lastPage = Math.ceil(totalRows / limit)
 
     this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`

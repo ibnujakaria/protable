@@ -106,65 +106,65 @@ const options = {
   }
 }
 
-// fromArray('#table-from-array', [
-//   {
-//     name: 'Nurul Huda',
-//     relationship: 'Menikah',
-//     blog: 'https://jagongoding.com'
-//   },
-//   {
-//     name: 'Abdullah Wahid',
-//     city: 'Bangkalan'
-//   },
-//   {
-//     city: 'Lamongan',
-//     name: 'Lendis Fabri',
-//     blog: 'https://kopiding.in'
-//   },
-//   {
-//     name: 'Elmo Bachtiar',
-//     relationship: 'Lajang'
-//   }
-// ], options)
+Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-from-array', [
+  {
+    name: 'Nurul Huda',
+    relationship: 'Menikah',
+    blog: 'https://jagongoding.com'
+  },
+  {
+    name: 'Abdullah Wahid',
+    city: 'Bangkalan'
+  },
+  {
+    city: 'Lamongan',
+    name: 'Lendis Fabri',
+    blog: 'https://kopiding.in'
+  },
+  {
+    name: 'Elmo Bachtiar',
+    relationship: 'Lajang'
+  }
+], options)
 
-// fromArray('#table-from-array-2', [
-//   {
-//     name: 'Nurul Huda',
-//     birth: {
-//       day: 1,
-//       month: 'January',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Surabaya',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   },
-//   {
-//     name: 'Wahid Abdullah',
-//     birth: {
-//       day: 2,
-//       month: 'February',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Bangkalan',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   },
-//   {
-//     name: 'Lendis Fabri',
-//     birth: {
-//       day: 3,
-//       month: 'Maret',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Lamongan',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   }
-// ], options)
+Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-from-array-2', [
+  {
+    name: 'Nurul Huda',
+    birth: {
+      day: 1,
+      month: 'January',
+      year: 1996
+    },
+    address: {
+      city: 'Surabaya',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  },
+  {
+    name: 'Wahid Abdullah',
+    birth: {
+      day: 2,
+      month: 'February',
+      year: 1996
+    },
+    address: {
+      city: 'Bangkalan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  },
+  {
+    name: 'Lendis Fabri',
+    birth: {
+      day: 3,
+      month: 'Maret',
+      year: 1996
+    },
+    address: {
+      city: 'Lamongan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  }
+], options)
 
 
 fetch('http://dummy.restapiexample.com/api/v1/employees')
@@ -172,6 +172,42 @@ fetch('http://dummy.restapiexample.com/api/v1/employees')
   .then(response => {
     Object(_src_index__WEBPACK_IMPORTED_MODULE_0__["fromArray"])('#table-employee-container', response.data, options)
   })
+
+
+/***/ }),
+
+/***/ "./src/components/Header.js":
+/*!**********************************!*\
+  !*** ./src/components/Header.js ***!
+  \**********************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _search_Input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./search/Input */ "./src/components/search/Input.js");
+
+
+class Header {
+  constructor({ proTable }) {
+    this.proTable = proTable
+
+    this.$dom = document.createElement('header')
+    this._applyStyles()
+    this._createSearch()
+  }
+
+  _applyStyles () {
+    this.$dom.style.textAlign = 'right'
+  }
+
+  _createSearch () {
+    this.search = new _search_Input__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]({ proTable: this.proTable })
+    this.$dom.appendChild(this.search.$dom)
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Header);
 
 
 /***/ }),
@@ -294,7 +330,7 @@ class SimplePagination {
     const page = this.proTable.options.page
     const start = ((page - 1) * limit) + 1
     const to = start + limit - 1
-    const totalRows = this.proTable.tbody.trs.length
+    const totalRows = this.proTable.tbody.filteredTrs.length
     const lastPage = Math.ceil(totalRows / limit)
 
     this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`
@@ -305,6 +341,38 @@ class SimplePagination {
 }
 
 /* harmony default export */ __webpack_exports__["a"] = (SimplePagination);
+
+
+/***/ }),
+
+/***/ "./src/components/search/Input.js":
+/*!****************************************!*\
+  !*** ./src/components/search/Input.js ***!
+  \****************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Input {
+  constructor ({ proTable }) {
+    this.proTable = proTable
+
+    this._createInput()
+  }
+
+  _createInput () {
+    this.$dom = document.createElement('input')
+    this.$dom.placeholder = 'Search'
+    this.$dom.addEventListener('keyup', this._onKeyUp.bind(this))
+  }
+
+  _onKeyUp () {
+    this.proTable.setKeyword(this.$dom.value)
+  }
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Input);
 
 
 /***/ }),
@@ -323,6 +391,8 @@ class SimplePagination {
 /* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
 /* harmony import */ var _TBody__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TBody */ "./src/components/table/TBody.js");
 /* harmony import */ var _TFoot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TFoot */ "./src/components/table/TFoot.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Header */ "./src/components/Header.js");
+
 
 
 
@@ -330,13 +400,14 @@ class SimplePagination {
 
 class ProTable {
   constructor(elId, options) {
-    this.$elId = elId
+    this.elId = elId
 
     const defaultOptions = {
       classes: [],
       thead: {},
       limit: 10,
       page: 1,
+      keyword: null,
       pagination: 'simple',
       order: {
         key: null,
@@ -347,15 +418,19 @@ class ProTable {
     this.options = { ...defaultOptions, ...options }
     this.thead = null
     this.tbody = null
+    this.$dom = document.createElement('section')
+    this.$dom.classList.add('pro-table')
   }
 
   generateTable ({ columns, rows }) {
     this.columns = columns
     this.rows = rows
     this.$table = document.createElement('table')
-    this.generateThead({ columns, rows })
-    this.generateTbody()
-    this.generateTFoot()
+    this.$dom.appendChild(this.$table)
+    this._generateHeader()
+    this._generateThead({ columns, rows })
+    this._generateTbody()
+    this._generateTFoot()
 
     // apply options
     if (this.options.classes) {
@@ -367,7 +442,12 @@ class ProTable {
     console.log(this.$table)
   }
 
-  generateThead ({ columns, rows }) {
+  _generateHeader () {
+    this.header = new _Header__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]({ proTable: this })
+    this.$dom.prepend(this.header.$dom)
+  }
+
+  _generateThead ({ columns, rows }) {
     this.thead = new _THead__WEBPACK_IMPORTED_MODULE_0__[/* THead */ "a"]({
       columns,
       proTable: this,
@@ -376,7 +456,7 @@ class ProTable {
     this.$table.appendChild(this.thead.$dom)
   }
   
-  generateTbody () {
+  _generateTbody () {
     if (this.tbody) {
       this.$table.removeChild(this.tbody.$dom)
     }
@@ -385,13 +465,18 @@ class ProTable {
     this.$table.appendChild(this.tbody.$dom)
   }
 
-  generateTFoot () {
+  _generateTFoot () {
     if (this.tfoot) {
       this.$table.removeChild(this.tfoot.$dom)
     }
 
     this.tfoot = new _TFoot__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"](this)
     this.$table.appendChild(this.tfoot.$dom)
+  }
+
+  setKeyword (keyword) {
+    this.options.keyword = keyword
+    this.setPage(1)
   }
 
   setPage (page) {
@@ -421,7 +506,7 @@ class ProTable {
   }
 
   draw () {
-    document.querySelector(this.$elId).appendChild(this.$table)
+    document.querySelector(this.elId).appendChild(this.$dom)
   }
 }
 
@@ -441,6 +526,8 @@ class ProTable {
 
 "use strict";
 /* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
+/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
+
 
 
 class TBody {
@@ -492,22 +579,43 @@ class TBody {
    * @memberof TBody
    */
   render () {
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
-    const start = ((page - 1) * limit)
-
-    console.log(this.trs.slice(start))
-
     // delete rendered trs
     while (this.$dom.lastChild) {
       this.$dom.removeChild(this.$dom.lastChild)
     }
 
-    this.trs
-      .filter(this.filter)
-      .sort((a, b) => this.sort(a, b))
+    const limit = this.proTable.options.limit
+    const page = this.proTable.options.page
+    const start = ((page - 1) * limit)
+
+    this.filteredTrs
+      .sort(this._sort.bind(this))
       .slice(start, this.proTable.options.limit * page)
       .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+
+    // if there is no result for given keyword
+    if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
+      const tr = new _Tr__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]()
+      const td = new _Td__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]({
+        child: 'Not matching records found',
+        options: {
+          attrs: {
+            colspan: this.proTable.thead.columnsCount
+          },
+          style: {
+            textAlign: 'center'
+          }
+        }
+      })
+
+      tr.pushTd(td)
+      this.$dom.appendChild(tr.$dom)
+    }
+  }
+
+  get filteredTrs () {
+    return this.trs
+      .filter(this._filter.bind(this))
   }
 
   /**
@@ -516,11 +624,21 @@ class TBody {
    * @param {*} _tr
    * @memberof TBody
    */
-  filter (_tr) {
-    return true
+  _filter (_tr) {
+    const keyword = this.proTable.options.keyword || ''
+
+    return !!_tr.childs.find(_child => {
+      return _child
+        .$dom
+        .innerText
+        .toLowerCase()
+        .indexOf(
+          keyword.toLowerCase()
+        ) > -1
+    })
   }
 
-  sort (a, b) {
+  _sort (a, b) {
     const order = this.proTable.options.order
 
     if (order.key) {

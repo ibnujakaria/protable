@@ -1,4 +1,5 @@
 import Tr from "./Tr"
+import Td from "./Td"
 
 class TBody {
   constructor(proTable) {
@@ -49,22 +50,43 @@ class TBody {
    * @memberof TBody
    */
   render () {
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
-    const start = ((page - 1) * limit)
-
-    console.log(this.trs.slice(start))
-
     // delete rendered trs
     while (this.$dom.lastChild) {
       this.$dom.removeChild(this.$dom.lastChild)
     }
 
-    this.trs
-      .filter(this.filter)
-      .sort((a, b) => this.sort(a, b))
+    const limit = this.proTable.options.limit
+    const page = this.proTable.options.page
+    const start = ((page - 1) * limit)
+
+    this.filteredTrs
+      .sort(this._sort.bind(this))
       .slice(start, this.proTable.options.limit * page)
       .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+
+    // if there is no result for given keyword
+    if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
+      const tr = new Tr()
+      const td = new Td({
+        child: 'Not matching records found',
+        options: {
+          attrs: {
+            colspan: this.proTable.thead.columnsCount
+          },
+          style: {
+            textAlign: 'center'
+          }
+        }
+      })
+
+      tr.pushTd(td)
+      this.$dom.appendChild(tr.$dom)
+    }
+  }
+
+  get filteredTrs () {
+    return this.trs
+      .filter(this._filter.bind(this))
   }
 
   /**
@@ -73,11 +95,21 @@ class TBody {
    * @param {*} _tr
    * @memberof TBody
    */
-  filter (_tr) {
-    return true
+  _filter (_tr) {
+    const keyword = this.proTable.options.keyword || ''
+
+    return !!_tr.childs.find(_child => {
+      return _child
+        .$dom
+        .innerText
+        .toLowerCase()
+        .indexOf(
+          keyword.toLowerCase()
+        ) > -1
+    })
   }
 
-  sort (a, b) {
+  _sort (a, b) {
     const order = this.proTable.options.order
 
     if (order.key) {
