@@ -5,15 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  devtool: 'source-map',
   entry: {
     ['pro-table']: './src/index.js',
-    app: './example/app.js'
-  },
-  // devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './dist',
   },
   optimization: {
     usedExports: true

@@ -81,700 +81,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ({
-
-/***/ "./src/components/Header.js":
-/*!**********************************!*\
-  !*** ./src/components/Header.js ***!
-  \**********************************/
-/*! exports provided: default */
-/*! exports used: default */
+/******/ ([
+/* 0 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var _search_Input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./search/Input */ "./src/components/search/Input.js");
-
-
-class Header {
-  constructor({ proTable }) {
-    this.proTable = proTable
-
-    this.$dom = document.createElement('header')
-    this._applyStyles()
-    this._createSearch()
-  }
-
-  _applyStyles () {
-    this.$dom.style.textAlign = 'right'
-  }
-
-  _createSearch () {
-    this.search = new _search_Input__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]({ proTable: this.proTable })
-    this.$dom.appendChild(this.search.$dom)
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Header);
-
-
-/***/ }),
-
-/***/ "./src/components/pagination/RowsPerPage.js":
-/*!**************************************************!*\
-  !*** ./src/components/pagination/RowsPerPage.js ***!
-  \**************************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class RowsPerPage {
-  constructor(proTable) {
-    this.proTable = proTable
-
-    this.$dom = document.createElement('div')
-    this.$dom.style.display = 'inline-block'
-    this.$dom.style.marginRight = '1rem'
-
-    this._createSpan()
-    this._createSelect()
-  }
-
-  _createSpan () {
-    const span = document.createElement('span')
-    span.innerText = 'Rows per page:'
-    span.style.marginRight = '1rem'
-
-    this.$dom.appendChild(span)
-  }
-
-  _createSelect () {
-    const selectedLimit = this.proTable.options.limit
-    this.$select = document.createElement('select');
-
-    ([5, 10, 25, 50, 100, 250, 500]).forEach(limit => {
-      const option = document.createElement('option')
-      option.value = limit
-      option.innerText = limit
-      option.selected = parseInt(selectedLimit) === limit
-
-      this.$select.appendChild(option)
-    })
-
-    this.$select.addEventListener('change', e => {
-      this.proTable.setLimit(this.$select.value)
-    })
-
-    this.$dom.appendChild(this.$select)
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (RowsPerPage);
-
-
-/***/ }),
-
-/***/ "./src/components/pagination/SimplePagination.js":
-/*!*******************************************************!*\
-  !*** ./src/components/pagination/SimplePagination.js ***!
-  \*******************************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _RowsPerPage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RowsPerPage */ "./src/components/pagination/RowsPerPage.js");
-
-
-class SimplePagination {
-  constructor(proTable) {
-    this.proTable = proTable
-
-    this.$dom = document.createElement('div')
-
-    this._createRowsPerPage()
-    this._createSpan()
-    this._createPrevButton()
-    this._createNextButton()
-    this.render()
-  }
-
-  _createRowsPerPage () {
-    this.rowsPerPage = new _RowsPerPage__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"](this.proTable)
-    this.$dom.appendChild(this.rowsPerPage.$dom)
-  }
-
-  _createSpan () {
-    this.$span = document.createElement('span')
-    this.$span.style.marginRight = '1rem'
-    this.$dom.appendChild(this.$span)
-  }
-  
-  _createNextButton () {
-    this.$btnNext = document.createElement('button')
-    this.$btnNext.innerText = 'Next'
-    
-    this.$btnNext.addEventListener('click', e => {
-      this.proTable.setPage(this.proTable.options.page + 1)
-    })
-
-    this.$dom.appendChild(this.$btnNext)
-  }
-
-  _createPrevButton () {
-    this.$btnPrev = document.createElement('button')
-    this.$btnPrev.innerText = 'Prev'
-    
-    this.$dom.appendChild(this.$btnPrev)
-    
-    this.$btnPrev.addEventListener('click', e => {
-      this.proTable.setPage(this.proTable.options.page - 1)
-    })
-  }
-  
-  render () {
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
-    const start = ((page - 1) * limit) + 1
-    const to = start + limit - 1
-    const totalRows = this.proTable.tbody.filteredTrs.length
-    const lastPage = Math.ceil(totalRows / limit)
-
-    this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`
-
-    this.$btnPrev.disabled = page === 1
-    this.$btnNext.disabled = page === lastPage
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (SimplePagination);
-
-
-/***/ }),
-
-/***/ "./src/components/search/Input.js":
-/*!****************************************!*\
-  !*** ./src/components/search/Input.js ***!
-  \****************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-class Input {
-  constructor ({ proTable }) {
-    this.proTable = proTable
-
-    this._createInput()
-  }
-
-  _createInput () {
-    this.$dom = document.createElement('input')
-    this.$dom.placeholder = 'Search'
-    this.$dom.addEventListener('keyup', this._onKeyUp.bind(this))
-  }
-
-  _onKeyUp () {
-    this.proTable.setKeyword(this.$dom.value)
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (Input);
-
-
-/***/ }),
-
-/***/ "./src/components/table/ProTable.js":
-/*!******************************************!*\
-  !*** ./src/components/table/ProTable.js ***!
-  \******************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _THead__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./THead */ "./src/components/table/THead.js");
-/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
-/* harmony import */ var _TBody__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./TBody */ "./src/components/table/TBody.js");
-/* harmony import */ var _TFoot__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TFoot */ "./src/components/table/TFoot.js");
-/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Header */ "./src/components/Header.js");
-
-
-
-
-
-
-class ProTable {
-  constructor(elId, options) {
-    this.elId = elId
-
-    const defaultOptions = {
-      classes: [],
-      thead: {},
-      limit: 10,
-      page: 1,
-      keyword: null,
-      pagination: 'simple',
-      order: {
-        key: null,
-        direction: null
-      }
-    }
-
-    this.options = { ...defaultOptions, ...options }
-    this.thead = null
-    this.tbody = null
-    this.$dom = document.createElement('section')
-    this.$dom.classList.add('pro-table')
-  }
-
-  generateTable ({ columns, rows }) {
-    this.columns = columns
-    this.rows = rows
-    this.$table = document.createElement('table')
-    this.$dom.appendChild(this.$table)
-    this._generateHeader()
-    this._generateThead({ columns, rows })
-    this._generateTbody()
-    this._generateTFoot()
-
-    // apply options
-    if (this.options.classes) {
-      this.options.classes.forEach(_class => {
-        this.$table.classList.add(_class)
-      })
-    }
-
-    console.log(this.$table)
-  }
-
-  _generateHeader () {
-    this.header = new _Header__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]({ proTable: this })
-    this.$dom.prepend(this.header.$dom)
-  }
-
-  _generateThead ({ columns, rows }) {
-    this.thead = new _THead__WEBPACK_IMPORTED_MODULE_0__[/* THead */ "a"]({
-      columns,
-      proTable: this,
-      options: this.options.thead
-    })
-    this.$table.appendChild(this.thead.$dom)
-  }
-  
-  _generateTbody () {
-    if (this.tbody) {
-      this.$table.removeChild(this.tbody.$dom)
-    }
-
-    this.tbody = new _TBody__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"](this)
-    this.$table.appendChild(this.tbody.$dom)
-  }
-
-  _generateTFoot () {
-    if (this.tfoot) {
-      this.$table.removeChild(this.tfoot.$dom)
-    }
-
-    this.tfoot = new _TFoot__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"](this)
-    this.$table.appendChild(this.tfoot.$dom)
-  }
-
-  setKeyword (keyword) {
-    this.options.keyword = keyword
-    this.setPage(1)
-  }
-
-  setPage (page) {
-    this.options.page = page
-
-    if (page < 1) {
-      this.options.page = 1
-    }
-
-    this.tbody.render()
-    this.tfoot.render()
-  }
-
-  setLimit (limit) {
-    this.options.page = 1
-    this.options.limit = parseInt(limit)
-
-    this.tbody.render()
-    this.tfoot.render()
-  }
-
-  setOrder ({ key, direction }) {
-    this.options.order = { key, direction }
-    
-    this.thead.render()
-    this.setPage(1)
-  }
-
-  draw () {
-    document.querySelector(this.elId).appendChild(this.$dom)
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (ProTable);
-
-
-/***/ }),
-
-/***/ "./src/components/table/TBody.js":
-/*!***************************************!*\
-  !*** ./src/components/table/TBody.js ***!
-  \***************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
-/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
-
-
-
-class TBody {
-  constructor(proTable) {
-    this.$dom = document.createElement('tbody')
-    this.proTable = proTable
-    this.trs = this.generateTrs(this.proTable.columns, this.proTable.rows)
-    console.log(this.trs)
-
-    console.log('TBody', 'constructor')
-
-    this.render()
-  }
-
-  generateTrs (columns, rows) {
-    const trs = []
-
-    rows.forEach(_row => {
-      const tr = new _Tr__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]()
-      tr.addTds(this.generateTds(columns, _row))
-      trs.push(tr)
-    })
-
-    return trs
-  }
-
-  generateTds (columns, _row) {
-    let tds = []
-
-    columns.forEach(_column => {
-      if (_column !== null && _column.constructor === Object) {
-        // call generateTds recursively
-        tds = tds.concat(
-          this.generateTds(Object.values(_column)[0], _row[Object.keys(_column)[0]])
-        )
-      } else {
-        tds.push({ key: _column, label: _row[_column] })
-      }
-    })
-
-    console.log('generateTds', tds)
-
-    return tds
-  }
-
-  /**
-   * rendering trs
-   *
-   * @memberof TBody
-   */
-  render () {
-    // delete rendered trs
-    while (this.$dom.lastChild) {
-      this.$dom.removeChild(this.$dom.lastChild)
-    }
-
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
-    const start = ((page - 1) * limit)
-
-    this.filteredTrs
-      .sort(this._sort.bind(this))
-      .slice(start, this.proTable.options.limit * page)
-      .forEach(_tr => this.$dom.appendChild(_tr.$dom))
-
-    // if there is no result for given keyword
-    if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
-      const tr = new _Tr__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]()
-      const td = new _Td__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]({
-        child: 'Not matching records found',
-        options: {
-          attrs: {
-            colspan: this.proTable.thead.columnsCount
-          },
-          style: {
-            textAlign: 'center'
-          }
-        }
-      })
-
-      tr.pushTd(td)
-      this.$dom.appendChild(tr.$dom)
-    }
-  }
-
-  get filteredTrs () {
-    return this.trs
-      .filter(this._filter.bind(this))
-  }
-
-  /**
-   * Filter by Tr
-   *
-   * @param {*} _tr
-   * @memberof TBody
-   */
-  _filter (_tr) {
-    const keyword = this.proTable.options.keyword || ''
-
-    return !!_tr.childs.find(_child => {
-      return _child
-        .$dom
-        .innerText
-        .toLowerCase()
-        .indexOf(
-          keyword.toLowerCase()
-        ) > -1
-    })
-  }
-
-  _sort (a, b) {
-    const order = this.proTable.options.order
-
-    if (order.key) {
-      const tdA = a.childs.find(_td => _td.key === order.key)
-      const tdB = b.childs.find(_td => _td.key === order.key)
-      
-      // ascending
-      if (order.direction === 'asc') {
-        return tdA.$dom.innerText > tdB.$dom.innerText ? 1 : -1
-      } else {
-        return tdA.$dom.innerText > tdB.$dom.innerText ? -1 : 1
-      }
-    }
-
-    return 0
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (TBody);
-
-/***/ }),
-
-/***/ "./src/components/table/TFoot.js":
-/*!***************************************!*\
-  !*** ./src/components/table/TFoot.js ***!
-  \***************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
-/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
-/* harmony import */ var _pagination_SimplePagination__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../pagination/SimplePagination */ "./src/components/pagination/SimplePagination.js");
-
-
-
-
-class TFoot {
-  
-  constructor(proTable) {
-    this.proTable = proTable
-    this.$dom = document.createElement('tfoot')
-    this.trs = []
-
-    if (this.proTable.options.pagination == 'simple') {
-      this.createSimplePagination()
-    }
-
-    this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
-  }
-
-  createSimplePagination () {
-    if (this.proTable.tbody.trs.length < this.proTable.options.limit) {
-      return
-    }
-
-    this.simplePagination = new _pagination_SimplePagination__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"](this.proTable)
-
-    const columnsCount = this.proTable.thead.columnsCount
-    const tr = new _Tr__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]()
-
-    const td = new _Td__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]({
-      child: this.simplePagination.$dom,
-      options: {
-          attrs: {
-          colspan: columnsCount
-        },
-        style: {
-          textAlign: 'right'
-        }
-      }
-    })
-
-    tr.pushTd(td)
-    this.trs.push(tr)
-  }
-
-  render () {
-    if (this.proTable.options.pagination == 'simple' && this.simplePagination) {
-      this.simplePagination.render()
-    }
-  }
-}
-
-/* harmony default export */ __webpack_exports__["a"] = (TFoot);
-
-
-/***/ }),
-
-/***/ "./src/components/table/THead.js":
-/*!***************************************!*\
-  !*** ./src/components/table/THead.js ***!
-  \***************************************/
-/*! exports provided: default, THead */
-/*! exports used: THead */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return THead; });
-/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
-/* harmony import */ var _Th__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Th */ "./src/components/table/Th.js");
-
-
-
-class THead {
-
-  /**
-   * Creates an instance of THead.
-   *
-   * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
-   * 
-   * @param {*} { columns, proTable, options }
-   * @memberof THead
-   */
-  constructor ({ columns, proTable, options }) {
-    this.options = {
-      thClasses: [],
-      ...options
-    }
-    this.proTable = proTable
-    this.$dom = document.createElement('thead')
-    this.trs = this.generateTrs(columns)
-    this.columnsCount = (() => {
-      return this.trs[0].childs
-        .map(th => th.options.attrs.colspan)
-        .reduce((a, b) => a + b)
-    })()
-
-    console.log('trs', this.trs)
-    this.columns = columns
-
-    // append child
-    this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
-  }
-
-  generateTrs (columns) {
-    let trs = []
-    
-    let { ths, childs } = this.generateThs(columns)
-    let tr = new _Tr__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]()
-    
-    ths.forEach(_th => tr.pushTh(_th))
-    trs.push(tr)
-
-    if (childs.length) {
-      trs = trs.concat(this.generateTrs(childs))
-    }
-    
-    // add rowspan to th that has not colspan attr
-    // and fix colspan as its child
-    tr.childs.forEach(_th => {
-      if (_th.options.attrs.colspan === 1) {
-        _th.$dom.setAttribute('rowspan', trs.length)
-      }
-    })
-
-    return trs
-  }
-
-  generateThs (columns) {
-    let ths = []
-    let childs = []
-
-    columns.forEach(_col => {
-      if (_col !== null && _col.constructor === Object) {
-        const key = Object.keys(_col)[0]
-        ths.push(new _Th__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]({
-          key,
-          proTable: this.proTable,
-          options: {
-            attrs: {
-              colspan: this.getColspan(_col[key])
-            },
-            classes: this.options.thClasses
-          }
-        }))
-        childs = childs.concat(_col[key])
-      } else {
-        ths.push(
-          new _Th__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"]({
-            key: _col, 
-            proTable: this.proTable,
-            options: {
-              classes: this.options.thClasses
-            }
-          })
-        )
-      }
-    })
-
-    return { ths, childs }
-  }
-
-  getColspan (columns) {
-    let colspan = columns.length
-
-    columns.forEach(_col => {
-      if ((_col !== null && _col.constructor === Object)) {
-        colspan += this.getColspan(_col[Object.keys(_col)[0]]) - 1
-      }
-    })
-
-    return colspan
-  }
-
-  render () {
-    this.trs.forEach(_tr => {
-      _tr.childs.forEach(_child => _child.render())
-    })
-  }
-}
-
-/* unused harmony default export */ var _unused_webpack_default_export = ({ THead });
-
-
-
-/***/ }),
-
-/***/ "./src/components/table/Td.js":
-/*!************************************!*\
-  !*** ./src/components/table/Td.js ***!
-  \************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "fromArray", function() { return /* reexport */ from_array; });
+__webpack_require__.d(__webpack_exports__, "fromTable", function() { return /* reexport */ from_dom_table; });
+__webpack_require__.d(__webpack_exports__, "ProTable", function() { return /* reexport */ table_ProTable; });
+
+// CONCATENATED MODULE: ./src/components/table/Td.js
 class Td {
   constructor ({ key, child, options }) {
     this.key = key
@@ -812,20 +135,9 @@ class Td {
   }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Td);
+/* harmony default export */ var table_Td = (Td);
 
-
-/***/ }),
-
-/***/ "./src/components/table/Th.js":
-/*!************************************!*\
-  !*** ./src/components/table/Th.js ***!
-  \************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
+// CONCATENATED MODULE: ./src/components/table/Th.js
 class Th {
   constructor ({ key, proTable, options }) {
     this.key = key
@@ -936,34 +248,20 @@ class Th {
   }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Th);
+/* harmony default export */ var table_Th = (Th);
 
-
-/***/ }),
-
-/***/ "./src/components/table/Tr.js":
-/*!************************************!*\
-  !*** ./src/components/table/Tr.js ***!
-  \************************************/
-/*! exports provided: default, Tr */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* unused harmony export Tr */
-/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
-/* harmony import */ var _Th__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Th */ "./src/components/table/Th.js");
+// CONCATENATED MODULE: ./src/components/table/Tr.js
 
 
 
-class Tr {
+class Tr_Tr {
   constructor () {
     this.$dom = document.createElement('tr')
     this.childs = []
   }
 
   addTd ({ key, label }) {
-    const td = new _Td__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]({ key, child: label })
+    const td = new table_Td({ key, child: label })
     this.childs.push(td)
     this.$dom.appendChild(td.$dom)
   }
@@ -984,7 +282,7 @@ class Tr {
   }
 
   addTh (column, options) {
-    const th = new _Th__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"](column, options)
+    const th = new table_Th(column, options)
     this.childs.push(th)
     this.$dom.appendChild(th.$dom)
   }
@@ -1003,22 +301,587 @@ class Tr {
   }
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Tr);
+/* harmony default export */ var table_Tr = (Tr_Tr);
+
+
+// CONCATENATED MODULE: ./src/components/table/THead.js
 
 
 
-/***/ }),
+class THead_THead {
 
-/***/ "./src/helpers/from-array.js":
-/*!***********************************!*\
-  !*** ./src/helpers/from-array.js ***!
-  \***********************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+  /**
+   * Creates an instance of THead.
+   *
+   * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
+   * 
+   * @param {*} { columns, proTable, options }
+   * @memberof THead
+   */
+  constructor ({ columns, proTable, options }) {
+    this.options = {
+      thClasses: [],
+      ...options
+    }
+    this.proTable = proTable
+    this.$dom = document.createElement('thead')
+    this.trs = this.generateTrs(columns)
+    this.columnsCount = (() => {
+      return this.trs[0].childs
+        .map(th => th.options.attrs.colspan)
+        .reduce((a, b) => a + b)
+    })()
 
-"use strict";
-/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
+    console.log('trs', this.trs)
+    this.columns = columns
+
+    // append child
+    this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
+  }
+
+  generateTrs (columns) {
+    let trs = []
+    
+    let { ths, childs } = this.generateThs(columns)
+    let tr = new table_Tr()
+    
+    ths.forEach(_th => tr.pushTh(_th))
+    trs.push(tr)
+
+    if (childs.length) {
+      trs = trs.concat(this.generateTrs(childs))
+    }
+    
+    // add rowspan to th that has not colspan attr
+    // and fix colspan as its child
+    tr.childs.forEach(_th => {
+      if (_th.options.attrs.colspan === 1) {
+        _th.$dom.setAttribute('rowspan', trs.length)
+      }
+    })
+
+    return trs
+  }
+
+  generateThs (columns) {
+    let ths = []
+    let childs = []
+
+    columns.forEach(_col => {
+      if (_col !== null && _col.constructor === Object) {
+        const key = Object.keys(_col)[0]
+        ths.push(new table_Th({
+          key,
+          proTable: this.proTable,
+          options: {
+            attrs: {
+              colspan: this.getColspan(_col[key])
+            },
+            classes: this.options.thClasses
+          }
+        }))
+        childs = childs.concat(_col[key])
+      } else {
+        ths.push(
+          new table_Th({
+            key: _col, 
+            proTable: this.proTable,
+            options: {
+              classes: this.options.thClasses
+            }
+          })
+        )
+      }
+    })
+
+    return { ths, childs }
+  }
+
+  getColspan (columns) {
+    let colspan = columns.length
+
+    columns.forEach(_col => {
+      if ((_col !== null && _col.constructor === Object)) {
+        colspan += this.getColspan(_col[Object.keys(_col)[0]]) - 1
+      }
+    })
+
+    return colspan
+  }
+
+  render () {
+    this.trs.forEach(_tr => {
+      _tr.childs.forEach(_child => _child.render())
+    })
+  }
+}
+
+/* harmony default export */ var table_THead = ({ THead: THead_THead });
+
+
+// CONCATENATED MODULE: ./src/components/table/TBody.js
+
+
+
+class TBody_TBody {
+  constructor(proTable) {
+    this.$dom = document.createElement('tbody')
+    this.proTable = proTable
+    this.trs = this.generateTrs(this.proTable.columns, this.proTable.rows)
+    console.log(this.trs)
+
+    console.log('TBody', 'constructor')
+
+    this.render()
+  }
+
+  generateTrs (columns, rows) {
+    const trs = []
+
+    rows.forEach(_row => {
+      const tr = new table_Tr()
+      tr.addTds(this.generateTds(columns, _row))
+      trs.push(tr)
+    })
+
+    return trs
+  }
+
+  generateTds (columns, _row) {
+    let tds = []
+
+    columns.forEach(_column => {
+      if (_column !== null && _column.constructor === Object) {
+        // call generateTds recursively
+        tds = tds.concat(
+          this.generateTds(Object.values(_column)[0], _row[Object.keys(_column)[0]])
+        )
+      } else {
+        tds.push({ key: _column, label: _row[_column] })
+      }
+    })
+
+    console.log('generateTds', tds)
+
+    return tds
+  }
+
+  /**
+   * rendering trs
+   *
+   * @memberof TBody
+   */
+  render () {
+    // delete rendered trs
+    while (this.$dom.lastChild) {
+      this.$dom.removeChild(this.$dom.lastChild)
+    }
+
+    const limit = this.proTable.options.limit
+    const page = this.proTable.options.page
+    const start = ((page - 1) * limit)
+
+    this.filteredTrs
+      .sort(this._sort.bind(this))
+      .slice(start, this.proTable.options.limit * page)
+      .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+
+    // if there is no result for given keyword
+    if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
+      const tr = new table_Tr()
+      const td = new table_Td({
+        child: 'Not matching records found',
+        options: {
+          attrs: {
+            colspan: this.proTable.thead.columnsCount
+          },
+          style: {
+            textAlign: 'center'
+          }
+        }
+      })
+
+      tr.pushTd(td)
+      this.$dom.appendChild(tr.$dom)
+    }
+  }
+
+  get filteredTrs () {
+    return this.trs
+      .filter(this._filter.bind(this))
+  }
+
+  /**
+   * Filter by Tr
+   *
+   * @param {*} _tr
+   * @memberof TBody
+   */
+  _filter (_tr) {
+    const keyword = this.proTable.options.keyword || ''
+
+    return !!_tr.childs.find(_child => {
+      return _child
+        .$dom
+        .innerText
+        .toLowerCase()
+        .indexOf(
+          keyword.toLowerCase()
+        ) > -1
+    })
+  }
+
+  _sort (a, b) {
+    const order = this.proTable.options.order
+
+    if (order.key) {
+      const tdA = a.childs.find(_td => _td.key === order.key)
+      const tdB = b.childs.find(_td => _td.key === order.key)
+      
+      // ascending
+      if (order.direction === 'asc') {
+        return tdA.$dom.innerText > tdB.$dom.innerText ? 1 : -1
+      } else {
+        return tdA.$dom.innerText > tdB.$dom.innerText ? -1 : 1
+      }
+    }
+
+    return 0
+  }
+}
+
+/* harmony default export */ var table_TBody = (TBody_TBody);
+// CONCATENATED MODULE: ./src/components/pagination/RowsPerPage.js
+class RowsPerPage {
+  constructor(proTable) {
+    this.proTable = proTable
+
+    this.$dom = document.createElement('div')
+    this.$dom.style.display = 'inline-block'
+    this.$dom.style.marginRight = '1rem'
+
+    this._createSpan()
+    this._createSelect()
+  }
+
+  _createSpan () {
+    const span = document.createElement('span')
+    span.innerText = 'Rows per page:'
+    span.style.marginRight = '1rem'
+
+    this.$dom.appendChild(span)
+  }
+
+  _createSelect () {
+    const selectedLimit = this.proTable.options.limit
+    this.$select = document.createElement('select');
+
+    ([5, 10, 25, 50, 100, 250, 500]).forEach(limit => {
+      const option = document.createElement('option')
+      option.value = limit
+      option.innerText = limit
+      option.selected = parseInt(selectedLimit) === limit
+
+      this.$select.appendChild(option)
+    })
+
+    this.$select.addEventListener('change', e => {
+      this.proTable.setLimit(this.$select.value)
+    })
+
+    this.$dom.appendChild(this.$select)
+  }
+}
+
+/* harmony default export */ var pagination_RowsPerPage = (RowsPerPage);
+
+// CONCATENATED MODULE: ./src/components/pagination/SimplePagination.js
+
+
+class SimplePagination_SimplePagination {
+  constructor(proTable) {
+    this.proTable = proTable
+
+    this.$dom = document.createElement('div')
+
+    this._createRowsPerPage()
+    this._createSpan()
+    this._createPrevButton()
+    this._createNextButton()
+    this.render()
+  }
+
+  _createRowsPerPage () {
+    this.rowsPerPage = new pagination_RowsPerPage(this.proTable)
+    this.$dom.appendChild(this.rowsPerPage.$dom)
+  }
+
+  _createSpan () {
+    this.$span = document.createElement('span')
+    this.$span.style.marginRight = '1rem'
+    this.$dom.appendChild(this.$span)
+  }
+  
+  _createNextButton () {
+    this.$btnNext = document.createElement('button')
+    this.$btnNext.innerText = 'Next'
+    
+    this.$btnNext.addEventListener('click', e => {
+      this.proTable.setPage(this.proTable.options.page + 1)
+    })
+
+    this.$dom.appendChild(this.$btnNext)
+  }
+
+  _createPrevButton () {
+    this.$btnPrev = document.createElement('button')
+    this.$btnPrev.innerText = 'Prev'
+    
+    this.$dom.appendChild(this.$btnPrev)
+    
+    this.$btnPrev.addEventListener('click', e => {
+      this.proTable.setPage(this.proTable.options.page - 1)
+    })
+  }
+  
+  render () {
+    const limit = this.proTable.options.limit
+    const page = this.proTable.options.page
+    const start = ((page - 1) * limit) + 1
+    const to = start + limit - 1
+    const totalRows = this.proTable.tbody.filteredTrs.length
+    const lastPage = Math.ceil(totalRows / limit)
+
+    this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`
+
+    this.$btnPrev.disabled = page === 1
+    this.$btnNext.disabled = page === lastPage
+  }
+}
+
+/* harmony default export */ var pagination_SimplePagination = (SimplePagination_SimplePagination);
+
+// CONCATENATED MODULE: ./src/components/table/TFoot.js
+
+
+
+
+class TFoot_TFoot {
+  
+  constructor(proTable) {
+    this.proTable = proTable
+    this.$dom = document.createElement('tfoot')
+    this.trs = []
+
+    if (this.proTable.options.pagination == 'simple') {
+      this.createSimplePagination()
+    }
+
+    this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
+  }
+
+  createSimplePagination () {
+    if (this.proTable.tbody.trs.length < this.proTable.options.limit) {
+      return
+    }
+
+    this.simplePagination = new pagination_SimplePagination(this.proTable)
+
+    const columnsCount = this.proTable.thead.columnsCount
+    const tr = new table_Tr()
+
+    const td = new table_Td({
+      child: this.simplePagination.$dom,
+      options: {
+          attrs: {
+          colspan: columnsCount
+        },
+        style: {
+          textAlign: 'right'
+        }
+      }
+    })
+
+    tr.pushTd(td)
+    this.trs.push(tr)
+  }
+
+  render () {
+    if (this.proTable.options.pagination == 'simple' && this.simplePagination) {
+      this.simplePagination.render()
+    }
+  }
+}
+
+/* harmony default export */ var table_TFoot = (TFoot_TFoot);
+
+// CONCATENATED MODULE: ./src/components/search/Input.js
+class Input {
+  constructor ({ proTable }) {
+    this.proTable = proTable
+
+    this._createInput()
+  }
+
+  _createInput () {
+    this.$dom = document.createElement('input')
+    this.$dom.placeholder = 'Search'
+    this.$dom.addEventListener('keyup', this._onKeyUp.bind(this))
+  }
+
+  _onKeyUp () {
+    this.proTable.setKeyword(this.$dom.value)
+  }
+}
+
+/* harmony default export */ var search_Input = (Input);
+
+// CONCATENATED MODULE: ./src/components/Header.js
+
+
+class Header_Header {
+  constructor({ proTable }) {
+    this.proTable = proTable
+
+    this.$dom = document.createElement('header')
+    this._applyStyles()
+    this._createSearch()
+  }
+
+  _applyStyles () {
+    this.$dom.style.textAlign = 'right'
+  }
+
+  _createSearch () {
+    this.search = new search_Input({ proTable: this.proTable })
+    this.$dom.appendChild(this.search.$dom)
+  }
+}
+
+/* harmony default export */ var components_Header = (Header_Header);
+
+// CONCATENATED MODULE: ./src/components/table/ProTable.js
+
+
+
+
+
+
+class ProTable_ProTable {
+  constructor(elId, options) {
+    this.elId = elId
+
+    const defaultOptions = {
+      classes: [],
+      thead: {},
+      limit: 10,
+      page: 1,
+      keyword: null,
+      pagination: 'simple',
+      order: {
+        key: null,
+        direction: null
+      }
+    }
+
+    this.options = { ...defaultOptions, ...options }
+    this.thead = null
+    this.tbody = null
+    this.$dom = document.createElement('section')
+    this.$dom.classList.add('pro-table')
+  }
+
+  generateTable ({ columns, rows }) {
+    this.columns = columns
+    this.rows = rows
+    this.$table = document.createElement('table')
+    this.$dom.appendChild(this.$table)
+    this._generateHeader()
+    this._generateThead({ columns, rows })
+    this._generateTbody()
+    this._generateTFoot()
+
+    // apply options
+    if (this.options.classes) {
+      this.options.classes.forEach(_class => {
+        this.$table.classList.add(_class)
+      })
+    }
+
+    console.log(this.$table)
+  }
+
+  _generateHeader () {
+    this.header = new components_Header({ proTable: this })
+    this.$dom.prepend(this.header.$dom)
+  }
+
+  _generateThead ({ columns, rows }) {
+    this.thead = new THead_THead({
+      columns,
+      proTable: this,
+      options: this.options.thead
+    })
+    this.$table.appendChild(this.thead.$dom)
+  }
+  
+  _generateTbody () {
+    if (this.tbody) {
+      this.$table.removeChild(this.tbody.$dom)
+    }
+
+    this.tbody = new table_TBody(this)
+    this.$table.appendChild(this.tbody.$dom)
+  }
+
+  _generateTFoot () {
+    if (this.tfoot) {
+      this.$table.removeChild(this.tfoot.$dom)
+    }
+
+    this.tfoot = new table_TFoot(this)
+    this.$table.appendChild(this.tfoot.$dom)
+  }
+
+  setKeyword (keyword) {
+    this.options.keyword = keyword
+    this.setPage(1)
+  }
+
+  setPage (page) {
+    this.options.page = page
+
+    if (page < 1) {
+      this.options.page = 1
+    }
+
+    this.tbody.render()
+    this.tfoot.render()
+  }
+
+  setLimit (limit) {
+    this.options.page = 1
+    this.options.limit = parseInt(limit)
+
+    this.tbody.render()
+    this.tfoot.render()
+  }
+
+  setOrder ({ key, direction }) {
+    this.options.order = { key, direction }
+    
+    this.thead.render()
+    this.setPage(1)
+  }
+
+  draw () {
+    document.querySelector(this.elId).appendChild(this.$dom)
+  }
+}
+
+/* harmony default export */ var table_ProTable = (ProTable_ProTable);
+
+// CONCATENATED MODULE: ./src/helpers/from-array.js
 
 
 const fromArray = (elId, array, options) => {
@@ -1026,7 +889,7 @@ const fromArray = (elId, array, options) => {
 
   console.log('columns', columns)
 
-  const proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"](elId, options)
+  const proTable = new table_ProTable(elId, options)
   proTable.generateTable({
     columns,
     rows: array
@@ -1063,21 +926,9 @@ const generateColumns = array => {
   return columns
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (fromArray);
+/* harmony default export */ var from_array = (fromArray);
 
-
-/***/ }),
-
-/***/ "./src/helpers/from-dom-table.js":
-/*!***************************************!*\
-  !*** ./src/helpers/from-dom-table.js ***!
-  \***************************************/
-/*! exports provided: default */
-/*! exports used: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
+// CONCATENATED MODULE: ./src/helpers/from-dom-table.js
 
 
 const fromDOMTable = (selector, options) => {
@@ -1089,7 +940,7 @@ const fromDOMTable = (selector, options) => {
   console.log('fromTable', 'columns:', columns)
   console.log('fromTable', 'rows:', rows)
 
-  const proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"](null, options)
+  const proTable = new table_ProTable(null, options)
   proTable.generateTable({
     columns,
     rows
@@ -1123,43 +974,21 @@ function getRowsFromDom (table, columns) {
     })
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (fromDOMTable);
+/* harmony default export */ var from_dom_table = (fromDOMTable);
 
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! exports provided: default, fromArray, fromTable, ProTable */
-/*! all exports used */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/from-array */ "./src/helpers/from-array.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromArray", function() { return _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__["a"]; });
-
-/* harmony import */ var _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/from-dom-table */ "./src/helpers/from-dom-table.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromTable", function() { return _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__["a"]; });
-
-/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/table/ProTable */ "./src/components/table/ProTable.js");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ProTable", function() { return _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__["a"]; });
+// CONCATENATED MODULE: ./src/index.js
 
 
 
 
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  fromArray: _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"],
-  ProTable: _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]
+/* harmony default export */ var src = __webpack_exports__["default"] = ({
+  fromArray: from_array,
+  ProTable: table_ProTable
 });
 
 
 
 
 /***/ })
-
-/******/ });
+/******/ ]);
 //# sourceMappingURL=pro-table.js.map
