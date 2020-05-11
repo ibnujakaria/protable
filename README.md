@@ -1,7 +1,7 @@
 [![](https://img.shields.io/npm/v/pro-table)](https://www.npmjs.com/package/pro-table)
 [![](https://img.shields.io/npm/dt/pro-table)](https://www.npmjs.com/package/pro-table)
 [![](https://img.shields.io/jsdelivr/npm/hm/pro-table)](https://www.jsdelivr.com/package/npm/pro-table)
-[![](https://img.shields.io/github/size/ibnujakaria/pro-table/dist/js/pro-table.js)]()
+[![](https://img.shields.io/github/size/ibnujakaria/pro-table/dist/js/pro-table.min.js)]()
 [![](https://img.shields.io/github/release-date/ibnujakaria/pro-table)](https://github.com/ibnujakaria/pro-table/)
 [![](https://img.shields.io/npm/l/pro-table)](https://www.npmjs.com/package/pro-table)
 

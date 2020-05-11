@@ -68,10 +68,10 @@ const options = {
 // ], options)
 
 
-// fetch('http://dummy.restapiexample.com/api/v1/employees')
-//   .then(response => response.json())
-//   .then(response => {
-//     fromArray('#table-employee-container', response.data, options)
-//   })
+fetch('http://dummy.restapiexample.com/api/v1/employees')
+  .then(response => response.json())
+  .then(response => {
+    fromArray('#table-employee-container', response.data, options)
+  })
 
-fromTable('#table-1', options)
+// fromTable('#table-1', options)

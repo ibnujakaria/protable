@@ -1,5 +1,4 @@
 const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CompressionPlugin = require('compression-webpack-plugin');
@@ -23,10 +22,7 @@ module.exports = {
       filename: 'css/pro-table.css',
       chunkFilename: '[id].css',
     }),
-    new CompressionPlugin(),
-    new HtmlWebpackPlugin({
-      template: './example/index.html'
-    }),
+    new CompressionPlugin()
   ],
   module: {
     rules: [
