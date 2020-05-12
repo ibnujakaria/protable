@@ -1,6 +1,7 @@
 import Tr from "./Tr"
 import Td from "./Td"
 import SimplePagination from "../pagination/SimplePagination"
+import DefaultPagination from "../pagination/DefaultPagination"
 
 class TFoot {
   
@@ -9,25 +10,28 @@ class TFoot {
     this.$dom = document.createElement('tfoot')
     this.trs = []
 
-    if (this.proTable.options.pagination == 'simple') {
-      this.createSimplePagination()
-    }
-
+    this.createPagination()
     this.trs.forEach(_tr => this.$dom.appendChild(_tr.$dom))
   }
 
-  createSimplePagination () {
-    if (this.proTable.tbody.trs.length < this.proTable.options.limit) {
+  createPagination () {
+    const options = this.proTable.options
+
+    if (this.proTable.tbody.trs.length < this.proTable.options.limit || !!!options.pagination) {
       return
     }
 
-    this.simplePagination = new SimplePagination(this.proTable)
+    if (options.pagination === 'simple' || options.pagination.type === 'simple') {
+      this.pagination = new SimplePagination(this.proTable)
+    } else {
+      this.pagination = new DefaultPagination(this.proTable)
+    }
 
     const columnsCount = this.proTable.thead.columnsCount
     const tr = new Tr()
 
     const td = new Td({
-      child: this.simplePagination.$dom,
+      child: this.pagination.$dom,
       options: {
           attrs: {
           colspan: columnsCount
@@ -43,8 +47,8 @@ class TFoot {
   }
 
   render () {
-    if (this.proTable.options.pagination == 'simple' && this.simplePagination) {
-      this.simplePagination.render()
+    if (this.pagination) {
+      this.pagination.render()
     }
   }
 }

@@ -14,7 +14,9 @@ class ProTable {
       limit: 10,
       page: 1,
       keyword: null,
-      pagination: 'simple',
+      pagination: {
+        type: 'default'
+      },
       order: {
         key: null,
         direction: null

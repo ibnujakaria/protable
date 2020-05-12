@@ -4,12 +4,8 @@ const getRange = (start, end) => {
     .map((v, i) => i + start)
 }
 
-export default (currentPage, totalPage, visiblePages) => {
-  let ranges = []
-
-  if (!visiblePages) {
-    visiblePages = 10 // default
-  }
+export default (currentPage, totalPage) => {
+  let visiblePages = 10 // default
 
   if (visiblePages > totalPage) {
     visiblePages = totalPage
@@ -27,5 +23,5 @@ export default (currentPage, totalPage, visiblePages) => {
     start = totalPage - visiblePages + 1;
   }
 
-  return getRange(start, start + visiblePages).map(page => page === currentPage ? `*` : page)
+  return getRange(start, start + visiblePages)
 }

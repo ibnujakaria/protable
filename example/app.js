@@ -4,7 +4,8 @@ const options = {
   classes: ['table', 'table-bordered', 'mt-3'],
   thead: {
     thClasses: ['align-middle']
-  }
+  },
+  pagination: 'default'
 }
 
 // fromArray('#table-from-array', [
