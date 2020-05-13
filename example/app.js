@@ -5,7 +5,23 @@ const options = {
   thead: {
     thClasses: ['align-middle']
   },
-  pagination: 'default'
+  pagination: {
+    type: 'default',
+    containerElement: 'ul',
+    containerClasses: [
+      'pagination', 'pagination-sm'
+    ],
+    btnWrapper: 'li',
+    btnWrapperClasses: [
+      'page-item'
+    ],
+    btnWrapperActiveClasses: [
+      'active'
+    ],
+    btnClasses: [
+      'page-link'
+    ]
+  }
 }
 
 // fromArray('#table-from-array', [
@@ -69,10 +85,10 @@ const options = {
 // ], options)
 
 
-fetch('http://dummy.restapiexample.com/api/v1/employees')
+fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(response => response.json())
-  .then(response => {
-    fromArray('#table-employee-container', response.data, options)
+  .then(data => {
+    fromArray('#table-employee-container', data, options)
   })
 
 // fromTable('#table-1', options)

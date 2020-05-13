@@ -20,69 +20,115 @@ class DefaultPagination {
   }
 
   _buildControls () {
-    this.$controls = document.createElement('div')
+    const options = this.proTable.options
+    this.$controls = document.createElement(
+      options.pagination.containerElement || 'div'
+    )
+
+    if (options.pagination.containerClasses) {
+      this.$controls.classList.add(...options.pagination.containerClasses)
+    }
+
     this.$dom.appendChild(this.$controls)
+    this.pageButtons = []
 
     this._buildPrevButton()
-    this._buildPageButtons()
     this._buildNextButton()
+    this._buildPageButtons()
   }
   
   _buildNextButton () {
-    this.$btnNext = document.createElement('button')
-    this.$btnNext.innerText = 'Next'
+    this.btnNext = this._buildButton('Next')
+
+    // apply classes from options
+    if (this.proTable.options.pagination.btnClasses) {
+      this.btnNext.$btn.classList.add(...this.proTable.options.pagination.btnClasses)
+    }
     
-    this.$btnNext.addEventListener('click', e => {
+    this.$controls.appendChild(this.btnNext.$wrapper)
+    
+    this.btnNext.$btn.addEventListener('click', e => {
       this.proTable.setPage(this.proTable.options.page + 1)
     })
-
-    this.$controls.appendChild(this.$btnNext)
   }
 
   _buildPrevButton () {
-    this.$btnPrev = document.createElement('button')
-    this.$btnPrev.innerText = 'Prev'
+    this.btnPrev = this._buildButton('Prev')
+
+    // apply classes from options
+    if (this.proTable.options.pagination.btnClasses) {
+      this.btnPrev.$btn.classList.add(...this.proTable.options.pagination.btnClasses)
+    }
     
-    this.$controls.appendChild(this.$btnPrev)
+    this.$controls.appendChild(this.btnPrev.$wrapper)
     
-    this.$btnPrev.addEventListener('click', e => {
+    this.btnPrev.$btn.addEventListener('click', e => {
       this.proTable.setPage(this.proTable.options.page - 1)
     })
   }
 
   _buildPageButtons () {
-    console.log('_buildPageButtons')
     const options = this.proTable.options
     const limit = options.limit
     const totalRows = this.proTable.tbody.filteredTrs.length
     const lastPage = Math.ceil(totalRows / limit)
     
-    if (!this.$pageButtonsContainer) {
-      this.$pageButtonsContainer = document.createElement('div')
-      this.$pageButtonsContainer.style.display = 'inline-block'
-      this.$controls.appendChild(this.$pageButtonsContainer)
-    } else {
-      while (this.$pageButtonsContainer.lastChild) {
-        this.$pageButtonsContainer.removeChild(
-          this.$pageButtonsContainer.lastChild
-        )
-      }
+    while (this.pageButtons.length) {
+      const btn = this.pageButtons.pop()
+      this.$controls.removeChild(btn.$wrapper)
     }
 
     generatePagesRange(options.page, lastPage, 2)
       .forEach(page => {
-        const btn = document.createElement('button')
-        btn.innerText = page
+        const btn = this._buildButton(page)
 
         if (page === options.page) {
-          btn.style.fontWeight = 800
+          btn.$btn.style.fontWeight = 800
+
+          if (options.pagination.btnActiveClasses) {
+            btn.$btn.classList.add(...options.pagination.btnActiveClasses)
+          }
+
+          if (options.pagination.btnWrapperActiveClasses) {
+            btn.$wrapper.classList.add(...options.pagination.btnWrapperActiveClasses)
+          }
         }
 
-        btn.addEventListener('click', e => {
+        // apply classes from options
+        if (options.pagination.btnClasses) {
+          btn.$btn.classList.add(...options.pagination.btnClasses)
+        }
+
+        btn.$btn.addEventListener('click', e => {
           this.proTable.setPage(page)
         })
-        this.$pageButtonsContainer.appendChild(btn)
+
+        this.pageButtons.push(btn)
+        this.$controls.insertBefore(btn.$wrapper, this.btnNext.$wrapper)
       })
+  }
+
+  /**
+   * Create DOM button
+   */
+  _buildButton (text) {
+    const $btn = document.createElement('button')
+    $btn.innerText = text
+
+    const options = this.proTable.options
+    // if there is a wrapper
+    if (options.pagination.btnWrapper) {
+      const $wrapper = document.createElement(options.pagination.btnWrapper)
+      $wrapper.appendChild($btn)
+
+      if (options.pagination.btnWrapperClasses) {
+        $wrapper.classList.add(...options.pagination.btnWrapperClasses)
+      }
+
+      return { $wrapper, $btn }
+    }
+
+    return { $btn, $wrapper: $btn }
   }
   
   render () {
@@ -93,8 +139,8 @@ class DefaultPagination {
     const totalRows = this.proTable.tbody.filteredTrs.length
     const lastPage = Math.ceil(totalRows / limit)
 
-    this.$btnPrev.disabled = page === 1
-    this.$btnNext.disabled = page === lastPage
+    this.btnPrev.$btn.disabled = page === 1
+    this.btnNext.$btn.disabled = page === lastPage
 
     this._buildPageButtons()
   }
