@@ -4,10 +4,36 @@ import TBody from './TBody'
 import TFoot from './TFoot'
 import Header from '../Header'
 
-class ProTable {
-  constructor(elId, options) {
-    this.elId = elId
+/**
+ * ProTable Options
+ * 
+ * @typedef { Object } ProTable.Options
+ * @property { string[] } classes - Classes name of the table
+ * @property { Object } thead - Thead
+ * @property { string[] | Object } columns - Custom columns of table
+ * @property { Object } pagination - Pagination specific options
+ * @property { string } pagination.type - Pagination type
+ */
 
+/**
+ * ProTable class
+ *
+ * @class ProTable
+ * @property { ProTable.Options } options
+ */
+class ProTable {
+  /**
+   *Creates an instance of ProTable.
+   * @param { string } selector - DOM selector where the ProTable should replace
+   * @param { ProTable.Options } options
+   * @memberof ProTable
+   */
+  constructor(selector, options) {
+    this.selector = selector
+    
+    /**
+     * @type ProTable.Options
+     */
     const defaultOptions = {
       classes: [],
       thead: {},
@@ -23,7 +49,12 @@ class ProTable {
       }
     }
 
+    /**
+     * @type { ProTable.Options }
+     */
     this.options = { ...defaultOptions, ...options }
+
+    console.log(this.options)
     this.thead = null
     this.tbody = null
     this.$dom = document.createElement('section')
@@ -36,7 +67,7 @@ class ProTable {
     this.$table = document.createElement('table')
     this.$dom.appendChild(this.$table)
     this._generateHeader()
-    this._generateThead({ columns, rows })
+    this._generateThead({ columns })
     this._generateTbody()
     this._generateTFoot()
 
@@ -55,7 +86,7 @@ class ProTable {
     this.$dom.prepend(this.header.$dom)
   }
 
-  _generateThead ({ columns, rows }) {
+  _generateThead ({ columns }) {
     this.thead = new THead({
       columns,
       proTable: this,
@@ -114,7 +145,7 @@ class ProTable {
   }
 
   draw () {
-    document.querySelector(this.elId).appendChild(this.$dom)
+    document.querySelector(this.selector).appendChild(this.$dom)
   }
 }
 

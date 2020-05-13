@@ -1,11 +1,17 @@
 import Tr from "./Tr"
 import Td from "./Td"
+import ProTable from "./ProTable"
 
 class TBody {
+  /**
+   * Creates an instance of TBody.
+   * @param { ProTable } proTable
+   * @memberof TBody
+   */
   constructor(proTable) {
     this.$dom = document.createElement('tbody')
     this.proTable = proTable
-    this.trs = this.generateTrs(this.proTable.columns, this.proTable.rows)
+    this.trs = this.generateTrs()
     console.log(this.trs)
 
     console.log('TBody', 'constructor')
@@ -13,7 +19,9 @@ class TBody {
     this.render()
   }
 
-  generateTrs (columns, rows) {
+  generateTrs () {
+    const columns = this.proTable.options.columns || this.proTable.columns
+    const rows = this.proTable.rows
     const trs = []
 
     rows.forEach(_row => {

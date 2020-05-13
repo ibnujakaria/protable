@@ -1,7 +1,7 @@
 import { fromArray, fromTable } from '../src/index'
 
 const options = {
-  classes: ['table', 'table-bordered', 'mt-3'],
+  classes: ['table', 'table-sm', 'table-bordered', 'mt-3'],
   thead: {
     thClasses: ['align-middle']
   },
@@ -88,7 +88,10 @@ const options = {
 fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(response => response.json())
   .then(data => {
-    fromArray('#table-employee-container', data, options)
+    fromArray('#table-employee-container', data, {
+      ...options,
+      columns: ['no', 'name', 'email', 'gender', 'age', 'address']
+    })
   })
 
 // fromTable('#table-1', options)

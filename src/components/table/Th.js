@@ -1,9 +1,35 @@
+import ProTable from "./ProTable"
+
+/**
+ * Th Options
+ * 
+ * @typedef { Object } Th.Options
+ * @property { Object } attrs - DOM attributes
+ * @property { Number } attrs.colspan - colspan of this th
+ */
+
+/**
+ * Th class
+ *
+ * @class Th
+ */
 class Th {
+  /**
+   *Creates an instance of Th.
+   * @param { Object } payload
+   * @param { string } payload.key
+   * @param { ProTable } payload.proTable
+   * @param { Th.Options } payload.options
+   * @memberof Th
+   */
   constructor ({ key, proTable, options }) {
     this.key = key
     this.proTable = proTable
     this.$dom = document.createElement('th')
 
+    /**
+     * @type { Th.Options }
+     */
     this.options = {
       attrs: {
         colspan: 1

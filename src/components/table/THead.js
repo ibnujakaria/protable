@@ -1,5 +1,6 @@
 import Tr from "./Tr"
 import Th from "./Th"
+import ProTable from './ProTable'
 
 class THead {
 
@@ -8,8 +9,12 @@ class THead {
    *
    * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
    * 
-   * @param {*} { columns, proTable, options }
+   * @param { Object } payload
+   * @param { string[] } payload.columns
+   * @param { ProTable } payload.proTable
+   * @param { Object } payload.options
    * @memberof THead
+   * @constructor
    */
   constructor ({ columns, proTable, options }) {
     this.options = {
@@ -17,8 +22,9 @@ class THead {
       ...options
     }
     this.proTable = proTable
+    this.columns = columns
     this.$dom = document.createElement('thead')
-    this.trs = this.generateTrs(columns)
+    this.trs = this.generateTrs()
     this.columnsCount = (() => {
       return this.trs[0].childs
         .map(th => th.options.attrs.colspan)
@@ -26,16 +32,18 @@ class THead {
     })()
 
     console.log('trs', this.trs)
-    this.columns = columns
 
     // append child
     this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
   }
 
-  generateTrs (columns) {
+  generateTrs () {
     let trs = []
     
-    let { ths, childs } = this.generateThs(columns)
+    let { ths, childs } = this.generateThs(
+      this.proTable.options.columns || this.columns
+    )
+
     let tr = new Tr()
     
     ths.forEach(_th => tr.pushTh(_th))
@@ -56,6 +64,11 @@ class THead {
     return trs
   }
 
+  /**
+   * Generate th elements of the head
+   * 
+   * @param { string[] } columns 
+   */
   generateThs (columns) {
     let ths = []
     let childs = []
@@ -90,6 +103,11 @@ class THead {
     return { ths, childs }
   }
 
+  /**
+   * Return the count of colspan of a given columns
+   * 
+   * @param { string[] } columns 
+   */
   getColspan (columns) {
     let colspan = columns.length
 
