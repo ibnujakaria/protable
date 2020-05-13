@@ -6,7 +6,7 @@ const options = {
     thClasses: ['align-middle']
   },
   pagination: {
-    type: 'default',
+    type: 'simple',
     containerElement: 'ul',
     containerClasses: [
       'pagination', 'pagination-sm'
@@ -90,7 +90,7 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(data => {
     fromArray('#table-employee-container', data, {
       ...options,
-      columns: ['no', 'name', 'email', 'gender', 'age', 'address']
+      columns: ['no', 'name', 'email', 'gender', 'age', 'phone']
     })
   })
 

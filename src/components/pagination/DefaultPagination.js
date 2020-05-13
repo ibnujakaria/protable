@@ -8,6 +8,7 @@ class DefaultPagination {
     this.$dom = document.createElement('div')
     this.$dom.style.display = 'flex'
     this.$dom.style.justifyContent = 'space-between'
+    this.$dom.style.alignItems = 'baseline'
 
     this._buildRowsPerPage()
     this._buildControls()
@@ -110,6 +111,8 @@ class DefaultPagination {
 
   /**
    * Create DOM button
+   * 
+   * @returns { Object } object of $btn and $wrapper
    */
   _buildButton (text) {
     const $btn = document.createElement('button')
@@ -141,6 +144,18 @@ class DefaultPagination {
 
     this.btnPrev.$btn.disabled = page === 1
     this.btnNext.$btn.disabled = page === lastPage
+
+    if (page === 1) {
+      this.btnPrev.$wrapper.classList.add('disabled')
+    } else {
+      this.btnPrev.$wrapper.classList.remove('disabled')
+    }
+
+    if (page === lastPage) {
+      this.btnNext.$wrapper.classList.add('disabled')
+    } else {
+      this.btnNext.$wrapper.classList.remove('disabled')
+    }
 
     this._buildPageButtons()
   }

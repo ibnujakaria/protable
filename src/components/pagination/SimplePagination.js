@@ -1,49 +1,102 @@
 import RowsPerPage from "./RowsPerPage"
+import ProTable from "../table/ProTable"
 
 class SimplePagination {
+  /**
+   * Create SimplePagination
+   * 
+   * @param { ProTable ``} proTable
+   * @memberof SimplePagination
+   */
   constructor(proTable) {
     this.proTable = proTable
 
     this.$dom = document.createElement('div')
+    this.$dom.style.display = 'flex'
+    this.$dom.style.justifyContent = 'flex-end'
+    this.$dom.style.alignItems = 'baseline'
 
-    this._createRowsPerPage()
-    this._createSpan()
-    this._createPrevButton()
-    this._createNextButton()
+    this._buildRowsPerPage()
+    this._buildSpan()
+    this._buildControls()
     this.render()
   }
 
-  _createRowsPerPage () {
+  _buildRowsPerPage () {
     this.rowsPerPage = new RowsPerPage(this.proTable)
     this.$dom.appendChild(this.rowsPerPage.$dom)
   }
 
-  _createSpan () {
+  _buildSpan () {
     this.$span = document.createElement('span')
     this.$span.style.marginRight = '1rem'
     this.$dom.appendChild(this.$span)
   }
+
+  _buildControls () {
+    const options = this.proTable.options
+    this.$controls = document.createElement(
+      options.pagination.containerElement || 'div'
+    )
+
+    if (options.pagination.containerClasses) {
+      this.$controls.classList.add(...options.pagination.containerClasses)
+    }
+
+    this.$dom.appendChild(this.$controls)
+
+    this._buildPrevButton()
+    this._buildNextButton()
+  }
   
-  _createNextButton () {
-    this.$btnNext = document.createElement('button')
-    this.$btnNext.innerText = 'Next'
+  _buildNextButton () {
+    this.btnNext = this._buildButton('Next')
     
-    this.$btnNext.addEventListener('click', e => {
+    this.$controls.appendChild(this.btnNext.$wrapper)
+
+    this.btnNext.$btn.addEventListener('click', e => {
       this.proTable.setPage(this.proTable.options.page + 1)
     })
-
-    this.$dom.appendChild(this.$btnNext)
   }
 
-  _createPrevButton () {
-    this.$btnPrev = document.createElement('button')
-    this.$btnPrev.innerText = 'Prev'
+  _buildPrevButton () {
+    this.btnPrev = this._buildButton('Prev')
     
-    this.$dom.appendChild(this.$btnPrev)
+    this.$controls.appendChild(this.btnPrev.$wrapper)
     
-    this.$btnPrev.addEventListener('click', e => {
+    this.btnPrev.$btn.addEventListener('click', e => {
       this.proTable.setPage(this.proTable.options.page - 1)
     })
+  }
+
+  /**
+   * Create DOM button
+   * 
+   * @returns { Object } object of $btn and $wrapper
+   */
+  _buildButton (text) {
+    const options = this.proTable.options
+    const $btn = document.createElement('button')
+    $btn.innerText = text
+
+    // apply classes from options
+    if (this.proTable.options.pagination.btnClasses) {
+      $btn.classList.add(...this.proTable.options.pagination.btnClasses)
+    }
+
+    // if there is a wrapper
+    if (options.pagination.btnWrapper) {
+      const $wrapper = document.createElement(options.pagination.btnWrapper)
+      $wrapper.appendChild($btn)
+
+      if (options.pagination.btnWrapperClasses) {
+        $wrapper.classList.add(...options.pagination.btnWrapperClasses)
+      }
+
+      return { $wrapper, $btn }
+    }
+
+    return { $btn, $wrapper: $btn }
   }
   
   render () {
@@ -56,8 +109,20 @@ class SimplePagination {
 
     this.$span.innerText = `${start}-${(to > totalRows ? totalRows : to)} of ${totalRows}`
 
-    this.$btnPrev.disabled = page === 1
-    this.$btnNext.disabled = page === lastPage
+    this.btnPrev.$btn.disabled = page === 1
+    this.btnNext.$btn.disabled = page === lastPage
+
+    if (page === 1) {
+      this.btnPrev.$wrapper.classList.add('disabled')
+    } else {
+      this.btnPrev.$wrapper.classList.remove('disabled')
+    }
+
+    if (page === lastPage) {
+      this.btnNext.$wrapper.classList.add('disabled')
+    } else {
+      this.btnNext.$wrapper.classList.remove('disabled')
+    }
   }
 }
 
