@@ -26,7 +26,7 @@ class Td {
 
   buildDOMFromString (child) {
     this.$dom = document.createElement('td')
-    this.$dom.innerHTML = child || '-'
+    this.$dom.innerHTML = child === null || child === undefined ? '-' : child
   }
 
   buildDOMFromNode (node) {

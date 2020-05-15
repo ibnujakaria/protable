@@ -10,21 +10,21 @@ class THead {
    * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
    * 
    * @param { Object } payload
-   * @param { string[] } payload.columns
    * @param { ProTable } payload.proTable
    * @param { Object } payload.options
    * @memberof THead
    * @constructor
    */
-  constructor ({ columns, proTable, options }) {
+  constructor ({ proTable, options }) {
     this.options = {
       thClasses: [],
       ...options
     }
     this.proTable = proTable
-    this.columns = columns
     this.$dom = document.createElement('thead')
-    this.trs = this.generateTrs()
+    this.trs = this.generateTrs(
+      this.proTable.options.columns || this.proTable.columns
+    )
     this.columnsCount = (() => {
       return this.trs[0].childs
         .map(th => th.options.attrs.colspan)
@@ -37,21 +37,22 @@ class THead {
     this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
   }
 
-  generateTrs () {
+  generateTrs (columns) {
     let trs = []
     
-    let { ths, childs } = this.generateThs(
-      this.proTable.options.columns || this.columns
-    )
+    let { ths, childs } = this.generateThs(columns)
 
     let tr = new Tr()
     
     ths.forEach(_th => tr.pushTh(_th))
     trs.push(tr)
 
-    if (childs.length) {
+    console.log('childs', childs)
+
+    if (Object.keys(childs).length) {
       trs = trs.concat(this.generateTrs(childs))
     }
+
     
     // add rowspan to th that has not colspan attr
     // and fix colspan as its child
@@ -71,53 +72,51 @@ class THead {
    */
   generateThs (columns) {
     let ths = []
-    let childs = []
+    let childs = {}
 
-    columns.forEach(_col => {
-      if (_col !== null && _col.constructor === Object) {
-        const key = Object.keys(_col)[0]
-        ths.push(new Th({
-          key,
+    for (const _key in columns ) {
+      const _col = columns[_key]
+
+      ths.push(
+        new Th({
+          key: _key,
           proTable: this.proTable,
           options: {
+            classes: this.options.thClasses,
             attrs: {
-              colspan: this.getColspan(_col[key])
-            },
-            classes: this.options.thClasses
-          }
-        }))
-        childs = childs.concat(_col[key])
-      } else {
-        ths.push(
-          new Th({
-            key: _col, 
-            proTable: this.proTable,
-            options: {
-              classes: this.options.thClasses
+              colspan: this.getColspan(_col.childs)
             }
-          })
-        )
+          }
+        })
+      )
+
+      if (_col.childs) {
+        childs = { ...childs, ..._col.childs }
       }
-    })
+    }
 
     return { ths, childs }
   }
 
   /**
-   * Return the count of colspan of a given columns
+   * Return the count of colspan of a given childs
    * 
-   * @param { string[] } columns 
+   * @param { Object } childs 
    */
-  getColspan (columns) {
-    let colspan = columns.length
+  getColspan (childs) {
+    if (!childs) {
+      return 1
+    }
 
-    columns.forEach(_col => {
-      if ((_col !== null && _col.constructor === Object)) {
-        colspan += this.getColspan(_col[Object.keys(_col)[0]]) - 1
+    let length = Object.keys(childs).length
+
+    for (const _key in childs) {
+      if (childs[_key].childs) {
+        length += this.getColspan(childs[_key].childs)
       }
-    })
+    }
 
-    return colspan
+    return length
   }
 
   render () {

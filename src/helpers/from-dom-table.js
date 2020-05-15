@@ -19,6 +19,8 @@ const fromDOMTable = (selector, options) => {
 
   // replace the dom input
   dom.replaceWith(proTable.$dom)
+
+  return proTable
 }
 
 function getColumnsFromDom (table) {

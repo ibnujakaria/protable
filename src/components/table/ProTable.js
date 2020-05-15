@@ -54,7 +54,6 @@ class ProTable {
      */
     this.options = { ...defaultOptions, ...options }
 
-    console.log(this.options)
     this.thead = null
     this.tbody = null
     this.$dom = document.createElement('section')
@@ -62,14 +61,19 @@ class ProTable {
   }
 
   generateTable ({ columns, rows }) {
-    this.columns = columns
-    this.rows = rows
     this.$table = document.createElement('table')
     this.$dom.appendChild(this.$table)
+
+    this.columns = this._formatColumns(columns)
+    if (this.options.columns) {
+      this.options.columns = this._formatColumns(this.options.columns)
+    }
+    this.rows = rows
+
     this._generateHeader()
-    this._generateThead({ columns })
+    this._generateThead()
     this._generateTbody()
-    this._generateTFoot()
+    // this._generateTFoot()
 
     // apply options
     if (this.options.classes) {
@@ -77,8 +81,28 @@ class ProTable {
         this.$table.classList.add(_class)
       })
     }
+  }
 
-    console.log(this.$table)
+  _formatColumns (columns) {
+    const formatted = {}
+
+    columns.forEach(_col => {
+      if (_col !== null && _col.constructor === Object) {
+        const key = Object.keys(_col)[0]
+        formatted[key] = {
+          label: `${key[0].toUpperCase()}${key.substr(1)}`,
+          childs: this._formatColumns(
+            Object.values(_col)[0]
+          )
+        }
+      } else {
+        formatted[_col] = {
+          label: `${_col[0].toUpperCase()}${_col.substr(1)}`
+        }
+      }
+    })
+
+    return formatted
   }
 
   _generateHeader () {
@@ -86,9 +110,8 @@ class ProTable {
     this.$dom.prepend(this.header.$dom)
   }
 
-  _generateThead ({ columns }) {
+  _generateThead () {
     this.thead = new THead({
-      columns,
       proTable: this,
       options: this.options.thead
     })

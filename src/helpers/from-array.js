@@ -3,8 +3,6 @@ import ProTable from '../components/table/ProTable'
 const fromArray = (elId, array, options) => {
   const columns = generateColumns(array)
 
-  console.log('columns', columns)
-
   const proTable = new ProTable(elId, options)
   proTable.generateTable({
     columns,
@@ -12,6 +10,8 @@ const fromArray = (elId, array, options) => {
   })
 
   proTable.draw()
+
+  return proTable
 }
 
 /**

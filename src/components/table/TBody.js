@@ -12,10 +12,6 @@ class TBody {
     this.$dom = document.createElement('tbody')
     this.proTable = proTable
     this.trs = this.generateTrs()
-    console.log(this.trs)
-
-    console.log('TBody', 'constructor')
-
     this.render()
   }
 
@@ -36,16 +32,18 @@ class TBody {
   generateTds (columns, _row) {
     let tds = []
 
-    columns.forEach(_column => {
-      if (_column !== null && _column.constructor === Object) {
+    for (const _key in columns) {
+      const _col = columns[_key]
+
+      if (_col.childs) {
         // call generateTds recursively
         tds = tds.concat(
-          this.generateTds(Object.values(_column)[0], _row[Object.keys(_column)[0]])
+          this.generateTds(_col.childs, _row[_key])
         )
       } else {
-        tds.push({ key: _column, label: _row[_column] })
+        tds.push({ key: _key, label: _row[_key] })
       }
-    })
+    }
 
     // console.log('generateTds', tds)
 

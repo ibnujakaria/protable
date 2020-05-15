@@ -6,7 +6,7 @@ const options = {
     thClasses: ['align-middle']
   },
   pagination: {
-    type: 'simple',
+    type: 'default',
     containerElement: 'ul',
     containerClasses: [
       'pagination', 'pagination-sm'
@@ -45,53 +45,57 @@ const options = {
 //   }
 // ], options)
 
-// fromArray('#table-from-array-2', [
-//   {
-//     name: 'Nurul Huda',
-//     birth: {
-//       day: 1,
-//       month: 'January',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Surabaya',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   },
-//   {
-//     name: 'Wahid Abdullah',
-//     birth: {
-//       day: 2,
-//       month: 'February',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Bangkalan',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   },
-//   {
-//     name: 'Lendis Fabri',
-//     birth: {
-//       day: 3,
-//       month: 'Maret',
-//       year: 1996
-//     },
-//     address: {
-//       city: 'Lamongan',
-//       country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
-//     }
-//   }
-// ], options)
+const proTableComplex = fromArray('#table-from-array-2', [
+  {
+    name: 'Nurul Huda',
+    birth: {
+      day: 1,
+      month: 'January',
+      year: 1996
+    },
+    address: {
+      city: 'Surabaya',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  },
+  {
+    name: 'Wahid Abdullah',
+    birth: {
+      day: 2,
+      month: 'February',
+      year: 1996
+    },
+    address: {
+      city: 'Bangkalan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  },
+  {
+    name: 'Lendis Fabri',
+    birth: {
+      day: 3,
+      month: 'Maret',
+      year: 1996
+    },
+    address: {
+      city: 'Lamongan',
+      country: { name: 'Indonesia', code: { loc: 'id', phone: '+62' } }
+    }
+  }
+], options)
+
+console.log('proTableComplex', proTableComplex)
 
 
 fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(response => response.json())
   .then(data => {
-    fromArray('#table-employee-container', data, {
+    let proTable = fromArray('#table-employee-container', data, {
       ...options,
       columns: ['no', 'name', 'email', 'gender', 'age', 'phone']
     })
+
+    console.log('proTable', proTable)
   })
 
 // fromTable('#table-1', options)
