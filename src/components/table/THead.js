@@ -80,6 +80,7 @@ class THead {
       ths.push(
         new Th({
           key: _key,
+          label: _col.label,
           proTable: this.proTable,
           options: {
             classes: this.options.thClasses,

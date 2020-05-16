@@ -24,26 +24,35 @@ const options = {
   }
 }
 
-// fromArray('#table-from-array', [
-//   {
-//     name: 'Nurul Huda',
-//     relationship: 'Menikah',
-//     blog: 'https://jagongoding.com'
-//   },
-//   {
-//     name: 'Abdullah Wahid',
-//     city: 'Bangkalan'
-//   },
-//   {
-//     city: 'Lamongan',
-//     name: 'Lendis Fabri',
-//     blog: 'https://kopiding.in'
-//   },
-//   {
-//     name: 'Elmo Bachtiar',
-//     relationship: 'Lajang'
-//   }
-// ], options)
+const simpleProTable = fromArray('#table-from-array', [
+  {
+    name: 'Nurul Huda',
+    relationship: 'Menikah',
+    blog: 'https://jagongoding.com'
+  },
+  {
+    name: 'Abdullah Wahid',
+    city: 'Bangkalan'
+  },
+  {
+    city: 'Lamongan',
+    name: 'Lendis Fabri',
+    blog: 'https://kopiding.in'
+  },
+  {
+    name: 'Elmo Bachtiar',
+    relationship: 'Lajang'
+  }
+], {
+  ...options,
+  columns: {
+    blog: {
+      label: 'Link Blog'
+    }
+  }
+})
+
+console.log('simpleProTable', simpleProTable)
 
 const proTableComplex = fromArray('#table-from-array-2', [
   {

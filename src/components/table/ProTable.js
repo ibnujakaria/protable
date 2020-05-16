@@ -73,7 +73,7 @@ class ProTable {
     this._generateHeader()
     this._generateThead()
     this._generateTbody()
-    // this._generateTFoot()
+    this._generateTFoot()
 
     // apply options
     if (this.options.classes) {
@@ -84,6 +84,11 @@ class ProTable {
   }
 
   _formatColumns (columns) {
+    // if columns is Object, return as is
+    if (columns !== null && columns.constructor === Object) {
+      return columns
+    }
+
     const formatted = {}
 
     columns.forEach(_col => {

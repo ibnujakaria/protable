@@ -15,15 +15,17 @@ import ProTable from "./ProTable"
  */
 class Th {
   /**
-   *Creates an instance of Th.
+   * Creates an instance of Th.
    * @param { Object } payload
    * @param { string } payload.key
+   * @param { string } payload.label
    * @param { ProTable } payload.proTable
    * @param { Th.Options } payload.options
    * @memberof Th
    */
-  constructor ({ key, proTable, options }) {
+  constructor ({ key, label, proTable, options }) {
     this.key = key
+    this.label = label
     this.proTable = proTable
     this.$dom = document.createElement('th')
 
@@ -68,7 +70,7 @@ class Th {
 
   _createSpan () {
     this.$spanLabel = document.createElement('span')
-    this.$spanLabel.innerHTML = `${this.key[0].toUpperCase()}${this.key.toLowerCase().substr(1)}` || '-'
+    this.$spanLabel.innerHTML = this.label || '-'
     this.$container.appendChild(this.$spanLabel)
   }
 
