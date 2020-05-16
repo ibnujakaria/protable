@@ -43,10 +43,15 @@ class TBody {
         ]
       }
 
+      // override content if user defines contents callback
+      if (this.proTable.options.contents && this.proTable.options.contents[_key]) {
+        rowContent = this.proTable.options.contents[_key](rowContent)
+      }
+
       if (_col.childs) {
         // call generateTds recursively
         tds = tds.concat(
-          this.generateTds(_col.childs, rowContent)
+          this.generateTds(_col.childs, _row[_key])
         )
       } else {
         tds.push({ key: _key, label: rowContent })

@@ -105,7 +105,17 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(data => {
     let proTable = fromArray('#table-employee-container', data, {
       ...options,
-      columns: ['no', 'name', 'email', 'gender', 'age', 'phone']
+      columns: ['no', 'name', 'email', 'gender', 'age', 'phone'],
+      contents: {
+        gender: content => {
+          return content === 'female' ?
+            `<span class="badge badge-success">${content}</span>` :
+            `<span class="badge badge-info">${content}</span>`
+        },
+        email: content => {
+          return `<a href="mailto:${content}">${content}</a>`
+        }
+      }
     })
 
     console.log('proTable', proTable)
