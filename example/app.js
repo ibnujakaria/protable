@@ -28,7 +28,7 @@ const simpleProTable = fromArray('#table-from-array', [
   {
     name: 'Nurul Huda',
     relationship: 'Menikah',
-    blog: 'https://jagongoding.com'
+    ['link bloggg']: 'https://jagongoding.com'
   },
   {
     name: 'Abdullah Wahid',
@@ -37,7 +37,7 @@ const simpleProTable = fromArray('#table-from-array', [
   {
     city: 'Lamongan',
     name: 'Lendis Fabri',
-    blog: 'https://kopiding.in'
+    ['link bloggg']: 'https://kopiding.in'
   },
   {
     name: 'Elmo Bachtiar',
@@ -46,8 +46,12 @@ const simpleProTable = fromArray('#table-from-array', [
 ], {
   ...options,
   columns: {
+    name: {
+      label: 'Name'
+    },
     blog: {
-      label: 'Link Blog'
+      label: 'Link Blog',
+      targetIndex: 2
     }
   }
 })

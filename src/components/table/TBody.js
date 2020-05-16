@@ -34,14 +34,22 @@ class TBody {
 
     for (const _key in columns) {
       const _col = columns[_key]
+      let rowContent = _row[_key]
+
+      // override content if user defines targetIndex
+      if (Number.isInteger(_col.targetIndex)) {
+        rowContent = _row[
+          Object.keys(this.proTable.columns)[_col.targetIndex]
+        ]
+      }
 
       if (_col.childs) {
         // call generateTds recursively
         tds = tds.concat(
-          this.generateTds(_col.childs, _row[_key])
+          this.generateTds(_col.childs, rowContent)
         )
       } else {
-        tds.push({ key: _key, label: _row[_key] })
+        tds.push({ key: _key, label: rowContent })
       }
     }
 
