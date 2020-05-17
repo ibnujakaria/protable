@@ -12,6 +12,7 @@ class Td {
         colspan: 1
       },
       style: {},
+      searchable: true,
       ...options
     }
 

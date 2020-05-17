@@ -29,6 +29,13 @@ class TBody {
     return trs
   }
 
+  /**
+   * Generate object array. The return of this function will next be
+   * generated to object Tds
+   * 
+   * @param { Object } columns 
+   * @param { Object[] } _row 
+   */
   generateTds (columns, _row) {
     let tds = []
 
@@ -54,7 +61,13 @@ class TBody {
           this.generateTds(_col.childs, _row[_key])
         )
       } else {
-        tds.push({ key: _key, label: rowContent })
+        tds.push({
+          key: _key,
+          label: rowContent,
+          options: {
+            searchable: typeof _col.searchable === 'boolean' ? !!_col.searchable : true
+          }
+        })
       }
     }
 
@@ -111,14 +124,14 @@ class TBody {
   /**
    * Filter by Tr
    *
-   * @param {*} _tr
+   * @param { Tr } _tr
    * @memberof TBody
    */
   _filter (_tr) {
     const keyword = this.proTable.options.keyword || ''
 
     return !!_tr.childs.find(_child => {
-      return _child
+      return _child.options.searchable && _child
         .$dom
         .innerText
         .toLowerCase()

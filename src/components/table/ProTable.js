@@ -10,7 +10,7 @@ import Header from '../Header'
  * @typedef { Object } ProTable.Options
  * @property { string[] } classes - Classes name of the table
  * @property { Object } thead - Thead
- * @property { string[] | Object } columns - Custom columns of table
+ * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type

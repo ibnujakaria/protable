@@ -7,8 +7,8 @@ class Tr {
     this.childs = []
   }
 
-  addTd ({ key, label }) {
-    const td = new Td({ key, child: label })
+  addTd ({ key, label, options }) {
+    const td = new Td({ key, child: label, options })
     this.childs.push(td)
     this.$dom.appendChild(td.$dom)
   }

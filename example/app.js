@@ -66,7 +66,8 @@ const simpleProTable = fromArray('#table-from-array', [
       label: 'Link Blog',
       targetIndex: 3
     }
-  }
+  },
+  search: false
 })
 
 console.log('simpleProTable', simpleProTable)
@@ -141,7 +142,8 @@ const proTableFromTable = fromTable('#table-1', {
   ...options,
   columns: {
     Blog: {
-      orderable: false
+      orderable: false,
+      searchable: false
     }
   },
   contents: {

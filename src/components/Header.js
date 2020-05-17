@@ -1,12 +1,20 @@
 import Input from "./search/Input"
+import ProTable from "./table/ProTable"
 
 class Header {
+  /**
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable 
+   */
   constructor({ proTable }) {
     this.proTable = proTable
 
     this.$dom = document.createElement('header')
     this._applyStyles()
-    this._createSearch()
+
+    if (this.proTable.options.search !== false) {
+      this._createSearch()
+    }
   }
 
   _applyStyles () {
