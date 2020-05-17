@@ -18,6 +18,9 @@ import Header from '../Header'
  * @property { string } pagination.rowsPerPage.text - Pagination rows per page text
  * @property { string[] } pagination.rowsPerPage.selectClasses
  * @property { Number[] } pagination.rowsPerPage.ranges
+ * @property { Object } search
+ * @property { string } search.placeholder
+ * @property { string[] } search.classes
  */
 
 /**

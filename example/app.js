@@ -29,6 +29,10 @@ const options = {
       selectClasses: ['form-control', 'form-control-sm'],
       ranges: [5, 10, 15, 1000]
     }
+  },
+  search: {
+    placeholder: 'Cari..',
+    classes: ['form-control', 'form-control-sm']
   }
 }
 
