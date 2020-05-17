@@ -11,8 +11,13 @@ import Header from '../Header'
  * @property { string[] } classes - Classes name of the table
  * @property { Object } thead - Thead
  * @property { string[] | Object } columns - Custom columns of table
+ * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type
+ * @property { Object } pagination.rowsPerPage - Pagination rows per page options
+ * @property { string } pagination.rowsPerPage.text - Pagination rows per page text
+ * @property { string[] } pagination.rowsPerPage.selectClasses
+ * @property { Number[] } pagination.rowsPerPage.ranges
  */
 
 /**
@@ -23,7 +28,7 @@ import Header from '../Header'
  */
 class ProTable {
   /**
-   *Creates an instance of ProTable.
+   * Creates an instance of ProTable.
    * @param { string } selector - DOM selector where the ProTable should replace
    * @param { ProTable.Options } options
    * @memberof ProTable

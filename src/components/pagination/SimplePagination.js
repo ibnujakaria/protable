@@ -38,6 +38,7 @@ class SimplePagination {
     this.$controls = document.createElement(
       options.pagination.containerElement || 'div'
     )
+    this.$controls.style.margin = '0'
 
     if (options.pagination.containerClasses) {
       this.$controls.classList.add(...options.pagination.containerClasses)

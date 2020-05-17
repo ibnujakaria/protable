@@ -8,7 +8,7 @@ class DefaultPagination {
     this.$dom = document.createElement('div')
     this.$dom.style.display = 'flex'
     this.$dom.style.justifyContent = 'space-between'
-    this.$dom.style.alignItems = 'baseline'
+    this.$dom.style.alignItems = 'center'
 
     this._buildRowsPerPage()
     this._buildControls()
@@ -25,6 +25,7 @@ class DefaultPagination {
     this.$controls = document.createElement(
       options.pagination.containerElement || 'div'
     )
+    this.$controls.style.margin = '0'
 
     if (options.pagination.containerClasses) {
       this.$controls.classList.add(...options.pagination.containerClasses)

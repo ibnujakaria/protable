@@ -1,12 +1,16 @@
 import { fromArray, fromTable } from '../src/index'
+import ProTable from '../src/components/table/ProTable'
 
+/**
+ * @type ProTable.Options
+ */
 const options = {
-  classes: ['table', 'table-sm', 'table-bordered', 'mt-3'],
+  classes: ['table', 'table-sm', 'table-striped', 'table-bordered', 'mt-3'],
   thead: {
     thClasses: ['align-middle']
   },
+  limit: 5,
   pagination: {
-    type: 'default',
     containerElement: 'ul',
     containerClasses: [
       'pagination', 'pagination-sm'
@@ -20,7 +24,11 @@ const options = {
     ],
     btnClasses: [
       'page-link'
-    ]
+    ],
+    rowsPerPage: {
+      selectClasses: ['form-control', 'form-control-sm'],
+      ranges: [5, 10, 15, 1000]
+    }
   }
 }
 
@@ -109,6 +117,7 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
     }, {
       ...options,
       contents: {
+        no: content => ++content,
         gender: content => {
           return content === 'female' ?
             `<span class="badge badge-success">${content}</span>` :
@@ -124,7 +133,17 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   })
 
 const proTableFromTable = fromTable('#table-1', {
-  ...options
+  ...options,
+  contents: {
+    Name: content => content.toUpperCase(),
+    Blog: content => {
+      const a = document.createElement('a')
+      a.href = content
+      a.innerHTML = content
+
+      return a
+    }
+  }
 })
 
 console.log('proTableFromTable', proTableFromTable)
