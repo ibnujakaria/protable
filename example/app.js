@@ -103,7 +103,10 @@ console.log('proTableComplex', proTableComplex)
 fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(response => response.json())
   .then(data => {
-    let proTable = fromArray('#table-employee-container', data, {
+    let proTable = fromArray('#table-employee-container', {
+      columns: ['no', 'name', 'email', 'gender', 'phone'],
+      rows: data
+    }, {
       ...options,
       contents: {
         gender: content => {
