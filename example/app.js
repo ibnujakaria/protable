@@ -139,6 +139,11 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
 
 const proTableFromTable = fromTable('#table-1', {
   ...options,
+  columns: {
+    Blog: {
+      orderable: false
+    }
+  },
   contents: {
     Name: content => content.toUpperCase(),
     Blog: content => {

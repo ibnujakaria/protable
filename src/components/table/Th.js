@@ -16,6 +16,7 @@ import ProTable from "./ProTable"
 class Th {
   /**
    * Creates an instance of Th.
+   * 
    * @param { Object } payload
    * @param { string } payload.key
    * @param { string } payload.label
@@ -75,7 +76,7 @@ class Th {
   }
 
   _isOrderable () {
-    return this.options.orderabel && this.options.attrs.colspan === 1
+    return this.options.orderable && this.options.attrs.colspan === 1
   }
 
   _applyOrderable () {
@@ -85,10 +86,12 @@ class Th {
 
     this.$container.style.cursor = 'pointer'
 
+    // caret top
     this.$spanTop = document.createElement('span')
     this.$spanTop.innerHTML = '&#9652;'
     this.$spanTop.style.marginBottom = '-4px'
 
+    // caret bottom
     this.$spanBottom = document.createElement('span')
     this.$spanBottom.innerHTML = '&#9662;'
     this.$spanBottom.style.marginTop = '-4px'
@@ -128,10 +131,10 @@ class Th {
       const order = this.proTable.options.order;
   
       this.$spanTop.style.visibility = order.key === this.key &&
-        order.direction === 'desc' ?'hidden' : ''
+        order.direction === 'desc' ? 'hidden' : ''
   
       this.$spanBottom.style.visibility = order.key === this.key &&
-        order.direction === 'asc' ?'hidden' : ''
+        order.direction === 'asc' ? 'hidden' : ''
     }
   }
 }

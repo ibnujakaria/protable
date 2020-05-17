@@ -50,7 +50,6 @@ class THead {
     if (Object.keys(childs).length) {
       trs = trs.concat(this.generateTrs(childs))
     }
-
     
     // add rowspan to th that has not colspan attr
     // and fix colspan as its child
@@ -66,7 +65,7 @@ class THead {
   /**
    * Generate th elements of the head
    * 
-   * @param { string[] } columns 
+   * @param { Object } columns 
    */
   generateThs (columns) {
     let ths = []
@@ -84,7 +83,8 @@ class THead {
             classes: this.options.thClasses,
             attrs: {
               colspan: this.getColspan(_col.childs)
-            }
+            },
+            orderable: typeof _col.orderable === 'boolean' ? !!_col.orderable : true
           }
         })
       )
