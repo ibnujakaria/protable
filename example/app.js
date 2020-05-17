@@ -32,7 +32,8 @@ const options = {
   },
   search: {
     placeholder: 'Cari..',
-    classes: ['form-control', 'form-control-sm']
+    classes: ['form-control', 'form-control-sm'],
+    notFoundText: 'Oops. The data that you are looking for is not found.'
   }
 }
 

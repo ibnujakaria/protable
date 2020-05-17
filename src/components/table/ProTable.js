@@ -21,6 +21,7 @@ import Header from '../Header'
  * @property { Object } search
  * @property { string } search.placeholder
  * @property { string[] } search.classes
+ * @property { string } search.notFoundText
  */
 
 /**

@@ -87,7 +87,7 @@ class TBody {
     if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
       const tr = new Tr()
       const td = new Td({
-        child: 'Not matching records found',
+        child: this.proTable.options.search?.notFoundText || 'Not matching records found',
         options: {
           attrs: {
             colspan: this.proTable.thead.columnsCount
