@@ -47,11 +47,11 @@ const simpleProTable = fromArray('#table-from-array', [
   ...options,
   columns: {
     name: {
-      label: 'Name'
+      label: 'Full Name'
     },
     blog: {
       label: 'Link Blog',
-      targetIndex: 2
+      targetIndex: 3
     }
   }
 })
@@ -105,7 +105,6 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   .then(data => {
     let proTable = fromArray('#table-employee-container', data, {
       ...options,
-      columns: ['no', 'name', 'email', 'gender', 'age', 'phone'],
       contents: {
         gender: content => {
           return content === 'female' ?
@@ -121,4 +120,8 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
     console.log('proTable', proTable)
   })
 
-// fromTable('#table-1', options)
+const proTableFromTable = fromTable('#table-1', {
+  ...options
+})
+
+console.log('proTableFromTable', proTableFromTable)

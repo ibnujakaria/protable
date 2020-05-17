@@ -22,9 +22,7 @@ class THead {
     }
     this.proTable = proTable
     this.$dom = document.createElement('thead')
-    this.trs = this.generateTrs(
-      this.proTable.options.columns || this.proTable.columns
-    )
+    this.trs = this.generateTrs(this.proTable.columns)
     this.columnsCount = (() => {
       return this.trs[0].childs
         .map(th => th.options.attrs.colspan)

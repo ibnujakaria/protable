@@ -66,7 +66,17 @@ class ProTable {
 
     this.columns = this._formatColumns(columns)
     if (this.options.columns) {
-      this.options.columns = this._formatColumns(this.options.columns)
+      // merging
+      for (const _key in this.options.columns) {
+        const _col = this.options.columns[_key]
+
+        if (Number.isInteger(_col.targetIndex)) {
+          const _targetKey = Object.keys(this.columns)[_col.targetIndex]
+          this.columns[_targetKey] = { ...this.columns[_targetKey], ..._col }
+        } else if (this.columns[_key]) {
+          this.columns[_key] = { ...this.columns[_key], ..._col }
+        }
+      }
     }
     this.rows = rows
 

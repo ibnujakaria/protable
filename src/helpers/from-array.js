@@ -1,12 +1,26 @@
 import ProTable from '../components/table/ProTable'
 
-const fromArray = (elId, array, options) => {
-  const columns = generateColumns(array)
+
+/**
+ * @typedef { Object } FromArray.Data
+ * @property { string[]|Object } columns
+ * @property { Object[] } rows
+ */
+
+/**
+ * Helper to create instance of ProTable using array data
+ * 
+ * @param { string | Node } elId 
+ * @param { array | FromArray.Data } data 
+ * @param { ProTable.Options } options 
+ */
+const fromArray = (elId, data, options) => {
+  const columns = data.columns || generateColumns(data)
 
   const proTable = new ProTable(elId, options)
   proTable.generateTable({
     columns,
-    rows: array
+    rows: data.rows || data
   })
 
   proTable.draw()
@@ -15,8 +29,10 @@ const fromArray = (elId, array, options) => {
 }
 
 /**
+ * Generate column from an array
  * 
  * @param [{ key: value }, { key: value }] array 
+ * @returns { String[] }
  */
 const generateColumns = array => {
   const columns = []

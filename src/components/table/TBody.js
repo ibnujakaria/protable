@@ -16,7 +16,7 @@ class TBody {
   }
 
   generateTrs () {
-    const columns = this.proTable.options.columns || this.proTable.columns
+    const columns = this.proTable.columns
     const rows = this.proTable.rows
     const trs = []
 
