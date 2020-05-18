@@ -23,7 +23,9 @@ const fromArray = (elId, data, options) => {
     rows: data.rows || data
   })
 
-  proTable.draw()
+  if (elId) {
+    proTable.draw()
+  }
 
   return proTable
 }

@@ -132,10 +132,10 @@ class TBody {
 
     return !!_tr.childs.find(_child => {
       return _child.options.searchable && _child
-        .$dom
-        .innerText
-        .toLowerCase()
-        .indexOf(
+        ?.$dom
+        ?.innerText
+        ?.toLowerCase()
+        ?.indexOf(
           keyword.toLowerCase()
         ) > -1
     })
