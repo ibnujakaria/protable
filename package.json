@@ -1,6 +1,6 @@
 {
   "name": "pro-table",
-  "version": "0.0.2-dev",
+  "version": "0.1.0",
   "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
   "main": "src/index.js",
   "scripts": {
@@ -13,6 +13,9 @@
     "url": "git+https://github.com/ibnujakaria/pro-table.git"
   },
   "keywords": [
+    "Datatable",
+    "Datatables",
+    "Alternative",
     "Data",
     "Table"
   ],
@@ -21,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/ibnujakaria/pro-table/issues"
   },
-  "homepage": "https://github.com/ibnujakaria/pro-table#readme",
+  "homepage": "https://protable.jagongoding.com",
   "devDependencies": {
     "@ava/babel": "^1.0.1",
     "@babel/core": "^7.9.6",
