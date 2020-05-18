@@ -1,0 +1,59 @@
+{
+  "normal": {
+    "classes": ["table", "table-striped", "table-bordered"],
+    "thead": {
+      "thClasses": ["align-middle"]
+    },
+    "pagination": {
+      "containerElement": "ul",
+      "containerClasses": [
+        "pagination"
+      ],
+      "btnWrapper": "li",
+      "btnWrapperClasses": [
+        "page-item"
+      ],
+      "btnWrapperActiveClasses": [
+        "active"
+      ],
+      "btnClasses": [
+        "page-link"
+      ],
+      "rowsPerPage": {
+        "selectClasses": ["form-control"]
+      }
+    },
+    "search": {
+      "classes": ["form-control"]
+    }
+  },
+  "sm": {
+    "classes": ["table", "table-sm", "table-striped", "table-bordered"],
+    "thead": {
+      "thClasses": ["align-middle"]
+    },
+    "pagination": {
+      "containerElement": "ul",
+      "containerClasses": [
+        "pagination", "pagination-sm"
+      ],
+      "btnWrapper": "li",
+      "btnWrapperClasses": [
+        "page-item"
+      ],
+      "btnWrapperActiveClasses": [
+        "active"
+      ],
+      "btnClasses": [
+        "page-link"
+      ],
+      "rowsPerPage": {
+        "selectClasses": ["form-control", "form-control-sm"]
+      }
+    },
+    "search": {
+      "classes": ["form-control", "form-control-sm"]
+    }
+  }
+    
+}

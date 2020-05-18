@@ -1,11 +1,11 @@
-import { fromArray, fromTable } from '../src/index'
+import { fromArray, fromTable, optionTemplates } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
 
 /**
  * @type ProTable.Options
  */
 const options = {
-  classes: ['table', 'table-sm', 'table-striped', 'table-bordered', 'mt-3'],
+  classes: ['table', 'table-sm', 'table-striped', 'table-bordered'],
   thead: {
     thClasses: ['align-middle']
   },
@@ -121,7 +121,7 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
       columns: ['no', 'name', 'email', 'gender', 'phone'],
       rows: data
     }, {
-      ...options,
+      ...optionTemplates.bootstrapSm,
       contents: {
         no: content => ++content,
         gender: content => {
@@ -139,7 +139,7 @@ fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
   })
 
 const proTableFromTable = fromTable('#table-1', {
-  ...options,
+  ...optionTemplates.bootstrap,
   columns: {
     Blog: {
       orderable: false,

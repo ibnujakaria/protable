@@ -19,6 +19,7 @@ class Header {
 
   _applyStyles () {
     this.$dom.style.textAlign = 'right'
+    this.$dom.style.marginBottom = '1rem'
   }
 
   _createSearch () {

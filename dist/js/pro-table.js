@@ -81,11 +81,17 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"normal\":{\"classes\":[\"table\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\"]}},\"search\":{\"classes\":[\"form-control\"]}},\"sm\":{\"classes\":[\"table\",\"table-sm\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\",\"pagination-sm\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\",\"form-control-sm\"]}},\"search\":{\"classes\":[\"form-control\",\"form-control-sm\"]}}}");
+
+/***/ }),
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95,6 +101,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "fromArray", function() { return /* reexport */ from_array; });
 __webpack_require__.d(__webpack_exports__, "fromTable", function() { return /* reexport */ from_dom_table; });
+__webpack_require__.d(__webpack_exports__, "optionTemplates", function() { return /* binding */ optionTemplates; });
 
 // CONCATENATED MODULE: ./src/components/table/Td.js
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
@@ -1449,6 +1456,7 @@ var Header_Header = /*#__PURE__*/function () {
     key: "_applyStyles",
     value: function _applyStyles() {
       this.$dom.style.textAlign = 'right';
+      this.$dom.style.marginBottom = '1rem';
     }
   }, {
     key: "_createSearch",
@@ -1812,16 +1820,26 @@ function getRowsFromDom(table, columns) {
 }
 
 /* harmony default export */ var from_dom_table = (from_dom_table_fromDOMTable);
+// EXTERNAL MODULE: ./src/const/bootstrap-options.json
+var bootstrap_options = __webpack_require__(0);
+
 // CONCATENATED MODULE: ./src/index.js
 
 
+
+var optionTemplates = {
+  bootstrap: bootstrap_options.normal,
+  bootstrapSm: bootstrap_options.sm
+};
 window.ProTable = {
   fromArray: from_array,
-  fromTable: from_dom_table
+  fromTable: from_dom_table,
+  optionTemplates: optionTemplates
 };
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   fromArray: from_array,
-  fromTable: from_dom_table
+  fromTable: from_dom_table,
+  optionTemplates: optionTemplates
 });
 
 
