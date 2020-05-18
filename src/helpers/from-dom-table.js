@@ -27,7 +27,7 @@ function getColumnsFromDom (table) {
   const firstTr = table.querySelector('thead tr')
 
   return Array.from(firstTr.children)
-    .map(_child => _child.innerText)
+    .map(_child => _child.innerHTML)
 }
 
 function getRowsFromDom (table, columns) {
@@ -38,7 +38,7 @@ function getRowsFromDom (table, columns) {
       const row = {}
 
       columns.forEach((_column, _index) => {
-        row[_column] = _tr.children[_index].innerText
+        row[_column] = _tr.children[_index].innerHTML
       })
 
       return row
