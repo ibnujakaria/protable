@@ -5,11 +5,22 @@
 [![](https://img.shields.io/github/release-date/ibnujakaria/pro-table)](https://github.com/ibnujakaria/pro-table/)
 [![](https://img.shields.io/npm/l/pro-table)](https://www.npmjs.com/package/pro-table)
 
-# pro-table
+# ProTable
 A data-table alternative written with modern javascript.
 
+## Docs
 
-## Create From Array
+Open [Full Documentation](https://protable.jagongoding.com).
+
+## Basic Usage
+
+### Installation
+
+```bash
+npm i pro-table
+```
+
+### Create From Array
 
 HTML container:
 ```html
@@ -23,7 +34,7 @@ import { fromArray } from 'pro-table'
 fromArray('#table-from-array', [
   {
     name: 'Nurul Huda',
-    relationship: 'Menikah',
+    relationship: 'Married',
     blog: 'https://jagongoding.com'
   },
   {
@@ -37,18 +48,20 @@ fromArray('#table-from-array', [
   },
   {
     name: 'Elmo Bachtiar',
-    relationship: 'Lajang'
+    relationship: 'Single'
   }
 ])
 ```
 
 Table Output:
 
-<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Menikah</td><td><a href="https://jagongoding.com">https://jagongoding.com</a></td><td>-</td></tr><tr><td>Abdullah Wahid</td><td>-</td><td>-</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>-</td><td><a href="https://kopiding.in">https://kopiding.in</a></td><td>Lamongan</td></tr><tr><td>Elmo Bachtiar</td><td>Lajang</td><td>-</td><td>-</td></tr></tbody></table>
+<table><thead><tr><th>Name</th><th>Relationship</th><th>Blog</th><th>City</th></tr></thead><tbody><tr><td>Nurul Huda</td><td>Married</td><td><a href="https://jagongoding.com">https://jagongoding.com</a></td><td>-</td></tr><tr><td>Abdullah Wahid</td><td>-</td><td>-</td><td>Bangkalan</td></tr><tr><td>Lendis Fabri</td><td>-</td><td><a href="https://kopiding.in">https://kopiding.in</a></td><td>Lamongan</td></tr><tr><td>Elmo Bachtiar</td><td>Single</td><td>-</td><td>-</td></tr></tbody></table>
 
-## Create Complex Table From Array
+### Create Complex Table From Array
 
 ```js
+import { fromArray } from 'pro-table'
+
 fromArray('#table-from-array-2', [
   {
     name: 'Nurul Huda',
