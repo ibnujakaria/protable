@@ -5,10 +5,6 @@ const fromDOMTable = (selector, options) => {
   const columns = getColumnsFromDom(dom)
   const rows = getRowsFromDom(dom, columns)
 
-  console.log('fromTable', 'dom:', dom)
-  console.log('fromTable', 'columns:', columns)
-  console.log('fromTable', 'rows:', rows)
-
   const proTable = new ProTable(null, options)
   proTable.generateTable({
     columns,

@@ -733,12 +733,15 @@ var TBody_TBody = /*#__PURE__*/function () {
         });
         var tdB = b.childs.find(function (_td) {
           return _td.key === order.key;
-        }); // ascending
+        }); // check if the value is valid number or not
+
+        var contentA = !isNaN(tdA.$dom.innerText) ? parseFloat(tdA.$dom.innerText) : tdA.$dom.innerText;
+        var contentB = !isNaN(tdB.$dom.innerText) ? parseFloat(tdB.$dom.innerText) : tdB.$dom.innerText; // ascending
 
         if (order.direction === 'asc') {
-          return tdA.$dom.innerText > tdB.$dom.innerText ? 1 : -1;
+          return contentA > contentB ? 1 : -1;
         } else {
-          return tdA.$dom.innerText > tdB.$dom.innerText ? -1 : 1;
+          return contentA > contentB ? -1 : 1;
         }
       }
 
@@ -1779,9 +1782,6 @@ var from_dom_table_fromDOMTable = function fromDOMTable(selector, options) {
   var dom = document.querySelector(selector);
   var columns = getColumnsFromDom(dom);
   var rows = getRowsFromDom(dom, columns);
-  console.log('fromTable', 'dom:', dom);
-  console.log('fromTable', 'columns:', columns);
-  console.log('fromTable', 'rows:', rows);
   var proTable = new table_ProTable(null, options);
   proTable.generateTable({
     columns: columns,

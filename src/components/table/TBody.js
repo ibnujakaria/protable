@@ -148,11 +148,15 @@ class TBody {
       const tdA = a.childs.find(_td => _td.key === order.key)
       const tdB = b.childs.find(_td => _td.key === order.key)
       
+      // check if the value is valid number or not
+      const contentA = !isNaN(tdA.$dom.innerText) ? parseFloat(tdA.$dom.innerText) : tdA.$dom.innerText
+      const contentB = !isNaN(tdB.$dom.innerText) ? parseFloat(tdB.$dom.innerText) : tdB.$dom.innerText
+
       // ascending
       if (order.direction === 'asc') {
-        return tdA.$dom.innerText > tdB.$dom.innerText ? 1 : -1
+        return contentA > contentB ? 1 : -1
       } else {
-        return tdA.$dom.innerText > tdB.$dom.innerText ? -1 : 1
+        return contentA > contentB ? -1 : 1
       }
     }
 
