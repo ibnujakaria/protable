@@ -54,12 +54,7 @@
     "babel": {
       "compileAsTests": [
         "src/**/*"
-      ],
-      "testOptions": {
-        "plugins": [
-          "@babel/plugin-proposal-optional-chaining"
-        ]
-      }
+      ]
     },
     "require": [
       "./test/_setup-browser-env.js",

@@ -10,7 +10,7 @@ module.exports = {
     usedExports: true
   },
   output: {
-    filename: 'js/[name].js',
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
@@ -28,11 +28,7 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env'],
-            plugins: ["@babel/plugin-proposal-optional-chaining"]
-          }
+          loader: 'babel-loader'
         }
       },
       {
