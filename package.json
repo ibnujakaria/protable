@@ -1,12 +1,13 @@
 {
   "name": "pro-table",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
   "main": "src/index.js",
   "scripts": {
     "test": "ava",
     "build": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server --open --config webpack.dev.js"
+    "dev": "webpack-dev-server --open --config webpack.dev.js",
+    "prepublish": "babel src --out-dir lib && cp -r src/const lib"
   },
   "repository": {
     "type": "git",
@@ -27,11 +28,13 @@
   "homepage": "https://protable.jagongoding.com",
   "devDependencies": {
     "@ava/babel": "^1.0.1",
+    "@babel/cli": "^7.10.1",
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-optional-chaining": "^7.9.0",
     "@babel/preset-env": "^7.9.6",
     "ava": "^3.8.1",
     "babel-loader": "^8.1.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "browser-env": "^3.3.0",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.1.0",
