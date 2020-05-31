@@ -1,10 +1,10 @@
 {
   "name": "pro-table",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "ava",
+    "test": "require-self && ava",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "prepublish": "babel src --out-dir lib && cp -r src/const lib"
@@ -45,6 +45,7 @@
     "html-webpack-plugin": "^4.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.14.0",
+    "require-self": "^0.2.3",
     "sass-loader": "^8.0.2",
     "style-loader": "^1.2.1",
     "terser-webpack-plugin": "^3.0.1",

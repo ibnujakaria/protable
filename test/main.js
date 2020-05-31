@@ -1,5 +1,5 @@
 import test from 'ava'
-import { fromArray } from '../src/index'
+import { fromArray } from 'pro-table'
 
 test('create proTable from array', t => {
 	const data = [
