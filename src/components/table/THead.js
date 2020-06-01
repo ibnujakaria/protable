@@ -80,7 +80,7 @@ class THead {
           label: _col.label,
           proTable: this.proTable,
           options: {
-            classes: this.options.thClasses,
+            classes: this.options.thClasses.concat(_col.classes),
             attrs: {
               colspan: this.getColspan(_col.childs)
             },

@@ -5,13 +5,18 @@ const fromDOMTable = (selector, options) => {
   const columns = getColumnsFromDom(dom)
   const rows = getRowsFromDom(dom, columns)
 
+  console.log({ columns })
+
+  options = {
+    classes: Array.from(dom.classList),
+    ...options
+  }
+
   const proTable = new ProTable(null, options)
   proTable.generateTable({
     columns,
     rows
   })
-
-  console.log('fromTable', 'proTable:', proTable.$dom)
 
   // replace the dom input
   dom.replaceWith(proTable.$dom)
@@ -21,9 +26,16 @@ const fromDOMTable = (selector, options) => {
 
 function getColumnsFromDom (table) {
   const firstTr = table.querySelector('thead tr')
+  const columns = {}
 
-  return Array.from(firstTr.children)
-    .map(_child => _child.innerHTML)
+  Array.from(firstTr.children).forEach(_child => {
+    columns[_child.innerHTML] = {
+      label: _child.innerHTML,
+      classes: Array.from(_child.classList)
+    }
+  })
+
+  return columns
 }
 
 function getRowsFromDom (table, columns) {
@@ -33,7 +45,7 @@ function getRowsFromDom (table, columns) {
     .map(_tr => {
       const row = {}
 
-      columns.forEach((_column, _index) => {
+      Object.keys(columns).forEach((_column, _index) => {
         row[_column] = _tr.children[_index].innerHTML
       })
 

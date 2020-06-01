@@ -64,8 +64,8 @@ class Th {
   }
 
   _applyClasses () {
-    if (this.options.classes) {
-      this.options.classes.forEach(_class => this.$dom.classList.add(_class))
+    if (this.options.classes?.length) {
+      this.$dom.classList.add(...this.options.classes)
     }
   }
 
@@ -88,13 +88,12 @@ class Th {
 
     // caret top
     this.$spanTop = document.createElement('span')
-    this.$spanTop.innerHTML = '&#9652;'
-    this.$spanTop.style.marginBottom = '-4px'
-
+    this.$spanTop.innerHTML = '▴'
+    this.$spanTop.style.marginBottom = '-.3rem'
     // caret bottom
     this.$spanBottom = document.createElement('span')
-    this.$spanBottom.innerHTML = '&#9662;'
-    this.$spanBottom.style.marginTop = '-4px'
+    this.$spanBottom.innerHTML = '▾'
+    this.$spanBottom.style.marginTop = '-.3rem'
 
     this.$orderDom = document.createElement('div')
     this.$orderDom.appendChild(this.$spanTop)
@@ -102,9 +101,11 @@ class Th {
     this.$orderDom.style.display = 'inline-flex'
     this.$orderDom.style.flexDirection = 'column'
     this.$orderDom.style.justifyContent = 'center'
-    this.$orderDom.style.fontSize = '70%'
-    this.$orderDom.style.height = '20px'
+    this.$orderDom.style.fontSize = '80%'
+    this.$orderDom.style.height = '1rem'
     this.$orderDom.style.opacity = 0.3
+    this.$orderDom.style.marginLeft = '.5rem'
+    this.$orderDom.style.userSelect = 'none'
     this.$container.appendChild(this.$orderDom)
 
     this.$dom.addEventListener('click', e => {
