@@ -40,8 +40,21 @@ class TBody {
     let tds = []
 
     for (const _key in columns) {
+      /**
+       * the corresponding column of this row
+       */
       const _col = columns[_key]
-      let rowContent = _row[_key]
+
+      /**
+       * Row Content could be an array that consits with 2 items 
+       *  - ['content', { classes: [ ... ] }]
+       *  - first item is the content
+       *  - the second is the options
+       * 
+       * And could be just a string/Node
+       */
+      let rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key]
+      let rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {}
 
       // override content if user defines targetIndex
       if (Number.isInteger(_col.targetIndex)) {
@@ -65,6 +78,7 @@ class TBody {
           key: _key,
           label: rowContent,
           options: {
+            ...rowOptions,
             searchable: typeof _col.searchable === 'boolean' ? !!_col.searchable : true
           }
         })

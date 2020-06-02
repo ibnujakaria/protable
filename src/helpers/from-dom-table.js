@@ -46,7 +46,9 @@ function getRowsFromDom (table, columns) {
       const row = {}
 
       Object.keys(columns).forEach((_column, _index) => {
-        row[_column] = _tr.children[_index].innerHTML
+        row[_column] = [_tr.children[_index].innerHTML, {
+          classes: Array.from(_tr.children[_index].classList)
+        }]
       })
 
       return row

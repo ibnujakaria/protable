@@ -146,7 +146,6 @@ const proTableFromTable = fromTable('#table-1', {
     }
   },
   contents: {
-    Name: content => content.toUpperCase(),
     Blog: content => {
       const a = document.createElement('a')
       a.href = content
