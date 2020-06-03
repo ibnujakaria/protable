@@ -153,6 +153,9 @@ const proTableFromTable = fromTable('#table-1', {
 
       return a
     }
+  },
+  search: {
+    classes: ['form-control', 'from-control-sm']
   }
 })
 
