@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -92,6 +92,12 @@ module.exports = JSON.parse("{\"normal\":{\"classes\":[\"table\",\"table-striped
 
 /***/ }),
 /* 1 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"classes\":[\"ui\",\"celled\",\"striped\",\"table\"],\"pagination\":{\"containerClasses\":[\"ui\",\"pagination\",\"menu\"],\"btnElement\":\"a\",\"btnClasses\":[\"item\"],\"rowsPerPage\":{\"selectClasses\":[\"ui\",\"dropdown\"]}},\"search\":{\"wrapperElement\":\"div\",\"wrapperClasses\":[\"ui\",\"input\"]}}");
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1042,8 +1048,10 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
   }, {
     key: "_buildButton",
     value: function _buildButton(text) {
+      var _options$pagination;
+
       var options = this.proTable.options;
-      var $btn = document.createElement('button');
+      var $btn = document.createElement(((_options$pagination = options.pagination) === null || _options$pagination === void 0 ? void 0 : _options$pagination.btnElement) || 'button');
       $btn.innerText = text; // apply classes from options
 
       if (this.proTable.options.pagination.btnClasses) {
@@ -1295,9 +1303,11 @@ var DefaultPagination_DefaultPagination = /*#__PURE__*/function () {
   }, {
     key: "_buildButton",
     value: function _buildButton(text) {
-      var $btn = document.createElement('button');
-      $btn.innerText = text;
-      var options = this.proTable.options; // if there is a wrapper
+      var _options$pagination;
+
+      var options = this.proTable.options;
+      var $btn = document.createElement(((_options$pagination = options.pagination) === null || _options$pagination === void 0 ? void 0 : _options$pagination.btnElement) || 'button');
+      $btn.innerText = text; // if there is a wrapper
 
       if (options.pagination.btnWrapper) {
         var $wrapper = document.createElement(options.pagination.btnWrapper);
@@ -1451,6 +1461,8 @@ var Input = /*#__PURE__*/function () {
    * @param { ProTable } payload.proTable 
    */
   function Input(_ref) {
+    var _this$proTable$option;
+
     var proTable = _ref.proTable;
 
     Input_classCallCheck(this, Input);
@@ -1458,6 +1470,15 @@ var Input = /*#__PURE__*/function () {
     this.proTable = proTable;
 
     this._createInput();
+
+    if ((_this$proTable$option = this.proTable.options.search) === null || _this$proTable$option === void 0 ? void 0 : _this$proTable$option.wrapperElement) {
+      this._createWrapper();
+
+      this.$dom = this.$wrapper;
+      this.$wrapper.appendChild(this.$input);
+    } else {
+      this.$dom = this.$input;
+    }
   }
 
   Input_createClass(Input, [{
@@ -1466,23 +1487,36 @@ var Input = /*#__PURE__*/function () {
       var _options$search, _options$search2;
 
       var options = this.proTable.options;
-      this.$dom = document.createElement('input');
-      this.$dom.placeholder = ((_options$search = options.search) === null || _options$search === void 0 ? void 0 : _options$search.placeholder) || 'Search';
-      this.$dom.addEventListener('keyup', this._onKeyUp.bind(this)); // apply classes
+      this.$input = document.createElement('input');
+      this.$input.placeholder = ((_options$search = options.search) === null || _options$search === void 0 ? void 0 : _options$search.placeholder) || 'Search';
+      this.$input.addEventListener('keyup', this._onKeyUp.bind(this)); // apply classes
 
       if ((_options$search2 = options.search) === null || _options$search2 === void 0 ? void 0 : _options$search2.classes) {
-        var _this$$dom$classList;
+        var _this$$input$classLis;
 
-        (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, Input_toConsumableArray(options.search.classes));
+        (_this$$input$classLis = this.$input.classList).add.apply(_this$$input$classLis, Input_toConsumableArray(options.search.classes));
       }
 
-      this.$dom.style.width = 'fit-content';
-      this.$dom.style.display = 'inline-block';
+      this.$input.style.width = 'fit-content';
+      this.$input.style.display = 'inline-block';
+    }
+  }, {
+    key: "_createWrapper",
+    value: function _createWrapper() {
+      var _this$proTable$option2, _this$proTable$option3, _this$proTable$option4;
+
+      this.$wrapper = document.createElement((_this$proTable$option2 = this.proTable.options.search) === null || _this$proTable$option2 === void 0 ? void 0 : _this$proTable$option2.wrapperElement);
+
+      if ((_this$proTable$option3 = this.proTable.options.search) === null || _this$proTable$option3 === void 0 ? void 0 : (_this$proTable$option4 = _this$proTable$option3.wrapperClasses) === null || _this$proTable$option4 === void 0 ? void 0 : _this$proTable$option4.length) {
+        var _this$$wrapper$classL, _this$proTable$option5;
+
+        (_this$$wrapper$classL = this.$wrapper.classList).add.apply(_this$$wrapper$classL, Input_toConsumableArray((_this$proTable$option5 = this.proTable.options.search) === null || _this$proTable$option5 === void 0 ? void 0 : _this$proTable$option5.wrapperClasses));
+      }
     }
   }, {
     key: "_onKeyUp",
     value: function _onKeyUp() {
-      this.proTable.setKeyword(this.$dom.value);
+      this.proTable.setKeyword(this.$input.value);
     }
   }]);
 
@@ -1909,13 +1943,18 @@ function getRowsFromDom(table, columns) {
 // EXTERNAL MODULE: ./src/const/bootstrap-options.json
 var bootstrap_options = __webpack_require__(0);
 
+// EXTERNAL MODULE: ./src/const/semantic-ui-options.json
+var semantic_ui_options = __webpack_require__(1);
+
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
 var optionTemplates = {
   bootstrap: bootstrap_options.normal,
-  bootstrapSm: bootstrap_options.sm
+  bootstrapSm: bootstrap_options.sm,
+  semanticUI: semantic_ui_options
 };
 window.ProTable = {
   fromArray: from_array,
