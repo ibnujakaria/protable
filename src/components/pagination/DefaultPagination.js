@@ -116,10 +116,10 @@ class DefaultPagination {
    * @returns { Object } object of $btn and $wrapper
    */
   _buildButton (text) {
-    const $btn = document.createElement('button')
+    const options = this.proTable.options
+    const $btn = document.createElement(options.pagination?.btnElement || 'button')
     $btn.innerText = text
 
-    const options = this.proTable.options
     // if there is a wrapper
     if (options.pagination.btnWrapper) {
       const $wrapper = document.createElement(options.pagination.btnWrapper)

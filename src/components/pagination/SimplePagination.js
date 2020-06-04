@@ -77,7 +77,7 @@ class SimplePagination {
    */
   _buildButton (text) {
     const options = this.proTable.options
-    const $btn = document.createElement('button')
+    const $btn = document.createElement(options.pagination?.btnElement || 'button')
     $btn.innerText = text
 
     // apply classes from options

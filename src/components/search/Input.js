@@ -8,27 +8,44 @@ class Input {
    */
   constructor ({ proTable }) {
     this.proTable = proTable
+
     this._createInput()
+
+    if (this.proTable.options.search?.wrapperElement) {
+      this._createWrapper()
+      this.$dom = this.$wrapper
+      this.$wrapper.appendChild(this.$input)
+    } else {
+      this.$dom = this.$input
+    }
   }
 
   _createInput () {
     const options = this.proTable.options
   
-    this.$dom = document.createElement('input')
-    this.$dom.placeholder = options.search?.placeholder || 'Search'
-    this.$dom.addEventListener('keyup', this._onKeyUp.bind(this))
+    this.$input = document.createElement('input')
+    this.$input.placeholder = options.search?.placeholder || 'Search'
+    this.$input.addEventListener('keyup', this._onKeyUp.bind(this))
 
     // apply classes
     if (options.search?.classes) {
-      this.$dom.classList.add(...options.search.classes)
+      this.$input.classList.add(...options.search.classes)
     }
 
-    this.$dom.style.width = 'fit-content'
-    this.$dom.style.display = 'inline-block'
+    this.$input.style.width = 'fit-content'
+    this.$input.style.display = 'inline-block'
+  }
+
+  _createWrapper () {
+    this.$wrapper = document.createElement(this.proTable.options.search?.wrapperElement)
+    
+    if (this.proTable.options.search?.wrapperClasses?.length) {
+      this.$wrapper.classList.add(...this.proTable.options.search?.wrapperClasses)
+    }
   }
 
   _onKeyUp () {
-    this.proTable.setKeyword(this.$dom.value)
+    this.proTable.setKeyword(this.$input.value)
   }
 }
 

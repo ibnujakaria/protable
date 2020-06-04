@@ -1,0 +1,15 @@
+{
+  "classes": ["ui", "celled", "striped", "table"],
+  "pagination": {
+    "containerClasses": ["ui", "pagination", "menu"],
+    "btnElement": "a",
+    "btnClasses": ["item"],
+    "rowsPerPage": {
+      "selectClasses": ["ui", "dropdown"]
+    }
+  },
+  "search": {
+    "wrapperElement": "div",
+    "wrapperClasses": ["ui", "input"]
+  }
+}
