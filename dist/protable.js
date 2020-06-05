@@ -1782,7 +1782,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
     this.thead = null;
     this.tbody = null;
     this.$dom = document.createElement('section');
-    this.$dom.classList.add('pro-table');
+    this.$dom.classList.add('protable');
   }
 
   ProTable_createClass(ProTable, [{
@@ -2107,4 +2107,4 @@ window.ProTable = {
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=pro-table.js.map
+//# sourceMappingURL=protable.js.map

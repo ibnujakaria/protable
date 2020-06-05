@@ -67,7 +67,7 @@ class ProTable {
     this.thead = null
     this.tbody = null
     this.$dom = document.createElement('section')
-    this.$dom.classList.add('pro-table')
+    this.$dom.classList.add('protable')
   }
 
   generateTable ({ columns, rows }) {

@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin')
 module.exports = merge(common, {
   mode: 'production',
   entry: {
-    ['pro-table.min']: './src/index.js'
+    ['protable.min']: './src/index.js'
   },
   devtool: 'source-map',
   optimization: {

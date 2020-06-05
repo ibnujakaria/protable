@@ -1,9 +1,9 @@
-[![](https://img.shields.io/npm/v/pro-table)](https://www.npmjs.com/package/pro-table)
-[![](https://img.shields.io/npm/dt/pro-table)](https://www.npmjs.com/package/pro-table)
-[![](https://img.shields.io/jsdelivr/npm/hm/pro-table)](https://www.jsdelivr.com/package/npm/pro-table)
-[![](https://img.shields.io/github/size/ibnujakaria/pro-table/dist/pro-table.min.js)]()
-[![](https://img.shields.io/github/release-date/ibnujakaria/pro-table)](https://github.com/ibnujakaria/pro-table/)
-[![](https://img.shields.io/npm/l/pro-table)](https://www.npmjs.com/package/pro-table)
+[![](https://img.shields.io/npm/v/protable)](https://www.npmjs.com/package/protable)
+[![](https://img.shields.io/npm/dt/protable)](https://www.npmjs.com/package/protable)
+[![](https://img.shields.io/jsdelivr/npm/hm/protable)](https://www.jsdelivr.com/package/npm/protable)
+[![](https://img.shields.io/github/size/ibnujakaria/protable/dist/protable.min.js)]()
+[![](https://img.shields.io/github/release-date/ibnujakaria/protable)](https://github.com/ibnujakaria/protable/)
+[![](https://img.shields.io/npm/l/protable)](https://www.npmjs.com/package/protable)
 
 # ProTable
 A data-table alternative written with modern javascript.
@@ -17,7 +17,7 @@ Open [Full Documentation](https://protable.jagongoding.com).
 ### Installation
 
 ```bash
-npm i pro-table
+npm i protable
 ```
 
 ### Create From Array
@@ -29,7 +29,7 @@ HTML container:
 
 Js: 
 ```js
-import { fromArray } from 'pro-table'
+import { fromArray } from 'protable'
 
 fromArray('#table-from-array', [
   {
@@ -60,7 +60,7 @@ Table Output:
 ### Create Complex Table From Array
 
 ```js
-import { fromArray } from 'pro-table'
+import { fromArray } from 'protable'
 
 fromArray('#table-from-array-2', [
   {

@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    ['pro-table']: './src/index.js',
+    ['protable']: './src/index.js',
   },
   optimization: {
     usedExports: true
@@ -18,7 +18,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'css/pro-table.css',
+      filename: 'css/protable.css',
       chunkFilename: '[id].css',
     })
   ],
