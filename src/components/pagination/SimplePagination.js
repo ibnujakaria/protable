@@ -101,8 +101,9 @@ class SimplePagination {
   }
   
   render () {
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
+    const options = this.proTable.options
+    const limit = options.limit
+    const page = options.page
     const start = ((page - 1) * limit) + 1
     const to = start + limit - 1
     const totalRows = this.proTable.tbody.filteredTrs.length
@@ -115,14 +116,26 @@ class SimplePagination {
 
     if (page === 1) {
       this.btnPrev.$wrapper.classList.add('disabled')
+      if (options.pagination?.btnDisabledClasses?.length) {
+        this.btnPrev.$btn.classList.add(...options.pagination.btnDisabledClasses)
+      }
     } else {
       this.btnPrev.$wrapper.classList.remove('disabled')
+      if (options.pagination?.btnDisabledClasses?.length) {
+        this.btnPrev.$btn.classList.remove(...options.pagination.btnDisabledClasses)
+      }
     }
 
     if (page === lastPage) {
       this.btnNext.$wrapper.classList.add('disabled')
+      if (options.pagination?.btnDisabledClasses?.length) {
+        this.btnNext.$btn.classList.add(...options.pagination.btnDisabledClasses)
+      }
     } else {
       this.btnNext.$wrapper.classList.remove('disabled')
+      if (options.pagination?.btnDisabledClasses?.length) {
+        this.btnNext.$btn.classList.remove(...options.pagination.btnDisabledClasses)
+      }
     }
   }
 }
