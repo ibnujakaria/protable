@@ -1,0 +1,21 @@
+{
+  "classes": ["w-full", "table-auto"],
+  "thead": {
+    "thClasses": ["px-3", "py-2", "bg-gray-100", "border"]
+  },
+  "tbody": {
+    "tdClasses": ["bg-even-200", "odd:bg-gray-200", "px-3", "py-2", "border"]
+  },
+  "pagination": {
+    "containerClasses": ["flex"],
+    "btnClasses": ["px-2", "py-1", "border"],
+    "btnActiveClasses": ["bg-gray-100"],
+    "btnDisabledClasses": ["text-gray-500"],
+    "rowsPerPage": {
+      "selectClasses": ["px-2", "py-1", "border"]
+    }
+  },
+  "search": {
+    "classes": ["px-2", "py-1", "border"]
+  }
+}

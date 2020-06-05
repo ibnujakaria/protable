@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = 4);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -104,6 +104,12 @@ module.exports = JSON.parse("{\"pagination\":{\"containerElement\":\"ul\",\"cont
 
 /***/ }),
 /* 3 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"classes\":[\"w-full\",\"table-auto\"],\"thead\":{\"thClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"tbody\":{\"tdClasses\":[\"bg-even-200\",\"odd:bg-gray-200\",\"px-3\",\"py-2\",\"border\"]},\"pagination\":{\"containerClasses\":[\"flex\"],\"btnClasses\":[\"px-2\",\"py-1\",\"border\"],\"btnActiveClasses\":[\"bg-gray-100\"],\"btnDisabledClasses\":[\"text-gray-500\"],\"rowsPerPage\":{\"selectClasses\":[\"px-2\",\"py-1\",\"border\"]}},\"search\":{\"classes\":[\"px-2\",\"py-1\",\"border\"]}}");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -663,18 +669,36 @@ function TBody_createClass(Constructor, protoProps, staticProps) { if (protoProp
 
 
 
+/**
+ * TBody Options
+ * 
+ * @typedef { Object } TBody.Options
+ * @property { string[] } tdClasses - classes of each td
+ */
+
+/**
+ * @class TBody
+ * @param { TBody.Options } options
+ */
 
 var TBody_TBody = /*#__PURE__*/function () {
   /**
    * Creates an instance of TBody.
-   * @param { ProTable } proTable
+   * 
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable
+   * @param { TBody.Options } payload.options
    * @memberof TBody
    */
-  function TBody(proTable) {
+  function TBody(_ref) {
+    var proTable = _ref.proTable,
+        options = _ref.options;
+
     TBody_classCallCheck(this, TBody);
 
     this.$dom = document.createElement('tbody');
     this.proTable = proTable;
+    this.options = options;
     this.trs = this.generateTrs();
     this.render();
   }
@@ -708,6 +732,8 @@ var TBody_TBody = /*#__PURE__*/function () {
       var tds = [];
 
       for (var _key in columns) {
+        var _this$options;
+
         /**
          * the corresponding column of this row
          */
@@ -722,7 +748,14 @@ var TBody_TBody = /*#__PURE__*/function () {
          */
 
         var rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key];
-        var rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {}; // override content if user defines targetIndex
+        var rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {};
+
+        if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : _this$options.tdClasses) {
+          var _this$options2;
+
+          rowOptions.classes = (rowOptions.classes || []).concat((_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.tdClasses);
+        } // override content if user defines targetIndex
+
 
         if (Number.isInteger(_col.targetIndex)) {
           rowContent = _row[Object.keys(this.proTable.columns)[_col.targetIndex]];
@@ -1648,6 +1681,18 @@ var Header_Header = /*#__PURE__*/function () {
 
 /* harmony default export */ var components_Header = (Header_Header);
 // CONCATENATED MODULE: ./src/components/table/ProTable.js
+function ProTable_toConsumableArray(arr) { return ProTable_arrayWithoutHoles(arr) || ProTable_iterableToArray(arr) || ProTable_unsupportedIterableToArray(arr) || ProTable_nonIterableSpread(); }
+
+function ProTable_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function ProTable_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return ProTable_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return ProTable_arrayLikeToArray(o, minLen); }
+
+function ProTable_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function ProTable_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return ProTable_arrayLikeToArray(arr); }
+
+function ProTable_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function ProTable_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function ProTable_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ProTable_ownKeys(Object(source), true).forEach(function (key) { ProTable_defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ProTable_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -1671,6 +1716,7 @@ function ProTable_createClass(Constructor, protoProps, staticProps) { if (protoP
  * @typedef { Object } ProTable.Options
  * @property { string[] } classes - Classes name of the table
  * @property { Object } thead - Thead
+ * @property { Object } tbody - TBody
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
@@ -1735,8 +1781,6 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   ProTable_createClass(ProTable, [{
     key: "generateTable",
     value: function generateTable(_ref) {
-      var _this = this;
-
       var columns = _ref.columns,
           rows = _ref.rows;
       this.$table = document.createElement('table');
@@ -1770,15 +1814,15 @@ var ProTable_ProTable = /*#__PURE__*/function () {
 
 
       if (this.options.classes) {
-        this.options.classes.forEach(function (_class) {
-          _this.$table.classList.add(_class);
-        });
+        var _this$$table$classLis;
+
+        (_this$$table$classLis = this.$table.classList).add.apply(_this$$table$classLis, ProTable_toConsumableArray(this.options.classes));
       }
     }
   }, {
     key: "_formatColumns",
     value: function _formatColumns(columns) {
-      var _this2 = this;
+      var _this = this;
 
       // if columns is Object, return as is
       if (columns !== null && columns.constructor === Object) {
@@ -1791,7 +1835,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
           var key = Object.keys(_col)[0];
           formatted[key] = {
             label: "".concat(key[0].toUpperCase()).concat(key.substr(1)),
-            childs: _this2._formatColumns(Object.values(_col)[0])
+            childs: _this._formatColumns(Object.values(_col)[0])
           };
         } else {
           formatted[_col] = {
@@ -1825,7 +1869,10 @@ var ProTable_ProTable = /*#__PURE__*/function () {
         this.$table.removeChild(this.tbody.$dom);
       }
 
-      this.tbody = new table_TBody(this);
+      this.tbody = new table_TBody({
+        proTable: this,
+        options: this.options.tbody
+      });
       this.$table.appendChild(this.tbody.$dom);
     }
   }, {
@@ -2022,7 +2069,11 @@ var semantic_ui_options = __webpack_require__(1);
 // EXTERNAL MODULE: ./src/const/foundation.json
 var foundation = __webpack_require__(2);
 
+// EXTERNAL MODULE: ./src/const/tailwind.json
+var tailwind = __webpack_require__(3);
+
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
@@ -2032,7 +2083,8 @@ var optionTemplates = {
   bootstrap: bootstrap_options.normal,
   bootstrapSm: bootstrap_options.sm,
   semanticUI: semantic_ui_options,
-  foundation: foundation
+  foundation: foundation,
+  tailwind: tailwind
 };
 window.ProTable = {
   fromArray: from_array,
