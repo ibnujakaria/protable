@@ -2,15 +2,31 @@ import Tr from "./Tr"
 import Td from "./Td"
 import ProTable from "./ProTable"
 
+/**
+ * TBody Options
+ * 
+ * @typedef { Object } TBody.Options
+ * @property { string[] } tdClasses - classes of each td
+ */
+
+/**
+ * @class TBody
+ * @param { TBody.Options } options
+ */
 class TBody {
+
   /**
    * Creates an instance of TBody.
-   * @param { ProTable } proTable
+   * 
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable
+   * @param { TBody.Options } payload.options
    * @memberof TBody
    */
-  constructor(proTable) {
+  constructor({ proTable, options }) {
     this.$dom = document.createElement('tbody')
     this.proTable = proTable
+    this.options = options
     this.trs = this.generateTrs()
     this.render()
   }
@@ -55,6 +71,10 @@ class TBody {
        */
       let rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key]
       let rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {}
+
+      if (this.options?.tdClasses) {
+        rowOptions.classes = (rowOptions.classes || []).concat(this.options?.tdClasses)
+      }
 
       // override content if user defines targetIndex
       if (Number.isInteger(_col.targetIndex)) {

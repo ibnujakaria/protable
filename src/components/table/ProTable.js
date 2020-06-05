@@ -10,6 +10,7 @@ import Header from '../Header'
  * @typedef { Object } ProTable.Options
  * @property { string[] } classes - Classes name of the table
  * @property { Object } thead - Thead
+ * @property { Object } tbody - TBody
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
@@ -96,9 +97,7 @@ class ProTable {
 
     // apply options
     if (this.options.classes) {
-      this.options.classes.forEach(_class => {
-        this.$table.classList.add(_class)
-      })
+      this.$table.classList.add(...this.options.classes)
     }
   }
 
@@ -147,7 +146,10 @@ class ProTable {
       this.$table.removeChild(this.tbody.$dom)
     }
 
-    this.tbody = new TBody(this)
+    this.tbody = new TBody({
+      proTable: this,
+      options: this.options.tbody
+    })
     this.$table.appendChild(this.tbody.$dom)
   }
 
