@@ -24,6 +24,7 @@ class Input {
     const options = this.proTable.options
   
     this.$input = document.createElement('input')
+    this.$input.type = 'text'
     this.$input.placeholder = options.search?.placeholder || 'Search'
     this.$input.addEventListener('keyup', this._onKeyUp.bind(this))
 
