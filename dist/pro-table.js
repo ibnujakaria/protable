@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -98,6 +98,12 @@ module.exports = JSON.parse("{\"classes\":[\"ui\",\"celled\",\"striped\",\"table
 
 /***/ }),
 /* 2 */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnElement\":\"a\",\"btnDisabledClasses\":[\"disabled\"],\"rowsPerPage\":{\"selectClasses\":[\"margin-0\"]}},\"search\":{\"classes\":[\"margin-0\"]}}");
+
+/***/ }),
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1085,8 +1091,9 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      var limit = this.proTable.options.limit;
-      var page = this.proTable.options.page;
+      var options = this.proTable.options;
+      var limit = options.limit;
+      var page = options.page;
       var start = (page - 1) * limit + 1;
       var to = start + limit - 1;
       var totalRows = this.proTable.tbody.filteredTrs.length;
@@ -1096,15 +1103,47 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
       this.btnNext.$btn.disabled = page === lastPage;
 
       if (page === 1) {
+        var _options$pagination2, _options$pagination2$;
+
         this.btnPrev.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.btnDisabledClasses) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.length) {
+          var _this$btnPrev$$btn$cl;
+
+          (_this$btnPrev$$btn$cl = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl, SimplePagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       } else {
+        var _options$pagination3, _options$pagination3$;
+
         this.btnPrev.$wrapper.classList.remove('disabled');
+
+        if ((_options$pagination3 = options.pagination) === null || _options$pagination3 === void 0 ? void 0 : (_options$pagination3$ = _options$pagination3.btnDisabledClasses) === null || _options$pagination3$ === void 0 ? void 0 : _options$pagination3$.length) {
+          var _this$btnPrev$$btn$cl2;
+
+          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl2, SimplePagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       }
 
       if (page === lastPage) {
+        var _options$pagination4, _options$pagination4$;
+
         this.btnNext.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination4 = options.pagination) === null || _options$pagination4 === void 0 ? void 0 : (_options$pagination4$ = _options$pagination4.btnDisabledClasses) === null || _options$pagination4$ === void 0 ? void 0 : _options$pagination4$.length) {
+          var _this$btnNext$$btn$cl;
+
+          (_this$btnNext$$btn$cl = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl, SimplePagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       } else {
+        var _options$pagination5, _options$pagination5$;
+
         this.btnNext.$wrapper.classList.remove('disabled');
+
+        if ((_options$pagination5 = options.pagination) === null || _options$pagination5 === void 0 ? void 0 : (_options$pagination5$ = _options$pagination5.btnDisabledClasses) === null || _options$pagination5$ === void 0 ? void 0 : _options$pagination5$.length) {
+          var _this$btnNext$$btn$cl2;
+
+          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl2, SimplePagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       }
     }
   }]);
@@ -1333,8 +1372,9 @@ var DefaultPagination_DefaultPagination = /*#__PURE__*/function () {
   }, {
     key: "render",
     value: function render() {
-      var limit = this.proTable.options.limit;
-      var page = this.proTable.options.page;
+      var options = this.proTable.options;
+      var limit = options.limit;
+      var page = options.page;
       var start = (page - 1) * limit + 1;
       var to = start + limit - 1;
       var totalRows = this.proTable.tbody.filteredTrs.length;
@@ -1343,15 +1383,47 @@ var DefaultPagination_DefaultPagination = /*#__PURE__*/function () {
       this.btnNext.$btn.disabled = page === lastPage;
 
       if (page === 1) {
+        var _options$pagination2, _options$pagination2$;
+
         this.btnPrev.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.btnDisabledClasses) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.length) {
+          var _this$btnPrev$$btn$cl2;
+
+          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl2, DefaultPagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       } else {
+        var _options$pagination3, _options$pagination3$;
+
         this.btnPrev.$wrapper.classList.remove('disabled');
+
+        if ((_options$pagination3 = options.pagination) === null || _options$pagination3 === void 0 ? void 0 : (_options$pagination3$ = _options$pagination3.btnDisabledClasses) === null || _options$pagination3$ === void 0 ? void 0 : _options$pagination3$.length) {
+          var _this$btnPrev$$btn$cl3;
+
+          (_this$btnPrev$$btn$cl3 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl3, DefaultPagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       }
 
       if (page === lastPage) {
+        var _options$pagination4, _options$pagination4$;
+
         this.btnNext.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination4 = options.pagination) === null || _options$pagination4 === void 0 ? void 0 : (_options$pagination4$ = _options$pagination4.btnDisabledClasses) === null || _options$pagination4$ === void 0 ? void 0 : _options$pagination4$.length) {
+          var _this$btnNext$$btn$cl2;
+
+          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl2, DefaultPagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       } else {
+        var _options$pagination5, _options$pagination5$;
+
         this.btnNext.$wrapper.classList.remove('disabled');
+
+        if ((_options$pagination5 = options.pagination) === null || _options$pagination5 === void 0 ? void 0 : (_options$pagination5$ = _options$pagination5.btnDisabledClasses) === null || _options$pagination5$ === void 0 ? void 0 : _options$pagination5$.length) {
+          var _this$btnNext$$btn$cl3;
+
+          (_this$btnNext$$btn$cl3 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl3, DefaultPagination_toConsumableArray(options.pagination.btnDisabledClasses));
+        }
       }
 
       this._buildPageButtons();
@@ -1488,6 +1560,7 @@ var Input = /*#__PURE__*/function () {
 
       var options = this.proTable.options;
       this.$input = document.createElement('input');
+      this.$input.type = 'text';
       this.$input.placeholder = ((_options$search = options.search) === null || _options$search === void 0 ? void 0 : _options$search.placeholder) || 'Search';
       this.$input.addEventListener('keyup', this._onKeyUp.bind(this)); // apply classes
 
@@ -1946,7 +2019,11 @@ var bootstrap_options = __webpack_require__(0);
 // EXTERNAL MODULE: ./src/const/semantic-ui-options.json
 var semantic_ui_options = __webpack_require__(1);
 
+// EXTERNAL MODULE: ./src/const/foundation.json
+var foundation = __webpack_require__(2);
+
 // CONCATENATED MODULE: ./src/index.js
+
 
 
 
@@ -1954,7 +2031,8 @@ var semantic_ui_options = __webpack_require__(1);
 var optionTemplates = {
   bootstrap: bootstrap_options.normal,
   bootstrapSm: bootstrap_options.sm,
-  semanticUI: semantic_ui_options
+  semanticUI: semantic_ui_options,
+  foundation: foundation
 };
 window.ProTable = {
   fromArray: from_array,

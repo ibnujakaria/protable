@@ -1,0 +1,15 @@
+{
+  "pagination": {
+    "containerElement": "ul",
+    "containerClasses": ["pagination"],
+    "btnWrapper": "li",
+    "btnElement": "a",
+    "btnDisabledClasses": ["disabled"],
+    "rowsPerPage": {
+      "selectClasses": ["margin-0"]
+    }
+  },
+  "search": {
+    "classes": ["margin-0"]
+  }
+}

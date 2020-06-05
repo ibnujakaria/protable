@@ -7,6 +7,7 @@ module.exports = merge(common, {
   entry: {
     index: './example/index.js',
     bootstrap: './example/bootstrap.js',
+    foundation: './example/foundation.js',
     ['semantic-ui']: './example/semantic-ui.js'
   },
   devtool: 'inline-source-map',
@@ -28,6 +29,11 @@ module.exports = merge(common, {
       template: './example/semantic-ui.html',
       chunks: ['semantic-ui'],
       filename: 'semantic-ui.html'
+    }),
+    new HtmlWebpackPlugin({
+      template: './example/foundation.html',
+      chunks: ['foundation'],
+      filename: 'foundation.html'
     })
   ]
 })
