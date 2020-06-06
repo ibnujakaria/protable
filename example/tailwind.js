@@ -1,11 +1,13 @@
 import { fromArray, fromTable, optionTemplates } from '../src/index'
 import data from './employee-dummy.json'
 
+let tailwindOptions = optionTemplates.tailwind
+
 let proTable = fromArray('#table', {
   columns: ['no', 'name', 'email', 'gender', 'phone'],
   rows: data
 }, {
-  ...optionTemplates.tailwind,
+  ...tailwindOptions,
   contents: {
     no: content => [++content, {
       classes: ["bg-blue-100", "text-center"]

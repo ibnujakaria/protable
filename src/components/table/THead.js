@@ -28,8 +28,6 @@ class THead {
    */
   constructor ({ proTable, options }) {
     this.options = {
-      trClasses: [],
-      thClasses: [],
       ...options
     }
     this.proTable = proTable
@@ -42,6 +40,11 @@ class THead {
     })()
 
     console.log('trs', this.trs)
+
+    // apply thead classes
+    if (this.options?.classes?.length) {
+      this.$dom.classList.add(...this.options.classes)
+    }
 
     // append child
     this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
