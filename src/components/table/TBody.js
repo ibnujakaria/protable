@@ -63,7 +63,7 @@ class TBody {
 
       /**
        * Row Content could be an array that consits with 2 items 
-       *  - ['content', { classes: [ ... ] }]
+       *  - ['content', { classes: [...] }]
        *  - first item is the content
        *  - the second is the options
        * 
@@ -86,6 +86,12 @@ class TBody {
       // override content if user defines contents callback
       if (this.proTable.options.contents && this.proTable.options.contents[_key]) {
         rowContent = this.proTable.options.contents[_key](rowContent)
+
+        // check if the callback return is [content, { classes: [...] }]
+        if (Array.isArray(rowContent) && rowContent.length > 1) {
+          rowOptions.classes = (rowOptions.classes || []).concat(rowContent[1]?.classes || [])
+          rowContent = rowContent[0]
+        }
       }
 
       if (_col.childs) {

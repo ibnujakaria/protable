@@ -8,7 +8,9 @@ let proTable = fromArray('#table', {
 }, {
   ...optionTemplates.tailwind,
   contents: {
-    no: content => ++content,
+    no: content => [++content, {
+      classes: ["bg-blue-100", "text-center"]
+    }],
     gender: content => {
       return content === 'female' ?
         `<span class="badge badge-success">${content}</span>` :

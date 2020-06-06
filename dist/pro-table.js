@@ -740,7 +740,7 @@ var TBody_TBody = /*#__PURE__*/function () {
         var _col = columns[_key];
         /**
          * Row Content could be an array that consits with 2 items 
-         *  - ['content', { classes: [ ... ] }]
+         *  - ['content', { classes: [...] }]
          *  - first item is the content
          *  - the second is the options
          * 
@@ -763,7 +763,14 @@ var TBody_TBody = /*#__PURE__*/function () {
 
 
         if (this.proTable.options.contents && this.proTable.options.contents[_key]) {
-          rowContent = this.proTable.options.contents[_key](rowContent);
+          rowContent = this.proTable.options.contents[_key](rowContent); // check if the callback return is [content, { classes: [...] }]
+
+          if (Array.isArray(rowContent) && rowContent.length > 1) {
+            var _rowContent$;
+
+            rowOptions.classes = (rowOptions.classes || []).concat(((_rowContent$ = rowContent[1]) === null || _rowContent$ === void 0 ? void 0 : _rowContent$.classes) || []);
+            rowContent = rowContent[0];
+          }
         }
 
         if (_col.childs) {
