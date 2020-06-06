@@ -3,6 +3,9 @@ import data from './employee-dummy.json'
 
 let tailwindOptions = optionTemplates.tailwind
 
+tailwindOptions.thead.classes = ['shadow-lg']
+tailwindOptions.tfoot.trClasses = ['shadow-lg']
+
 let proTable = fromArray('#table', {
   columns: ['no', 'name', 'email', 'gender', 'phone'],
   rows: data
@@ -10,7 +13,7 @@ let proTable = fromArray('#table', {
   ...tailwindOptions,
   contents: {
     no: content => [++content, {
-      classes: ["bg-blue-100", "text-center"]
+      classes: ["bg-blue-100", "text-center", "shadow-lg"]
     }],
     gender: content => {
       return content === 'female' ?

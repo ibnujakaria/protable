@@ -106,7 +106,7 @@ module.exports = JSON.parse("{\"pagination\":{\"containerElement\":\"ul\",\"cont
 /* 3 */
 /***/ (function(module) {
 
-module.exports = JSON.parse("{\"classes\":[\"w-full\",\"table-auto\"],\"thead\":{\"thClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"tbody\":{\"tdClasses\":[\"bg-even-200\",\"odd:bg-gray-200\",\"px-3\",\"py-2\",\"border\"]},\"pagination\":{\"containerClasses\":[\"flex\"],\"btnClasses\":[\"px-2\",\"py-1\",\"border\"],\"btnActiveClasses\":[\"bg-gray-100\"],\"btnDisabledClasses\":[\"text-gray-500\"],\"rowsPerPage\":{\"selectClasses\":[\"px-2\",\"py-1\",\"border\"]}},\"search\":{\"classes\":[\"px-2\",\"py-1\",\"border\"]}}");
+module.exports = JSON.parse("{\"classes\":[\"w-full\",\"table-auto\"],\"thead\":{\"thClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"tbody\":{\"tdClasses\":[\"bg-even-200\",\"odd:bg-gray-200\",\"px-3\",\"py-2\",\"border\"]},\"tfoot\":{\"tdClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"pagination\":{\"containerClasses\":[\"flex\"],\"btnClasses\":[\"px-2\",\"py-1\",\"border\"],\"btnActiveClasses\":[\"bg-gray-100\"],\"btnDisabledClasses\":[\"text-gray-500\"],\"rowsPerPage\":{\"selectClasses\":[\"px-2\",\"py-1\",\"border\"]}},\"search\":{\"classes\":[\"px-2\",\"py-1\",\"border\"]}}");
 
 /***/ }),
 /* 4 */
@@ -409,6 +409,18 @@ var Th = /*#__PURE__*/function () {
 
 /* harmony default export */ var table_Th = (Th);
 // CONCATENATED MODULE: ./src/components/table/Tr.js
+function Tr_toConsumableArray(arr) { return Tr_arrayWithoutHoles(arr) || Tr_iterableToArray(arr) || Tr_unsupportedIterableToArray(arr) || Tr_nonIterableSpread(); }
+
+function Tr_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function Tr_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return Tr_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return Tr_arrayLikeToArray(o, minLen); }
+
+function Tr_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function Tr_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return Tr_arrayLikeToArray(arr); }
+
+function Tr_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function Tr_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function Tr_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -419,11 +431,24 @@ function Tr_createClass(Constructor, protoProps, staticProps) { if (protoProps) 
 
 
 var Tr_Tr = /*#__PURE__*/function () {
-  function Tr() {
+  /**
+   * @param { Object } options
+   * @param { string[] } options.classes
+   */
+  function Tr(options) {
+    var _this$options, _this$options$classes;
+
     Tr_classCallCheck(this, Tr);
 
+    this.options = options;
     this.$dom = document.createElement('tr');
-    this.childs = [];
+    this.childs = []; // apply classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, Tr_toConsumableArray(this.options.classes));
+    }
   }
 
   Tr_createClass(Tr, [{
@@ -494,6 +519,18 @@ function THead_objectSpread(target) { for (var i = 1; i < arguments.length; i++)
 
 function THead_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function THead_toConsumableArray(arr) { return THead_arrayWithoutHoles(arr) || THead_iterableToArray(arr) || THead_unsupportedIterableToArray(arr) || THead_nonIterableSpread(); }
+
+function THead_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function THead_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return THead_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return THead_arrayLikeToArray(o, minLen); }
+
+function THead_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function THead_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return THead_arrayLikeToArray(arr); }
+
+function THead_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function THead_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function THead_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -503,6 +540,17 @@ function THead_createClass(Constructor, protoProps, staticProps) { if (protoProp
 
 
 
+/**
+ * @typedef { Object } THead.Options
+ * @property { string[] } classes - `thead` classes
+ * @property { string[] } trClasses - `thead > tr` classes
+ * @property { string[] } thClasses - `thead > tr > th` classes
+ */
+
+/**
+ * @class THead
+ * @property { THead.Options } options
+ */
 
 var THead_THead = /*#__PURE__*/function () {
   /**
@@ -512,22 +560,22 @@ var THead_THead = /*#__PURE__*/function () {
    * 
    * @param { Object } payload
    * @param { ProTable } payload.proTable
-   * @param { Object } payload.options
+   * @param { THead.Options } payload.options
    * @memberof THead
    * @constructor
    */
   function THead(_ref) {
-    var _this = this;
+    var _this = this,
+        _this$options,
+        _this$options$classes;
 
     var proTable = _ref.proTable,
         options = _ref.options;
 
     THead_classCallCheck(this, THead);
 
-    this.options = THead_objectSpread({
-      thClasses: []
-    }, options);
     this.proTable = proTable;
+    this.options = options;
     this.$dom = document.createElement('thead');
     this.trs = this.generateTrs(this.proTable.columns);
 
@@ -539,23 +587,42 @@ var THead_THead = /*#__PURE__*/function () {
       });
     }();
 
-    console.log('trs', this.trs); // append child
+    console.log('trs', this.trs); // apply thead classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, THead_toConsumableArray(this.options.classes));
+    } // append child
+
 
     this.trs.forEach(function (tr) {
       return _this.$dom.appendChild(tr.$dom);
     });
   }
+  /**
+   * This function will generate one <tr> tag if its simple.
+   * But for complex headers, it will generate more than one <tr> tags.
+   * 
+   * @param { string[] } columns 
+   * @returns { Tr[] } trs
+   */
+
 
   THead_createClass(THead, [{
     key: "generateTrs",
     value: function generateTrs(columns) {
+      var _this$options2;
+
       var trs = [];
 
       var _this$generateThs = this.generateThs(columns),
           ths = _this$generateThs.ths,
           childs = _this$generateThs.childs;
 
-      var tr = new table_Tr();
+      var tr = new table_Tr({
+        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+      });
       ths.forEach(function (_th) {
         return tr.pushTh(_th);
       });
@@ -588,13 +655,15 @@ var THead_THead = /*#__PURE__*/function () {
       var childs = {};
 
       for (var _key in columns) {
+        var _this$options3;
+
         var _col = columns[_key];
         ths.push(new table_Th({
           key: _key,
           label: _col.label,
           proTable: this.proTable,
           options: {
-            classes: this.options.thClasses.concat(_col.classes),
+            classes: (((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.thClasses) || []).concat(_col.classes),
             attrs: {
               colspan: this.getColspan(_col.childs)
             },
@@ -649,10 +718,7 @@ var THead_THead = /*#__PURE__*/function () {
   return THead;
 }();
 
-/* harmony default export */ var table_THead = ({
-  THead: THead_THead
-});
-
+/* harmony default export */ var table_THead = (THead_THead);
 // CONCATENATED MODULE: ./src/components/table/TBody.js
 function TBody_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -1475,6 +1541,18 @@ var DefaultPagination_DefaultPagination = /*#__PURE__*/function () {
 
 /* harmony default export */ var pagination_DefaultPagination = (DefaultPagination_DefaultPagination);
 // CONCATENATED MODULE: ./src/components/table/TFoot.js
+function TFoot_toConsumableArray(arr) { return TFoot_arrayWithoutHoles(arr) || TFoot_iterableToArray(arr) || TFoot_unsupportedIterableToArray(arr) || TFoot_nonIterableSpread(); }
+
+function TFoot_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function TFoot_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return TFoot_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return TFoot_arrayLikeToArray(o, minLen); }
+
+function TFoot_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function TFoot_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return TFoot_arrayLikeToArray(arr); }
+
+function TFoot_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function TFoot_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function TFoot_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -1485,25 +1563,50 @@ function TFoot_createClass(Constructor, protoProps, staticProps) { if (protoProp
 
 
 
+/**
+ * @typedef { Object } TFoot.Options
+ * @property { string[] } classes - `tfoot` classes
+ * @property { string[] } trClasses - `tfoot > tr` classes
+ * @property { string[] } thClasses - `tfoot > tr > th` classes
+ */
+
+/**
+ * @class TFoot
+ * @property { TFoot.Options } options
+ */
 
 var TFoot_TFoot = /*#__PURE__*/function () {
-  function TFoot(proTable) {
-    var _this = this;
+  function TFoot(_ref) {
+    var _this = this,
+        _this$options,
+        _this$options$classes;
+
+    var proTable = _ref.proTable,
+        options = _ref.options;
 
     TFoot_classCallCheck(this, TFoot);
 
     this.proTable = proTable;
+    this.options = options;
     this.$dom = document.createElement('tfoot');
     this.trs = [];
     this.createPagination();
     this.trs.forEach(function (_tr) {
       return _this.$dom.appendChild(_tr.$dom);
-    });
+    }); // apply tfoot classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, TFoot_toConsumableArray(this.options.classes));
+    }
   }
 
   TFoot_createClass(TFoot, [{
     key: "createPagination",
     value: function createPagination() {
+      var _this$options2, _this$options3;
+
       var options = this.proTable.options;
 
       if (this.proTable.tbody.trs.length < this.proTable.options.limit || !!!options.pagination) {
@@ -1517,10 +1620,13 @@ var TFoot_TFoot = /*#__PURE__*/function () {
       }
 
       var columnsCount = this.proTable.thead.columnsCount;
-      var tr = new table_Tr();
+      var tr = new table_Tr({
+        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+      });
       var td = new table_Td({
         child: this.pagination.$dom,
         options: {
+          classes: ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) || [],
           attrs: {
             colspan: columnsCount
           },
@@ -1716,14 +1822,14 @@ function ProTable_createClass(Constructor, protoProps, staticProps) { if (protoP
 
 
 
-
 /**
  * ProTable Options
  * 
  * @typedef { Object } ProTable.Options
  * @property { string[] } classes - Classes name of the table
- * @property { Object } thead - Thead
+ * @property { Thead.Options } thead - Thead
  * @property { Object } tbody - TBody
+ * @property { TFoot.Options } tfoot - Tfoot
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
@@ -1863,7 +1969,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   }, {
     key: "_generateThead",
     value: function _generateThead() {
-      this.thead = new THead_THead({
+      this.thead = new table_THead({
         proTable: this,
         options: this.options.thead
       });
@@ -1889,7 +1995,10 @@ var ProTable_ProTable = /*#__PURE__*/function () {
         this.$table.removeChild(this.tfoot.$dom);
       }
 
-      this.tfoot = new table_TFoot(this);
+      this.tfoot = new table_TFoot({
+        proTable: this,
+        options: this.options.tfoot
+      });
       this.$table.appendChild(this.tfoot.$dom);
     }
   }, {
@@ -1961,6 +2070,7 @@ function from_array_defineProperty(obj, key, value) { if (key in obj) { Object.d
 
 var from_array_fromArray = function fromArray(elId, data, options) {
   var columns = data.columns || generateColumns(data);
+  console.log('fromArray', columns);
   var proTable = new table_ProTable(elId, options);
   proTable.generateTable({
     columns: columns,
@@ -1974,9 +2084,13 @@ var from_array_fromArray = function fromArray(elId, data, options) {
   return proTable;
 };
 /**
- * Generate column from an array
+ * Generate column from an objects[]
  * 
- * @param [{ key: value }, { key: value }] array 
+ * It will return array such:
+ *  - ['no', 'name', 'city'] - for simple headers
+ *  - ['name', { birth: ['day', 'month', 'year'] }, 'city'] - for complex headers
+ * 
+ * @param [{ key: value }, { key: value }] array
  * @returns { String[] }
  */
 

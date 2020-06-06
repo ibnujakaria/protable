@@ -27,10 +27,8 @@ class THead {
    * @constructor
    */
   constructor ({ proTable, options }) {
-    this.options = {
-      ...options
-    }
     this.proTable = proTable
+    this.options = options
     this.$dom = document.createElement('thead')
     this.trs = this.generateTrs(this.proTable.columns)
     this.columnsCount = (() => {
@@ -100,7 +98,7 @@ class THead {
           label: _col.label,
           proTable: this.proTable,
           options: {
-            classes: this.options.thClasses.concat(_col.classes),
+            classes: (this.options?.thClasses || []).concat(_col.classes),
             attrs: {
               colspan: this.getColspan(_col.childs)
             },

@@ -10,6 +10,7 @@ import Header from '../Header'
  * @property { string[] } classes - Classes name of the table
  * @property { Thead.Options } thead - Thead
  * @property { Object } tbody - TBody
+ * @property { TFoot.Options } tfoot - Tfoot
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Object } pagination - Pagination specific options
@@ -157,7 +158,7 @@ class ProTable {
       this.$table.removeChild(this.tfoot.$dom)
     }
 
-    this.tfoot = new TFoot(this)
+    this.tfoot = new TFoot({ proTable: this, options: this.options.tfoot })
     this.$table.appendChild(this.tfoot.$dom)
   }
 

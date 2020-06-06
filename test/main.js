@@ -1,5 +1,6 @@
 import test from 'ava'
-import { fromArray } from 'protable'
+import { fromArray, optionTemplates } from 'protable'
+import data from '../example/employee-dummy.json'
 
 test('create proTable from array', t => {
 	const data = [
@@ -16,6 +17,29 @@ test('create proTable from array', t => {
 			)
 		})
 	})
+})
+
+// foundation
+test('foundationTemplate', t => {
+	const proTable = fromArray(null, {
+		columns: ['no', 'name', 'email', 'gender', 'phone'],
+		rows: data
+	}, {
+		...optionTemplates.foundation,
+		contents: {
+			no: content => ++content,
+			gender: content => {
+				return content === 'female' ?
+					`<span class="badge badge-success">${content}</span>` :
+					`<span class="badge badge-info">${content}</span>`
+			},
+			email: content => {
+				return `<a href="mailto:${content}">${content}</a>`
+			}
+		}
+	})
+
+	t.pass()
 })
 
 test.todo('Test from table')

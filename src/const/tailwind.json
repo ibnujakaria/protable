@@ -6,6 +6,9 @@
   "tbody": {
     "tdClasses": ["bg-even-200", "odd:bg-gray-200", "px-3", "py-2", "border"]
   },
+  "tfoot": {
+    "tdClasses": ["px-3", "py-2", "bg-gray-100", "border"]
+  },
   "pagination": {
     "containerClasses": ["flex"],
     "btnClasses": ["px-2", "py-1", "border"],
