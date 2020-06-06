@@ -2,9 +2,20 @@ import Td from './Td'
 import Th from './Th'
 
 class Tr {
-  constructor () {
+
+  /**
+   * @param { Object } options
+   * @param { string[] } options.classes
+   */
+  constructor (options) {
+    this.options = options
     this.$dom = document.createElement('tr')
     this.childs = []
+
+    // apply classes
+    if (this.options?.classes?.length) {
+      this.$dom.classList.add(...this.options.classes)
+    }
   }
 
   addTd ({ key, label, options }) {

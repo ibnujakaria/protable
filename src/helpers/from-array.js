@@ -17,6 +17,8 @@ import ProTable from '../components/table/ProTable'
 const fromArray = (elId, data, options) => {
   const columns = data.columns || generateColumns(data)
 
+  console.log('fromArray', columns)
+
   const proTable = new ProTable(elId, options)
   proTable.generateTable({
     columns,
@@ -31,9 +33,13 @@ const fromArray = (elId, data, options) => {
 }
 
 /**
- * Generate column from an array
+ * Generate column from an objects[]
  * 
- * @param [{ key: value }, { key: value }] array 
+ * It will return array such:
+ *  - ['no', 'name', 'city'] - for simple headers
+ *  - ['name', { birth: ['day', 'month', 'year'] }, 'city'] - for complex headers
+ * 
+ * @param [{ key: value }, { key: value }] array
  * @returns { String[] }
  */
 const generateColumns = array => {

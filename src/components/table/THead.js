@@ -2,6 +2,17 @@ import Tr from "./Tr"
 import Th from "./Th"
 import ProTable from './ProTable'
 
+/**
+ * @typedef { Object } THead.Options
+ * @property { string[] } classes - `thead` classes
+ * @property { string[] } trClasses - `thead > tr` classes
+ * @property { string[] } thClasses - `thead > tr > th` classes
+ */
+
+/**
+ * @class THead
+ * @property { THead.Options } options
+ */
 class THead {
 
   /**
@@ -11,12 +22,13 @@ class THead {
    * 
    * @param { Object } payload
    * @param { ProTable } payload.proTable
-   * @param { Object } payload.options
+   * @param { THead.Options } payload.options
    * @memberof THead
    * @constructor
    */
   constructor ({ proTable, options }) {
     this.options = {
+      trClasses: [],
       thClasses: [],
       ...options
     }
@@ -35,12 +47,17 @@ class THead {
     this.trs.forEach(tr => this.$dom.appendChild(tr.$dom))
   }
 
+  /**
+   * This function will generate one <tr> tag if its simple.
+   * But for complex headers, it will generate more than one <tr> tags.
+   * 
+   * @param { string[] } columns 
+   * @returns { Tr[] } trs
+   */
   generateTrs (columns) {
     let trs = []
-    
     let { ths, childs } = this.generateThs(columns)
-
-    let tr = new Tr()
+    let tr = new Tr({ classes: this.options?.trClasses })
     
     ths.forEach(_th => tr.pushTh(_th))
     trs.push(tr)
@@ -125,5 +142,4 @@ class THead {
   }
 }
 
-export default { THead }
-export { THead }
+export default THead

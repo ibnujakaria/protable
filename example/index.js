@@ -1,5 +1,6 @@
 import { fromArray, fromTable, optionTemplates } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
+import employees from './employee-dummy.json'
 
 /**
  * @type ProTable.Options
@@ -113,27 +114,22 @@ const proTableComplex = fromArray('#table-from-array-2', [
 
 console.log('proTableComplex', proTableComplex)
 
+let proTable = fromArray('#table-employee-container', {
+  columns: ['no', 'name', 'email', 'gender', 'phone'],
+  rows: employees
+}, {
+  ...optionTemplates.bootstrapSm,
+  contents: {
+    no: content => ++content,
+    gender: content => {
+      return content === 'female' ?
+        `<span class="badge badge-success">${content}</span>` :
+        `<span class="badge badge-info">${content}</span>`
+    },
+    email: content => {
+      return `<a href="mailto:${content}">${content}</a>`
+    }
+  }
+})
 
-fetch('http://www.json-generator.com/api/json/get/cllKoSVvKG?indent=2')
-  .then(response => response.json())
-  .then(data => {
-    let proTable = fromArray('#table-employee-container', {
-      columns: ['no', 'name', 'email', 'gender', 'phone'],
-      rows: data
-    }, {
-      ...optionTemplates.bootstrapSm,
-      contents: {
-        no: content => ++content,
-        gender: content => {
-          return content === 'female' ?
-            `<span class="badge badge-success">${content}</span>` :
-            `<span class="badge badge-info">${content}</span>`
-        },
-        email: content => {
-          return `<a href="mailto:${content}">${content}</a>`
-        }
-      }
-    })
-
-    console.log('proTable', proTable)
-  })
+console.log('proTable', proTable)

@@ -1,5 +1,4 @@
-import { THead } from './THead'
-import { Tr } from './Tr'
+import THead from './THead'
 import TBody from './TBody'
 import TFoot from './TFoot'
 import Header from '../Header'
@@ -9,7 +8,7 @@ import Header from '../Header'
  * 
  * @typedef { Object } ProTable.Options
  * @property { string[] } classes - Classes name of the table
- * @property { Object } thead - Thead
+ * @property { Thead.Options } thead - Thead
  * @property { Object } tbody - TBody
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
