@@ -4,6 +4,8 @@ import data from './employee-dummy.json'
 let tailwindOptions = templateOptions.tailwind
 
 tailwindOptions.thead.classes = ['shadow-lg']
+tailwindOptions.tbody.classes = ['bg-yellow-200']
+tailwindOptions.tbody.trClasses = ['text-red-600']
 tailwindOptions.tfoot.trClasses = ['shadow-lg']
 
 let proTable = fromArray('#table', {

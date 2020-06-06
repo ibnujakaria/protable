@@ -726,6 +726,18 @@ function TBody_objectSpread(target) { for (var i = 1; i < arguments.length; i++)
 
 function TBody_defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function TBody_toConsumableArray(arr) { return TBody_arrayWithoutHoles(arr) || TBody_iterableToArray(arr) || TBody_unsupportedIterableToArray(arr) || TBody_nonIterableSpread(); }
+
+function TBody_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function TBody_unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return TBody_arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return TBody_arrayLikeToArray(o, minLen); }
+
+function TBody_iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function TBody_arrayWithoutHoles(arr) { if (Array.isArray(arr)) return TBody_arrayLikeToArray(arr); }
+
+function TBody_arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function TBody_classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function TBody_defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -739,6 +751,8 @@ function TBody_createClass(Constructor, protoProps, staticProps) { if (protoProp
  * TBody Options
  * 
  * @typedef { Object } TBody.Options
+ * @property { string[] } classes - classes of tbody
+ * @property { string[] } trClasses - classes of each tr
  * @property { string[] } tdClasses - classes of each td
  */
 
@@ -757,6 +771,8 @@ var TBody_TBody = /*#__PURE__*/function () {
    * @memberof TBody
    */
   function TBody(_ref) {
+    var _this$options, _this$options$classes;
+
     var proTable = _ref.proTable,
         options = _ref.options;
 
@@ -765,7 +781,14 @@ var TBody_TBody = /*#__PURE__*/function () {
     this.$dom = document.createElement('tbody');
     this.proTable = proTable;
     this.options = options;
-    this.trs = this.generateTrs();
+    this.trs = this.generateTrs(); // apply tbody classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, TBody_toConsumableArray(this.options.classes));
+    }
+
     this.render();
   }
 
@@ -778,7 +801,11 @@ var TBody_TBody = /*#__PURE__*/function () {
       var rows = this.proTable.rows;
       var trs = [];
       rows.forEach(function (_row) {
-        var tr = new table_Tr();
+        var _this$options2;
+
+        var tr = new table_Tr({
+          classes: (_this$options2 = _this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+        });
         tr.addTds(_this.generateTds(columns, _row));
         trs.push(tr);
       });
@@ -798,7 +825,7 @@ var TBody_TBody = /*#__PURE__*/function () {
       var tds = [];
 
       for (var _key in columns) {
-        var _this$options;
+        var _this$options3;
 
         /**
          * the corresponding column of this row
@@ -816,10 +843,10 @@ var TBody_TBody = /*#__PURE__*/function () {
         var rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key];
         var rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {};
 
-        if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : _this$options.tdClasses) {
-          var _this$options2;
+        if ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) {
+          var _this$options4;
 
-          rowOptions.classes = (rowOptions.classes || []).concat((_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.tdClasses);
+          rowOptions.classes = (rowOptions.classes || []).concat((_this$options4 = this.options) === null || _this$options4 === void 0 ? void 0 : _this$options4.tdClasses);
         } // override content if user defines targetIndex
 
 

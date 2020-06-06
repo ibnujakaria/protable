@@ -6,6 +6,8 @@ import ProTable from "./ProTable"
  * TBody Options
  * 
  * @typedef { Object } TBody.Options
+ * @property { string[] } classes - classes of tbody
+ * @property { string[] } trClasses - classes of each tr
  * @property { string[] } tdClasses - classes of each td
  */
 
@@ -28,6 +30,12 @@ class TBody {
     this.proTable = proTable
     this.options = options
     this.trs = this.generateTrs()
+    
+    // apply tbody classes
+    if (this.options?.classes?.length) {
+      this.$dom.classList.add(...this.options.classes)
+    }
+
     this.render()
   }
 
@@ -37,7 +45,7 @@ class TBody {
     const trs = []
 
     rows.forEach(_row => {
-      const tr = new Tr()
+      const tr = new Tr({ classes: this.options?.trClasses })
       tr.addTds(this.generateTds(columns, _row))
       trs.push(tr)
     })
