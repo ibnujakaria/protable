@@ -22,3 +22,11 @@ const proTableFromTable = fromTable('#table-1', {
 })
 
 console.log('proTableFromTable', proTableFromTable)
+
+const table2 = fromTable('#table-2', {
+  columns: {
+    Actions: {
+      orderable: false
+    }
+  }
+})

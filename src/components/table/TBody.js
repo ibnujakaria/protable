@@ -86,9 +86,15 @@ class TBody {
 
       // override content if user defines targetIndex
       if (Number.isInteger(_col.targetIndex)) {
-        rowContent = _row[
+        const contentTmp = _row[
           Object.keys(this.proTable.columns)[_col.targetIndex]
         ]
+
+        rowContent = Array.isArray(contentTmp) ? contentTmp[0] : contentTmp
+        rowOptions = {
+          ...rowOptions,
+          ...Array.isArray(contentTmp) ? contentTmp[1] : {}
+        }
       }
 
       // override content if user defines contents callback

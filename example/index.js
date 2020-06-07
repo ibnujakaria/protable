@@ -58,7 +58,6 @@ const simpleProTable = fromArray('#table-from-array', [
     relationship: 'Lajang'
   }
 ], {
-  ...options,
   columns: {
     name: {
       label: 'Full Name'
@@ -68,7 +67,11 @@ const simpleProTable = fromArray('#table-from-array', [
       targetIndex: 3
     }
   },
-  search: false
+  search: {
+    classes: ['form-control', 'form-control-sm'],
+    wrapperElement: 'section',
+    wrapperClasses: ['p-2']
+  }
 })
 
 console.log('simpleProTable', simpleProTable)

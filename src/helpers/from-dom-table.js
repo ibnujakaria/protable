@@ -29,7 +29,7 @@ function getColumnsFromDom (table) {
   const columns = {}
 
   Array.from(firstTr.children).forEach(_child => {
-    columns[_child.innerHTML] = {
+    columns[_child.innerHTML.trim()] = {
       label: _child.innerHTML,
       classes: Array.from(_child.classList)
     }

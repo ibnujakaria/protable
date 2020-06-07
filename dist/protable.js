@@ -851,7 +851,10 @@ var TBody_TBody = /*#__PURE__*/function () {
 
 
         if (Number.isInteger(_col.targetIndex)) {
-          rowContent = _row[Object.keys(this.proTable.columns)[_col.targetIndex]];
+          var contentTmp = _row[Object.keys(this.proTable.columns)[_col.targetIndex]];
+
+          rowContent = Array.isArray(contentTmp) ? contentTmp[0] : contentTmp;
+          rowOptions = TBody_objectSpread(TBody_objectSpread({}, rowOptions), Array.isArray(contentTmp) ? contentTmp[1] : {});
         } // override content if user defines contents callback
 
 
@@ -2186,7 +2189,7 @@ function getColumnsFromDom(table) {
   var firstTr = table.querySelector('thead tr');
   var columns = {};
   Array.from(firstTr.children).forEach(function (_child) {
-    columns[_child.innerHTML] = {
+    columns[_child.innerHTML.trim()] = {
       label: _child.innerHTML,
       classes: Array.from(_child.classList)
     };
