@@ -1,5 +1,5 @@
 import { fromArray, fromTable, templateOptions } from '../src/index'
-import data from './employee-dummy.json'
+import data from './data/employee-dummy.json'
 
 let tailwindOptions = templateOptions.tailwind
 

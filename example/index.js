@@ -1,6 +1,6 @@
-import { fromArray, fromTable, templateOptions } from '../src/index'
+import { fromArray, fromServer, templateOptions } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
-import employees from './employee-dummy.json'
+import employees from './data/employee-dummy.json'
 
 /**
  * @type ProTable.Options
@@ -37,6 +37,15 @@ const options = {
     notFoundText: 'Oops. The data that you are looking for is not found.'
   }
 }
+
+const proTableFromServer = fromServer('#table-1', {
+  url: (page) => {
+    return `/data/server-side-example/${page}.json`
+  },
+  success: res => {
+    return res
+  }
+})
 
 const simpleProTable = fromArray('#table-from-array', [
   {

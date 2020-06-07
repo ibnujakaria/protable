@@ -1,6 +1,7 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
@@ -20,6 +21,11 @@ module.exports = {
       // both options are optional
       filename: 'css/protable.css',
       chunkFilename: '[id].css',
+    }),
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'example/data'), to: 'data' }
+      ]
     })
   ],
   module: {

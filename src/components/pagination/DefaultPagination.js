@@ -71,9 +71,7 @@ class DefaultPagination {
 
   _buildPageButtons () {
     const options = this.proTable.options
-    const limit = options.limit
-    const totalRows = this.proTable.tbody.filteredTrs.length
-    const lastPage = Math.ceil(totalRows / limit)
+    const lastPage = this.proTable.lastPage
     
     while (this.pageButtons.length) {
       const btn = this.pageButtons.pop()
@@ -137,12 +135,8 @@ class DefaultPagination {
   
   render () {
     const options = this.proTable.options
-    const limit = options.limit
     const page = options.page
-    const start = ((page - 1) * limit) + 1
-    const to = start + limit - 1
-    const totalRows = this.proTable.tbody.filteredTrs.length
-    const lastPage = Math.ceil(totalRows / limit)
+    const lastPage = this.proTable.lastPage
 
     this.btnPrev.$btn.disabled = page === 1
     this.btnNext.$btn.disabled = page === lastPage

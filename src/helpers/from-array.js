@@ -66,4 +66,5 @@ const generateColumns = array => {
   return columns
 }
 
+export { generateColumns, fromArray }
 export default fromArray

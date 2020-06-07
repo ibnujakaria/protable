@@ -1,6 +1,6 @@
 import { fromArray, fromTable, templateOptions } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
-import data from './employee-dummy.json'
+import data from './data/employee-dummy.json'
 
 let proTable = fromArray('#table', {
   columns: ['no', 'name', 'email', 'gender', 'phone'],

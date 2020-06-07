@@ -1,6 +1,6 @@
 import test from 'ava'
-import { fromArray, templateOptions } from 'protable'
-import data from '../example/employee-dummy.json'
+import { fromArray, templateOptions, fromServer } from 'protable'
+import data from '../example/data/employee-dummy.json'
 
 test('create proTable from array', t => {
 	const data = [
@@ -18,6 +18,12 @@ test('create proTable from array', t => {
 		})
 	})
 })
+
+// from server
+test.todo('create a test for proTable from server')
+// test('create proTable from server', t => {
+// 	t.pass()
+// })
 
 // foundation
 test('foundationTemplate', t => {

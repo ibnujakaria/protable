@@ -13,6 +13,7 @@ import Header from '../Header'
  * @property { TFoot.Options } tfoot - Tfoot
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
+ * @property { Boolean } fromServer 
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type
  * @property { Object } pagination.rowsPerPage - Pagination rows per page options
@@ -49,6 +50,7 @@ class ProTable {
       thead: {},
       limit: 10,
       page: 1,
+      fromServer: false,
       keyword: null,
       pagination: {
         type: 'default'
@@ -68,12 +70,28 @@ class ProTable {
     this.tbody = null
     this.$dom = document.createElement('section')
     this.$dom.classList.add('protable')
+    this._listeners = {}
   }
 
   generateTable ({ columns, rows }) {
     this.$table = document.createElement('table')
     this.$dom.appendChild(this.$table)
 
+    this.setColumns(columns)
+    this.setRows(rows)
+
+    this._generateHeader()
+    this._generateThead()
+    this._generateTbody()
+    this._generateTFoot()
+
+    // apply options
+    if (this.options.classes) {
+      this.$table.classList.add(...this.options.classes)
+    }
+  }
+
+  setColumns (columns) {
     this.columns = this._formatColumns(columns)
     if (this.options.columns) {
       // merging
@@ -88,17 +106,10 @@ class ProTable {
         }
       }
     }
+  }
+
+  setRows (rows) {
     this.rows = rows
-
-    this._generateHeader()
-    this._generateThead()
-    this._generateTbody()
-    this._generateTFoot()
-
-    // apply options
-    if (this.options.classes) {
-      this.$table.classList.add(...this.options.classes)
-    }
   }
 
   _formatColumns (columns) {
@@ -167,15 +178,19 @@ class ProTable {
     this.setPage(1)
   }
 
-  setPage (page) {
+  async setPage (page) {
     this.options.page = page
 
     if (page < 1) {
       this.options.page = 1
     }
 
-    this.tbody.render()
-    this.tfoot.render()
+    if (!this.options.fromServer) {
+      this.tbody?.render()
+      this.tfoot?.render()
+    }
+
+    this.emit('pageChanged', page)
   }
 
   setLimit (limit) {
@@ -191,6 +206,56 @@ class ProTable {
     
     this.thead.render()
     this.setPage(1)
+  }
+
+  get totalRows () {
+    if (this.options.fromServer) {
+      return this.options.totalRows
+    }
+
+    return this.tbody.trs.length
+  }
+
+  get totalFilteredRows () {
+    if (this.options.fromServer) {
+      return this.options.totalRows
+    }
+
+    return this.tbody.filteredTrs.length
+  }
+
+  get lastPage () {
+    if (this.options.fromServer) {
+      return this.options.lastPage
+    }
+
+    return Math.ceil(this.totalFilteredRows / this.options.limit)
+  }
+
+  /**
+   * Set listener to the ProTable. The listener will called
+   * by using emit() function
+   *
+   * @param { String } event 
+   * @param { Function } listener 
+   */
+  on (event, listener) {
+    if (!this._listeners[event]) {
+      this._listeners[event] = []
+    }
+
+    this._listeners[event].push(listener)
+  }
+
+  /**
+   * Trigger an event
+   * 
+   * @param { String } event 
+   */
+  emit (event, payload) {
+    if (this._listeners[event]?.length) {
+      this._listeners[event].forEach(callback => callback(payload))
+    }
   }
 
   draw () {

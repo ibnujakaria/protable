@@ -29,7 +29,7 @@ class TBody {
     this.$dom = document.createElement('tbody')
     this.proTable = proTable
     this.options = options
-    this.trs = this.generateTrs()
+    this.generateTrs()
     
     // apply tbody classes
     if (this.options?.classes?.length) {
@@ -42,15 +42,15 @@ class TBody {
   generateTrs () {
     const columns = this.proTable.columns
     const rows = this.proTable.rows
-    const trs = []
+    this.trs = []
 
     rows.forEach(_row => {
       const tr = new Tr({ classes: this.options?.trClasses })
       tr.addTds(this.generateTds(columns, _row))
-      trs.push(tr)
+      this.trs.push(tr)
     })
 
-    return trs
+    this.trs
   }
 
   /**
@@ -140,15 +140,21 @@ class TBody {
     while (this.$dom.lastChild) {
       this.$dom.removeChild(this.$dom.lastChild)
     }
+    
+    if (this.proTable.options.fromServer) {
+      this.generateTrs()
+      this.trs
+        .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+    } else {
+      const limit = this.proTable.options.limit
+      const page = this.proTable.options.page
+      const start = ((page - 1) * limit)
 
-    const limit = this.proTable.options.limit
-    const page = this.proTable.options.page
-    const start = ((page - 1) * limit)
-
-    this.filteredTrs
-      .sort(this._sort.bind(this))
-      .slice(start, this.proTable.options.limit * page)
-      .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+      this.filteredTrs
+        .sort(this._sort.bind(this))
+        .slice(start, this.proTable.options.limit * page)
+        .forEach(_tr => this.$dom.appendChild(_tr.$dom))
+    }
 
     // if there is no result for given keyword
     if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {

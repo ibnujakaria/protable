@@ -34,7 +34,7 @@ class TFoot {
   createPagination () {
     const options = this.proTable.options
 
-    if (this.proTable.tbody.trs.length < this.proTable.options.limit || !!!options.pagination) {
+    if (this.proTable.totalRows < this.proTable.options.limit || !!!options.pagination) {
       return
     }
 
