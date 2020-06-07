@@ -197,8 +197,7 @@ class ProTable {
     this.options.page = 1
     this.options.limit = parseInt(limit)
 
-    this.tbody.render()
-    this.tfoot.render()
+    this.setPage(1)
   }
 
   setOrder ({ key, direction }) {

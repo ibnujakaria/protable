@@ -2874,8 +2874,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
     value: function setLimit(limit) {
       this.options.page = 1;
       this.options.limit = parseInt(limit);
-      this.tbody.render();
-      this.tfoot.render();
+      this.setPage(1);
     }
   }, {
     key: "setOrder",
@@ -3112,14 +3111,19 @@ function getRowsFromDom(table, columns) {
 
 var fromServer = /*#__PURE__*/function () {
   var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee2(elId, _ref, options) {
-    var url, success, proTable, firstLoad;
+    var limit, url, success, proTable, firstLoad;
     return regenerator_default.a.wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            url = _ref.url, success = _ref.success;
+            limit = _ref.limit, url = _ref.url, success = _ref.success;
             proTable = new table_ProTable(elId, options);
             proTable.options.fromServer = true;
+
+            if (limit) {
+              proTable.options.limit = limit;
+            }
+
             firstLoad = true;
             proTable.on('pageChanged', /*#__PURE__*/function () {
               var _ref3 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(page) {
@@ -3129,7 +3133,10 @@ var fromServer = /*#__PURE__*/function () {
                     switch (_context.prev = _context.next) {
                       case 0:
                         _context.next = 2;
-                        return fetch(url(page));
+                        return fetch(url({
+                          page: page,
+                          limit: proTable.options.limit
+                        }));
 
                       case 2:
                         response = _context.sent;
@@ -3170,23 +3177,22 @@ var fromServer = /*#__PURE__*/function () {
                         result = _context.t0;
                         proTable.options.totalRows = result.meta.total_rows;
                         proTable.options.lastPage = result.meta.last_page;
-                        proTable.options.limit = result.meta.per_page;
 
                         if (firstLoad) {
-                          columns = from_array_generateColumns(result.data);
+                          columns = result.data.columns || from_array_generateColumns(result.data);
                           proTable.generateTable({
                             columns: columns,
-                            rows: result.data
+                            rows: result.data.rows || result.data
                           });
                           firstLoad = false;
                         } else {
-                          proTable.setRows(result.data);
+                          proTable.setRows(result.data.rows || result.data);
                           proTable.tbody.render();
                           proTable.tfoot.render();
                           console.log('server', proTable);
                         }
 
-                      case 22:
+                      case 21:
                       case "end":
                         return _context.stop();
                     }
@@ -3207,7 +3213,7 @@ var fromServer = /*#__PURE__*/function () {
             console.log('server', proTable);
             return _context2.abrupt("return", proTable);
 
-          case 9:
+          case 10:
           case "end":
             return _context2.stop();
         }
