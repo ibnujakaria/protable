@@ -1,4 +1,4 @@
-import { fromArray, fromTable, optionTemplates } from '../src/index'
+import { fromArray, fromTable, templateOptions } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
 import employees from './employee-dummy.json'
 
@@ -118,7 +118,7 @@ let proTable = fromArray('#table-employee-container', {
   columns: ['no', 'name', 'email', 'gender', 'phone'],
   rows: employees
 }, {
-  ...optionTemplates.bootstrapSm,
+  ...templateOptions.bootstrapSm,
   contents: {
     no: content => ++content,
     gender: content => {

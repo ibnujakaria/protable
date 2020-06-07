@@ -1,4 +1,4 @@
-import { fromArray, fromTable, optionTemplates } from '../src/index'
+import { fromArray, fromTable, templateOptions } from '../src/index'
 
 const proTableFromTable = fromTable('#table-1', {
   columns: {

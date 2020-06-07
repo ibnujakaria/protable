@@ -119,7 +119,7 @@ __webpack_require__.r(__webpack_exports__);
 // EXPORTS
 __webpack_require__.d(__webpack_exports__, "fromArray", function() { return /* reexport */ from_array; });
 __webpack_require__.d(__webpack_exports__, "fromTable", function() { return /* reexport */ from_dom_table; });
-__webpack_require__.d(__webpack_exports__, "optionTemplates", function() { return /* binding */ optionTemplates; });
+__webpack_require__.d(__webpack_exports__, "templateOptions", function() { return /* binding */ templateOptions; });
 
 // CONCATENATED MODULE: ./src/components/table/Td.js
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -2200,7 +2200,7 @@ var tailwind = __webpack_require__(3);
 
 
 
-var optionTemplates = {
+var templateOptions = {
   bootstrap: bootstrap_options.normal,
   bootstrapSm: bootstrap_options.sm,
   semanticUI: semantic_ui_options,
@@ -2210,12 +2210,12 @@ var optionTemplates = {
 window.ProTable = {
   fromArray: from_array,
   fromTable: from_dom_table,
-  optionTemplates: optionTemplates
+  templateOptions: templateOptions
 };
 /* harmony default export */ var src = __webpack_exports__["default"] = ({
   fromArray: from_array,
   fromTable: from_dom_table,
-  optionTemplates: optionTemplates
+  templateOptions: templateOptions
 });
 
 

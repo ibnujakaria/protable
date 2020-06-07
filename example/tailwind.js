@@ -1,7 +1,7 @@
-import { fromArray, fromTable, optionTemplates } from '../src/index'
+import { fromArray, fromTable, templateOptions } from '../src/index'
 import data from './employee-dummy.json'
 
-let tailwindOptions = optionTemplates.tailwind
+let tailwindOptions = templateOptions.tailwind
 
 tailwindOptions.thead.classes = ['shadow-lg']
 tailwindOptions.tfoot.trClasses = ['shadow-lg']

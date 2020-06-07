@@ -5,7 +5,7 @@ import semanticUIOptions from './const/semantic-ui-options.json'
 import foundationOptions from './const/foundation.json'
 import tailwindOptions from './const/tailwind.json'
 
-const optionTemplates = {
+const templateOptions = {
   bootstrap: bootstrapOptions.normal,
   bootstrapSm: bootstrapOptions.sm,
   semanticUI: semanticUIOptions,
@@ -16,17 +16,17 @@ const optionTemplates = {
 window.ProTable = {
   fromArray,
   fromTable,
-  optionTemplates
+  templateOptions
 }
 
 export default {
   fromArray,
   fromTable,
-  optionTemplates
+  templateOptions
 }
 
 export {
   fromArray,
   fromTable,
-  optionTemplates
+  templateOptions
 }

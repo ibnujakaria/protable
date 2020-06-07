@@ -1,5 +1,5 @@
 import test from 'ava'
-import { fromArray, optionTemplates } from 'protable'
+import { fromArray, templateOptions } from 'protable'
 import data from '../example/employee-dummy.json'
 
 test('create proTable from array', t => {
@@ -25,7 +25,7 @@ test('foundationTemplate', t => {
 		columns: ['no', 'name', 'email', 'gender', 'phone'],
 		rows: data
 	}, {
-		...optionTemplates.foundation,
+		...templateOptions.foundation,
 		contents: {
 			no: content => ++content,
 			gender: content => {

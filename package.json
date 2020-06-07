@@ -1,10 +1,10 @@
 {
   "name": "protable",
   "version": "0.1.3",
-  "description": "A (non-jQuery) Data Table alternative. Written with modern Javascript.",
+  "description": "A (non-jQuery) DataTables alternative. Written with modern Javascript.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "require-self && ava",
+    "test": "npm run prepublish && require-self && ava",
     "build": "webpack --config webpack.prod.js",
     "dev": "webpack-dev-server --open --config webpack.dev.js",
     "prepublish": "babel src --out-dir lib && cp -r src/const lib"

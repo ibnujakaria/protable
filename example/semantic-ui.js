@@ -1,4 +1,4 @@
-import { fromArray, fromTable, optionTemplates } from '../src/index'
+import { fromArray, fromTable, templateOptions } from '../src/index'
 import ProTable from '../src/components/table/ProTable'
 import data from './employee-dummy.json'
 
@@ -6,7 +6,7 @@ let proTable = fromArray('#table', {
   columns: ['no', 'name', 'email', 'gender', 'phone'],
   rows: data
 }, {
-  ...optionTemplates.semanticUI,
+  ...templateOptions.semanticUI,
   contents: {
     no: content => ++content,
     gender: content => {
