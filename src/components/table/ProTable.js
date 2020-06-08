@@ -16,6 +16,9 @@ import Header from '../Header'
  * @property { Number } limit - page limit
  * @property { Boolean } fromServer 
  * @property { String } keyword for searching purpose
+ * @property { Object } order
+ * @property { String } order.key order key
+ * @property { String } order.direction direction 'asc' or 'desc'
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type
  * @property { Object } pagination.rowsPerPage - Pagination rows per page options

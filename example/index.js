@@ -98,10 +98,13 @@ fromServer('#table-2', {
 })
 
 fromServer('#table-3', {
-  url: ({ page, limit, search }) => {
+  url: ({ page, limit, search, order }) => {
     const baseURL = `https://api.github.com/search/repositories`
     const query = {
-      page, per_page: limit, sort: 'stars'
+      page,
+      per_page: limit,
+      sort: 'stars',
+      order: order.direction
     }
 
     if (search) {
@@ -140,6 +143,19 @@ fromServer('#table-3', {
     }
   },
   options: {
+    ...templateOptions.bootstrapSm,
+    columns: {
+      full_name: {
+        label: 'Name',
+        orderable: false
+      },
+      description: {
+        orderable: false
+      },
+      stargazers_count: {
+        label: 'Stars'
+      }
+    },
     contents: {
       full_name: (content, columns) => {
         const a = document.createElement('a')

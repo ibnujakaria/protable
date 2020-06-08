@@ -22,8 +22,10 @@ const fromServer = (elId, { url, success, options }) => {
     const query = {
       page,
       limit: proTable.options.limit,
-      search: proTable.options.keyword
+      search: proTable.options.keyword,
+      order: proTable.options.order
     }
+
     let response =  await fetch(url(query))
     let result = await success?.(response, query) || (await response.json())
 
