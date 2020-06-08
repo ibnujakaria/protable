@@ -114,16 +114,19 @@ fromServer('#table-3', {
       `${baseURL}?${new URLSearchParams(query).toString()}`
     )
   },
-  success: async res => {
+  success: async (res, { page }) => {
     const body = await res.json()
-    const linkHeaders = (await res.headers.get('Link')).split(',')
-    const lastLink = new URL(
-      linkHeaders.find(_link => _link.split('; ')[1] === 'rel="last"').split(';')[0].replace(/<|>/g, '')
-    )
+    let lastPage = null
 
-    console.log('server', 'body', body)
-    console.log('server', 'linkHeaders', linkHeaders)
-    console.log('server', 'lastLink', lastLink.searchParams.get('page'))
+    try {
+      const linkHeaders = (await res.headers.get('Link')).split(',')
+      const lastLink = new URL(
+        linkHeaders.find(_link => _link.split('; ')[1] === 'rel="last"').split(';')[0].replace(/<|>/g, '')
+      )
+      lastPage = lastLink.searchParams.get('page')
+    } catch (error) {
+      lastPage = page
+    }
 
     return {
       data: {
@@ -132,7 +135,7 @@ fromServer('#table-3', {
       },
       meta: {
         total_rows: body.total_count,
-        last_page: lastLink.searchParams.get('page')
+        last_page: lastPage
       }
     }
   },
@@ -145,7 +148,13 @@ fromServer('#table-3', {
 
         return a
       },
-      description: content => (content?.substr(0, 100) + (content?.length > 100 ? '...' : '')) || '-'
+      description: content => {
+        if (content) {
+          return content?.substr(0, 100) + (content?.length > 100 ? '...' : '')
+        }
+
+        return '-'
+      }
     }
   }
 })

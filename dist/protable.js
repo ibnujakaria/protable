@@ -1698,7 +1698,7 @@ var TBody_TBody = /*#__PURE__*/function () {
       var tds = [];
 
       for (var _key in columns) {
-        var _this$options3;
+        var _this$options3, _this$proTable$option, _this$proTable$option2;
 
         /**
          * the corresponding column of this row
@@ -1731,8 +1731,11 @@ var TBody_TBody = /*#__PURE__*/function () {
         } // override content if user defines contents callback
 
 
-        if (this.proTable.options.contents && this.proTable.options.contents[_key]) {
-          rowContent = this.proTable.options.contents[_key](rowContent); // check if the callback return is [content, { classes: [...] }]
+        if ((_this$proTable$option = this.proTable.options) === null || _this$proTable$option === void 0 ? void 0 : (_this$proTable$option2 = _this$proTable$option.contents) === null || _this$proTable$option2 === void 0 ? void 0 : _this$proTable$option2[_key]) {
+          // we pass 2 params:
+          // - rowContent: content for this specific cell
+          // - _row: contents of the current row
+          rowContent = this.proTable.options.contents[_key](rowContent, _row); // check if the callback return is [content, { classes: [...] }]
 
           if (Array.isArray(rowContent) && rowContent.length > 1) {
             var _rowContent$;
@@ -1791,11 +1794,11 @@ var TBody_TBody = /*#__PURE__*/function () {
 
 
       if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
-        var _this$proTable$option;
+        var _this$proTable$option3;
 
         var tr = new table_Tr();
         var td = new table_Td({
-          child: ((_this$proTable$option = this.proTable.options.search) === null || _this$proTable$option === void 0 ? void 0 : _this$proTable$option.notFoundText) || 'Not matching records found',
+          child: ((_this$proTable$option3 = this.proTable.options.search) === null || _this$proTable$option3 === void 0 ? void 0 : _this$proTable$option3.notFoundText) || 'Not matching records found',
           options: {
             attrs: {
               colspan: this.proTable.thead.columnsCount
@@ -2565,7 +2568,15 @@ var Input_Input = /*#__PURE__*/function () {
   }, {
     key: "_onKeyUp",
     value: function _onKeyUp() {
-      this.proTable.setKeyword(this.$input.value);
+      var _this = this;
+
+      if (this.timeOut) {
+        clearTimeout(this.timeOut);
+      }
+
+      this.timeOut = setTimeout(function () {
+        _this.proTable.setKeyword(_this.$input.value);
+      }, 300);
     }
   }]);
 
@@ -2644,8 +2655,10 @@ function ProTable_objectSpread(target) { for (var i = 1; i < arguments.length; i
  * @property { Object } tbody - TBody
  * @property { TFoot.Options } tfoot - Tfoot
  * @property { Object } columns - Custom columns of table
+ * @property { Object } contents
  * @property { Number } limit - page limit
  * @property { Boolean } fromServer 
+ * @property { String } keyword for searching purpose
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type
  * @property { Object } pagination.rowsPerPage - Pagination rows per page options
@@ -3099,134 +3112,99 @@ function getRowsFromDom(table, columns) {
 /**
  * @typedef { Object } Callbacks
  * @property { Function } url - callback to return a url. It get a page param
- * @property { Function } success 
+ * @property { Function } success
+ * @property { ProTable.Options } options
  */
 
 /**
  * 
  * @param { String | HTMLElement } elId 
  * @param { Callbacks } callbacks 
- * @param {*} options 
  */
 
-var fromServer = /*#__PURE__*/function () {
-  var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee2(elId, _ref, options) {
-    var limit, url, success, proTable, firstLoad;
-    return regenerator_default.a.wrap(function _callee2$(_context2) {
-      while (1) {
-        switch (_context2.prev = _context2.next) {
-          case 0:
-            limit = _ref.limit, url = _ref.url, success = _ref.success;
-            proTable = new table_ProTable(elId, options);
-            proTable.options.fromServer = true;
-
-            if (limit) {
-              proTable.options.limit = limit;
-            }
-
-            firstLoad = true;
-            proTable.on('pageChanged', /*#__PURE__*/function () {
-              var _ref3 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(page) {
-                var response, result, columns;
-                return regenerator_default.a.wrap(function _callee$(_context) {
-                  while (1) {
-                    switch (_context.prev = _context.next) {
-                      case 0:
-                        _context.next = 2;
-                        return fetch(url({
-                          page: page,
-                          limit: proTable.options.limit
-                        }));
-
-                      case 2:
-                        response = _context.sent;
-
-                        if (!(success === null || success === void 0)) {
-                          _context.next = 7;
-                          break;
-                        }
-
-                        _context.t1 = void 0;
-                        _context.next = 12;
-                        break;
-
-                      case 7:
-                        _context.t2 = success;
-                        _context.next = 10;
-                        return response.json();
-
-                      case 10:
-                        _context.t3 = _context.sent;
-                        _context.t1 = (0, _context.t2)(_context.t3);
-
-                      case 12:
-                        _context.t0 = _context.t1;
-
-                        if (_context.t0) {
-                          _context.next = 17;
-                          break;
-                        }
-
-                        _context.next = 16;
-                        return response.json();
-
-                      case 16:
-                        _context.t0 = _context.sent;
-
-                      case 17:
-                        result = _context.t0;
-                        proTable.options.totalRows = result.meta.total_rows;
-                        proTable.options.lastPage = result.meta.last_page;
-
-                        if (firstLoad) {
-                          columns = result.data.columns || from_array_generateColumns(result.data);
-                          proTable.generateTable({
-                            columns: columns,
-                            rows: result.data.rows || result.data
-                          });
-                          firstLoad = false;
-                        } else {
-                          proTable.setRows(result.data.rows || result.data);
-                          proTable.tbody.render();
-                          proTable.tfoot.render();
-                          console.log('server', proTable);
-                        }
-
-                      case 21:
-                      case "end":
-                        return _context.stop();
-                    }
-                  }
-                }, _callee);
-              }));
-
-              return function (_x4) {
-                return _ref3.apply(this, arguments);
+var from_server_fromServer = function fromServer(elId, _ref) {
+  var url = _ref.url,
+      success = _ref.success,
+      options = _ref.options;
+  var proTable = new table_ProTable(elId, options);
+  proTable.options.fromServer = true;
+  var firstLoad = true;
+  proTable.on('pageChanged', /*#__PURE__*/function () {
+    var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(page) {
+      var query, response, result, columns;
+      return regenerator_default.a.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              query = {
+                page: page,
+                limit: proTable.options.limit,
+                search: proTable.options.keyword
               };
-            }());
-            proTable.emit('pageChanged', 1);
+              _context.next = 3;
+              return fetch(url(query));
 
-            if (elId) {
-              proTable.draw();
-            }
+            case 3:
+              response = _context.sent;
+              _context.next = 6;
+              return success === null || success === void 0 ? void 0 : success(response, query);
 
-            console.log('server', proTable);
-            return _context2.abrupt("return", proTable);
+            case 6:
+              _context.t0 = _context.sent;
 
-          case 10:
-          case "end":
-            return _context2.stop();
+              if (_context.t0) {
+                _context.next = 11;
+                break;
+              }
+
+              _context.next = 10;
+              return response.json();
+
+            case 10:
+              _context.t0 = _context.sent;
+
+            case 11:
+              result = _context.t0;
+              proTable.options.totalRows = parseInt(result.meta.total_rows);
+              proTable.options.lastPage = parseInt(result.meta.last_page);
+
+              if (firstLoad) {
+                columns = result.data.columns || from_array_generateColumns(result.data);
+                proTable.generateTable({
+                  columns: columns,
+                  rows: result.data.rows || result.data
+                });
+                firstLoad = false;
+              } else {
+                proTable.setRows(result.data.rows || result.data);
+                proTable.tbody.render();
+                proTable.tfoot.render();
+                console.log('server', proTable);
+              }
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
         }
-      }
-    }, _callee2);
-  }));
+      }, _callee);
+    }));
 
-  return function fromServer(_x, _x2, _x3) {
-    return _ref2.apply(this, arguments);
-  };
-}();
+    return function (_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }());
+  proTable.emit('pageChanged', 1);
 
-/* harmony default export */ var from_server = (fromServer);
+  if (elId) {
+    proTable.draw();
+  }
+
+  console.log('server', proTable);
+  return proTable;
+};
+
+/* harmony default export */ var from_server = (from_server_fromServer);
 // EXTERNAL MODULE: ./src/const/bootstrap-options.json
 var bootstrap_options = __webpack_require__(6);
 

@@ -46,7 +46,13 @@ class Input {
   }
 
   _onKeyUp () {
-    this.proTable.setKeyword(this.$input.value)
+    if (this.timeOut) {
+      clearTimeout(this.timeOut)
+    }
+
+    this.timeOut = setTimeout(() => {
+      this.proTable.setKeyword(this.$input.value)
+    }, 300)
   }
 }
 
