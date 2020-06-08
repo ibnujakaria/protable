@@ -43,7 +43,7 @@ const proTableFromServer = fromServer('#table-1', {
     return `/data/server-side-example/${page}.json`
   },
   success: res => {
-    return res
+    return res.json()
   }
 })
 
@@ -57,41 +57,80 @@ fromServer('#table-2', {
 
     return `${baseURL}?${query}`
   },
-  success: res => {
+  success: async res => {
+    const body = await res.json()
     return {
       data: {
         columns: ['id', 'avatar', 'first_name', 'last_name', 'actions'],
-        rows: res.data
+        rows: body.data
       },
       meta: {
-        last_page: res.total_pages,
-        total_rows: res.total,
-        limit: res.per_page
+        last_page: body.total_pages,
+        total_rows: body.total
+      }
+    }
+  },
+  options: {
+    limit: 5,
+    contents: {
+      avatar: src => {
+        const img = document.createElement('img')
+        img.src = src
+        img.style.width = '2.5rem'
+  
+        return img
+      },
+      actions: () => {
+        const dom = document.createElement('div')
+        const btnEdit = document.createElement('button')
+        btnEdit.innerText = 'Edit'
+        dom.appendChild(btnEdit)
+  
+        return dom
+      }
+    },
+    pagination: {
+      rowsPerPage: {
+        ranges: [1, 2, 3, 4, 5, 6, 12]
       }
     }
   }
-}, {
-  limit: 5,
-  contents: {
-    avatar: src => {
-      const img = document.createElement('img')
-      img.src = src
-      img.style.width = '2.5rem'
+})
 
-      return img
-    },
-    actions: () => {
-      const dom = document.createElement('div')
-      const btnEdit = document.createElement('button')
-      btnEdit.innerText = 'Edit'
-      dom.appendChild(btnEdit)
-
-      return dom
+fromServer('#table-3', {
+  url: ({ page, limit, search }) => {
+    const baseURL = `https://api.github.com/search/repositories`
+    const query = {
+      page, per_page: limit, q: search
     }
+
+    query.q = `${query.q}+language:php`
+
+    return `${baseURL}?${new URLSearchParams(query).toString()}`
   },
-  pagination: {
-    rowsPerPage: {
-      ranges: [1, 2, 3, 4, 5, 6, 12]
+  success: async res => {
+    const body = await res.json()
+    const linkHeaders = (await res.headers.get('Link')).split(',')
+    const lastLink = new URL(
+      linkHeaders[1].split(';')[0].replace(/<|>/g, '')
+    )
+
+    console.log('server', 'body', body)
+    console.log('server', 'linkHeaders', linkHeaders)
+    console.log('server', 'lastLink', lastLink)
+
+    return {
+      data: body.items.map(_item => ({
+        name: _item.name,
+        owner: _item.owner.login,
+        avatar_url: _item.owner.avatar_url,
+        homepage: _item.homepage,
+        html_url: _item.html_url
+      })),
+      meta: {
+        total_rows: 10,
+        last_page: 5
+      }
     }
   }
 })

@@ -4,27 +4,28 @@ import { generateColumns } from './from-array'
 /**
  * @typedef { Object } Callbacks
  * @property { Function } url - callback to return a url. It get a page param
- * @property { Function } success 
+ * @property { Function } success
+ * @property { ProTable.Options } options
  */
 /**
  * 
  * @param { String | HTMLElement } elId 
  * @param { Callbacks } callbacks 
- * @param {*} options 
  */
-const fromServer = async (elId, { limit, url, success }, options) => {
+const fromServer = (elId, { url, success, options }) => {
   const proTable = new ProTable(elId, options)
   proTable.options.fromServer = true
-  
-  if (limit) {
-    proTable.options.limit = limit
-  }
   
   let firstLoad = true
   
   proTable.on('pageChanged', async (page) => {
-    let response =  await fetch(url({ page, limit: proTable.options.limit }))
-    let result = success?.(await response.json()) || (await response.json())
+    const query = {
+      page,
+      limit: proTable.options.limit,
+      search: proTable.options.keyword
+    }
+    let response =  await fetch(url(query))
+    let result = await success?.(response, query) || (await response.json())
 
     proTable.options.totalRows = result.meta.total_rows
     proTable.options.lastPage = result.meta.last_page

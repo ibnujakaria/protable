@@ -14,6 +14,7 @@ import Header from '../Header'
  * @property { Object } columns - Custom columns of table
  * @property { Number } limit - page limit
  * @property { Boolean } fromServer 
+ * @property { String } keyword for searching purpose
  * @property { Object } pagination - Pagination specific options
  * @property { string } pagination.type - Pagination type
  * @property { Object } pagination.rowsPerPage - Pagination rows per page options
