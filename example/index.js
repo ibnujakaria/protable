@@ -101,36 +101,51 @@ fromServer('#table-3', {
   url: ({ page, limit, search }) => {
     const baseURL = `https://api.github.com/search/repositories`
     const query = {
-      page, per_page: limit, q: search
+      page, per_page: limit, sort: 'stars'
     }
 
-    query.q = `${query.q}+language:php`
+    if (search) {
+      query.q = `${search}+in:name`
+    } else {
+      query.q = 'language:javascript'
+    }
 
-    return `${baseURL}?${new URLSearchParams(query).toString()}`
+    return decodeURIComponent(
+      `${baseURL}?${new URLSearchParams(query).toString()}`
+    )
   },
   success: async res => {
     const body = await res.json()
     const linkHeaders = (await res.headers.get('Link')).split(',')
     const lastLink = new URL(
-      linkHeaders[1].split(';')[0].replace(/<|>/g, '')
+      linkHeaders.find(_link => _link.split('; ')[1] === 'rel="last"').split(';')[0].replace(/<|>/g, '')
     )
 
     console.log('server', 'body', body)
     console.log('server', 'linkHeaders', linkHeaders)
-    console.log('server', 'lastLink', lastLink)
+    console.log('server', 'lastLink', lastLink.searchParams.get('page'))
 
     return {
-      data: body.items.map(_item => ({
-        name: _item.name,
-        owner: _item.owner.login,
-        avatar_url: _item.owner.avatar_url,
-        homepage: _item.homepage,
-        html_url: _item.html_url
-      })),
+      data: {
+        columns: ['full_name', 'description', 'stargazers_count'],
+        rows: body.items
+      },
       meta: {
-        total_rows: 10,
-        last_page: 5
+        total_rows: body.total_count,
+        last_page: lastLink.searchParams.get('page')
       }
+    }
+  },
+  options: {
+    contents: {
+      full_name: (content, columns) => {
+        const a = document.createElement('a')
+        a.innerHTML = content
+        a.href = columns.html_url
+
+        return a
+      },
+      description: content => (content?.substr(0, 100) + (content?.length > 100 ? '...' : '')) || '-'
     }
   }
 })

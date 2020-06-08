@@ -27,8 +27,8 @@ const fromServer = (elId, { url, success, options }) => {
     let response =  await fetch(url(query))
     let result = await success?.(response, query) || (await response.json())
 
-    proTable.options.totalRows = result.meta.total_rows
-    proTable.options.lastPage = result.meta.last_page
+    proTable.options.totalRows = parseInt(result.meta.total_rows)
+    proTable.options.lastPage = parseInt(result.meta.last_page)
     
     if (firstLoad) {
       const columns = result.data.columns || generateColumns(result.data)

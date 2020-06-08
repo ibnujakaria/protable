@@ -12,6 +12,7 @@ import Header from '../Header'
  * @property { Object } tbody - TBody
  * @property { TFoot.Options } tfoot - Tfoot
  * @property { Object } columns - Custom columns of table
+ * @property { Object } contents
  * @property { Number } limit - page limit
  * @property { Boolean } fromServer 
  * @property { String } keyword for searching purpose

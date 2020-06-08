@@ -98,8 +98,11 @@ class TBody {
       }
 
       // override content if user defines contents callback
-      if (this.proTable.options.contents && this.proTable.options.contents[_key]) {
-        rowContent = this.proTable.options.contents[_key](rowContent)
+      if (this.proTable.options?.contents?.[_key]) {
+        // we pass 2 params:
+        // - rowContent: content for this specific cell
+        // - _row: contents of the current row
+        rowContent = this.proTable.options.contents[_key](rowContent, _row)
 
         // check if the callback return is [content, { classes: [...] }]
         if (Array.isArray(rowContent) && rowContent.length > 1) {
