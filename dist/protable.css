@@ -1,0 +1,26 @@
+.protable thead th {
+  box-sizing: border-box; }
+  .protable thead th .th-container {
+    position: relative;
+    padding-right: 1rem; }
+    .protable thead th .th-container .arrows {
+      position: absolute;
+      margin-left: 1rem;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%); }
+      .protable thead th .th-container .arrows span {
+        display: block;
+        color: rgba(0, 0, 0, 0.4); }
+        .protable thead th .th-container .arrows span svg {
+          fill: currentColor;
+          display: block; }
+      .protable thead th .th-container .arrows.asc span, .protable thead th .th-container .arrows.desc span {
+        color: blue; }
+      .protable thead th .th-container .arrows.asc span.caret-down {
+        visibility: hidden; }
+      .protable thead th .th-container .arrows.desc span.caret-up {
+        visibility: hidden; }
+
+
+/*# sourceMappingURL=protable.css.map*/

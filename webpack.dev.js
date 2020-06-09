@@ -9,36 +9,42 @@ module.exports = merge(common, {
     bootstrap: './example/bootstrap.js',
     foundation: './example/foundation.js',
     tailwind: './example/tailwind.js',
-    ['semantic-ui']: './example/semantic-ui.js'
+    ['semantic-ui']: './example/semantic-ui.js',
+    scss: './src/scss/protable.scss'
   },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
   },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, 'example/data'), to: 'data' }
+      ]
+    }),
     new HtmlWebpackPlugin({
       template: './example/index.html',
-      chunks: ['index'],
+      chunks: ['index', 'scss'],
       filename: 'index.html',
     }),
     new HtmlWebpackPlugin({
       template: './example/bootstrap.html',
-      chunks: ['bootstrap'],
+      chunks: ['bootstrap', 'scss'],
       filename: 'bootstrap.html'
     }),
     new HtmlWebpackPlugin({
       template: './example/semantic-ui.html',
-      chunks: ['semantic-ui'],
+      chunks: ['semantic-ui', 'scss'],
       filename: 'semantic-ui.html'
     }),
     new HtmlWebpackPlugin({
       template: './example/foundation.html',
-      chunks: ['foundation'],
+      chunks: ['foundation', 'scss'],
       filename: 'foundation.html'
     }),
     new HtmlWebpackPlugin({
       template: './example/tailwind.html',
-      chunks: ['tailwind'],
+      chunks: ['tailwind', 'scss'],
       filename: 'tailwind.html'
     })
   ]

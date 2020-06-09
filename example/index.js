@@ -38,64 +38,64 @@ const options = {
   }
 }
 
-const proTableFromServer = fromServer('#table-1', {
-  url: ({ page }) => {
-    return `/data/server-side-example/${page}.json`
-  },
-  success: res => {
-    return res.json()
-  }
-})
+// const proTableFromServer = fromServer('#table-1', {
+//   url: ({ page }) => {
+//     return `/data/server-side-example/${page}.json`
+//   },
+//   success: res => {
+//     return res.json()
+//   }
+// })
 
-fromServer('#table-2', {
-  url: ({ page, limit }) => {
-    const baseURL = `https://reqres.in/api/users`
-    const query = new URLSearchParams({
-      page,
-      per_page: limit
-    }).toString()
+// fromServer('#table-2', {
+//   url: ({ page, limit }) => {
+//     const baseURL = `https://reqres.in/api/users`
+//     const query = new URLSearchParams({
+//       page,
+//       per_page: limit
+//     }).toString()
 
-    return `${baseURL}?${query}`
-  },
-  success: async res => {
-    const body = await res.json()
-    return {
-      data: {
-        columns: ['id', 'avatar', 'first_name', 'last_name', 'actions'],
-        rows: body.data
-      },
-      meta: {
-        last_page: body.total_pages,
-        total_rows: body.total
-      }
-    }
-  },
-  options: {
-    limit: 5,
-    contents: {
-      avatar: src => {
-        const img = document.createElement('img')
-        img.src = src
-        img.style.width = '2.5rem'
+//     return `${baseURL}?${query}`
+//   },
+//   success: async res => {
+//     const body = await res.json()
+//     return {
+//       data: {
+//         columns: ['id', 'avatar', 'first_name', 'last_name', 'actions'],
+//         rows: body.data
+//       },
+//       meta: {
+//         last_page: body.total_pages,
+//         total_rows: body.total
+//       }
+//     }
+//   },
+//   options: {
+//     limit: 5,
+//     contents: {
+//       avatar: src => {
+//         const img = document.createElement('img')
+//         img.src = src
+//         img.style.width = '2.5rem'
   
-        return img
-      },
-      actions: () => {
-        const dom = document.createElement('div')
-        const btnEdit = document.createElement('button')
-        btnEdit.innerText = 'Edit'
-        dom.appendChild(btnEdit)
+//         return img
+//       },
+//       actions: () => {
+//         const dom = document.createElement('div')
+//         const btnEdit = document.createElement('button')
+//         btnEdit.innerText = 'Edit'
+//         dom.appendChild(btnEdit)
   
-        return dom
-      }
-    },
-    pagination: {
-      rowsPerPage: {
-        ranges: [1, 2, 3, 4, 5, 6, 12]
-      }
-    }
-  }
-})
+//         return dom
+//       }
+//     },
+//     pagination: {
+//       rowsPerPage: {
+//         ranges: [1, 2, 3, 4, 5, 6, 12]
+//       }
+//     }
+//   }
+// })
 
 fromServer('#table-3', {
   url: ({ page, limit, search, order }) => {

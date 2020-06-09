@@ -81,91 +81,57 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 16);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
+/******/ ({
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayLikeToArray.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+
+module.exports = _arrayLikeToArray;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
-var arrayWithoutHoles = __webpack_require__(12);
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
 
-var iterableToArray = __webpack_require__(13);
-
-var unsupportedIterableToArray = __webpack_require__(14);
-
-var nonIterableSpread = __webpack_require__(15);
-
-function _toConsumableArray(arr) {
-  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return arrayLikeToArray(arr);
 }
 
-module.exports = _toConsumableArray;
+module.exports = _arrayWithoutHoles;
 
 /***/ }),
-/* 1 */
-/***/ (function(module, exports) {
 
-function _classCallCheck(instance, Constructor) {
-  if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
-  }
-}
-
-module.exports = _classCallCheck;
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-function _defineProperties(target, props) {
-  for (var i = 0; i < props.length; i++) {
-    var descriptor = props[i];
-    descriptor.enumerable = descriptor.enumerable || false;
-    descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
-    Object.defineProperty(target, descriptor.key, descriptor);
-  }
-}
-
-function _createClass(Constructor, protoProps, staticProps) {
-  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
-  if (staticProps) _defineProperties(Constructor, staticProps);
-  return Constructor;
-}
-
-module.exports = _createClass;
-
-/***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-module.exports = _defineProperty;
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(11);
-
-
-/***/ }),
-/* 5 */
+/***/ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/asyncToGenerator.js ***!
+  \*****************************************************************/
+/*! no static exports found */
+/*! exports used: default */
 /***/ (function(module, exports) {
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {
@@ -207,47 +173,178 @@ function _asyncToGenerator(fn) {
 module.exports = _asyncToGenerator;
 
 /***/ }),
-/* 6 */
-/***/ (function(module) {
 
-module.exports = JSON.parse("{\"normal\":{\"classes\":[\"table\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\"]}},\"search\":{\"classes\":[\"form-control\"]}},\"sm\":{\"classes\":[\"table\",\"table-sm\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\",\"pagination-sm\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\",\"form-control-sm\"]}},\"search\":{\"classes\":[\"form-control\",\"form-control-sm\"]}}}");
-
-/***/ }),
-/* 7 */
+/***/ "./node_modules/@babel/runtime/helpers/classCallCheck.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/classCallCheck.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/*! exports used: default */
 /***/ (function(module, exports) {
 
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
+function _classCallCheck(instance, Constructor) {
+  if (!(instance instanceof Constructor)) {
+    throw new TypeError("Cannot call a class as a function");
   }
-
-  return arr2;
 }
 
-module.exports = _arrayLikeToArray;
+module.exports = _classCallCheck;
 
 /***/ }),
-/* 8 */
-/***/ (function(module) {
 
-module.exports = JSON.parse("{\"classes\":[\"ui\",\"celled\",\"striped\",\"table\"],\"pagination\":{\"containerClasses\":[\"ui\",\"pagination\",\"menu\"],\"btnElement\":\"a\",\"btnClasses\":[\"item\"],\"rowsPerPage\":{\"selectClasses\":[\"ui\",\"dropdown\"]}},\"search\":{\"wrapperElement\":\"div\",\"wrapperClasses\":[\"ui\",\"input\"]}}");
+/***/ "./node_modules/@babel/runtime/helpers/createClass.js":
+/*!************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/createClass.js ***!
+  \************************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports) {
+
+function _defineProperties(target, props) {
+  for (var i = 0; i < props.length; i++) {
+    var descriptor = props[i];
+    descriptor.enumerable = descriptor.enumerable || false;
+    descriptor.configurable = true;
+    if ("value" in descriptor) descriptor.writable = true;
+    Object.defineProperty(target, descriptor.key, descriptor);
+  }
+}
+
+function _createClass(Constructor, protoProps, staticProps) {
+  if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+  if (staticProps) _defineProperties(Constructor, staticProps);
+  return Constructor;
+}
+
+module.exports = _createClass;
 
 /***/ }),
-/* 9 */
-/***/ (function(module) {
 
-module.exports = JSON.parse("{\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnElement\":\"a\",\"btnDisabledClasses\":[\"disabled\"],\"rowsPerPage\":{\"selectClasses\":[\"margin-0\"]}},\"search\":{\"classes\":[\"margin-0\"]}}");
+/***/ "./node_modules/@babel/runtime/helpers/defineProperty.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/defineProperty.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports) {
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+module.exports = _defineProperty;
 
 /***/ }),
-/* 10 */
-/***/ (function(module) {
 
-module.exports = JSON.parse("{\"classes\":[\"w-full\",\"table-auto\"],\"thead\":{\"thClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"tbody\":{\"tdClasses\":[\"bg-even-200\",\"odd:bg-gray-200\",\"px-3\",\"py-2\",\"border\"]},\"tfoot\":{\"tdClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"pagination\":{\"containerClasses\":[\"flex\"],\"btnClasses\":[\"px-2\",\"py-1\",\"border\"],\"btnActiveClasses\":[\"bg-gray-100\"],\"btnDisabledClasses\":[\"text-gray-500\"],\"rowsPerPage\":{\"selectClasses\":[\"px-2\",\"py-1\",\"border\"]}},\"search\":{\"classes\":[\"px-2\",\"py-1\",\"border\"]}}");
+/***/ "./node_modules/@babel/runtime/helpers/iterableToArray.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/iterableToArray.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+
+module.exports = _iterableToArray;
 
 /***/ }),
-/* 11 */
+
+/***/ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/nonIterableSpread.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports) {
+
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+module.exports = _nonIterableSpread;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/toConsumableArray.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/toConsumableArray.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ "./node_modules/@babel/runtime/helpers/arrayWithoutHoles.js");
+
+var iterableToArray = __webpack_require__(/*! ./iterableToArray */ "./node_modules/@babel/runtime/helpers/iterableToArray.js");
+
+var unsupportedIterableToArray = __webpack_require__(/*! ./unsupportedIterableToArray */ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js");
+
+var nonIterableSpread = __webpack_require__(/*! ./nonIterableSpread */ "./node_modules/@babel/runtime/helpers/nonIterableSpread.js");
+
+function _toConsumableArray(arr) {
+  return arrayWithoutHoles(arr) || iterableToArray(arr) || unsupportedIterableToArray(arr) || nonIterableSpread();
+}
+
+module.exports = _toConsumableArray;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/unsupportedIterableToArray.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+var arrayLikeToArray = __webpack_require__(/*! ./arrayLikeToArray */ "./node_modules/@babel/runtime/helpers/arrayLikeToArray.js");
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
+}
+
+module.exports = _unsupportedIterableToArray;
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/regenerator/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/*! exports used: default */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! regenerator-runtime */ "./node_modules/regenerator-runtime/runtime.js");
+
+
+/***/ }),
+
+/***/ "./node_modules/regenerator-runtime/runtime.js":
+/*!*****************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime.js ***!
+  \*****************************************************/
+/*! no static exports found */
+/*! all exports used */
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -982,902 +1079,350 @@ try {
 
 
 /***/ }),
-/* 12 */
-/***/ (function(module, exports, __webpack_require__) {
 
-var arrayLikeToArray = __webpack_require__(7);
-
-function _arrayWithoutHoles(arr) {
-  if (Array.isArray(arr)) return arrayLikeToArray(arr);
-}
-
-module.exports = _arrayWithoutHoles;
-
-/***/ }),
-/* 13 */
-/***/ (function(module, exports) {
-
-function _iterableToArray(iter) {
-  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
-}
-
-module.exports = _iterableToArray;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var arrayLikeToArray = __webpack_require__(7);
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-module.exports = _unsupportedIterableToArray;
-
-/***/ }),
-/* 15 */
-/***/ (function(module, exports) {
-
-function _nonIterableSpread() {
-  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-module.exports = _nonIterableSpread;
-
-/***/ }),
-/* 16 */
+/***/ "./src/components/Header.js":
+/*!**********************************!*\
+  !*** ./src/components/Header.js ***!
+  \**********************************/
+/*! exports provided: default */
+/*! exports used: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-// ESM COMPAT FLAG
-__webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "fromArray", function() { return /* reexport */ from_array; });
-__webpack_require__.d(__webpack_exports__, "fromTable", function() { return /* reexport */ from_dom_table; });
-__webpack_require__.d(__webpack_exports__, "fromServer", function() { return /* reexport */ from_server; });
-__webpack_require__.d(__webpack_exports__, "templateOptions", function() { return /* binding */ templateOptions; });
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/defineProperty.js
-var defineProperty = __webpack_require__(3);
-var defineProperty_default = /*#__PURE__*/__webpack_require__.n(defineProperty);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
-var regenerator = __webpack_require__(4);
-var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/asyncToGenerator.js
-var asyncToGenerator = __webpack_require__(5);
-var asyncToGenerator_default = /*#__PURE__*/__webpack_require__.n(asyncToGenerator);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/toConsumableArray.js
-var toConsumableArray = __webpack_require__(0);
-var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableArray);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/classCallCheck.js
-var classCallCheck = __webpack_require__(1);
-var classCallCheck_default = /*#__PURE__*/__webpack_require__.n(classCallCheck);
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/createClass.js
-var createClass = __webpack_require__(2);
-var createClass_default = /*#__PURE__*/__webpack_require__.n(createClass);
-
-// CONCATENATED MODULE: ./src/components/table/Td.js
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _search_Input__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./search/Input */ "./src/components/search/Input.js");
+/* harmony import */ var _table_ProTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./table/ProTable */ "./src/components/table/ProTable.js");
 
 
 
 
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+var Header = /*#__PURE__*/function () {
+  /**
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable 
+   */
+  function Header(_ref) {
+    var proTable = _ref.proTable;
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0___default()(this, Header);
 
-var Td_Td = /*#__PURE__*/function () {
-  function Td(_ref) {
-    var key = _ref.key,
-        child = _ref.child,
-        options = _ref.options;
-
-    classCallCheck_default()(this, Td);
-
-    this.key = key;
-
-    if (child instanceof Node) {
-      this.buildDOMFromNode(child);
-    } else {
-      this.buildDOMFromString(child);
-    }
-
-    this.options = _objectSpread({
-      attrs: {
-        colspan: 1
-      },
-      style: {},
-      searchable: true
-    }, options);
-
-    this._applyAttributes();
-
-    this._applyClasses();
+    this.proTable = proTable;
+    this.$dom = document.createElement('header');
 
     this._applyStyles();
+
+    if (this.proTable.options.search !== false) {
+      this._createSearch();
+    }
   }
 
-  createClass_default()(Td, [{
-    key: "buildDOMFromString",
-    value: function buildDOMFromString(child) {
-      this.$dom = document.createElement('td');
-      this.$dom.innerHTML = child === null || child === undefined ? '-' : child;
-    }
-  }, {
-    key: "buildDOMFromNode",
-    value: function buildDOMFromNode(node) {
-      this.$dom = document.createElement('td');
-      this.$dom.appendChild(node);
-    }
-  }, {
-    key: "_applyClasses",
-    value: function _applyClasses() {
-      var _this$options$classes;
-
-      if ((_this$options$classes = this.options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-        var _this$$dom$classList;
-
-        (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-      }
-    }
-  }, {
-    key: "_applyAttributes",
-    value: function _applyAttributes() {
-      for (var attr in this.options.attrs) {
-        this.$dom.setAttribute(attr, this.options.attrs[attr]);
-      }
-    }
-  }, {
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_1___default()(Header, [{
     key: "_applyStyles",
     value: function _applyStyles() {
-      for (var style in this.options.style) {
-        this.$dom.style[style] = this.options.style[style];
-      }
+      this.$dom.style.textAlign = 'right';
+      this.$dom.style.marginBottom = '1rem';
+    }
+  }, {
+    key: "_createSearch",
+    value: function _createSearch() {
+      this.search = new _search_Input__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"]({
+        proTable: this.proTable
+      });
+      this.$dom.appendChild(this.search.$dom);
     }
   }]);
 
-  return Td;
+  return Header;
 }();
 
-/* harmony default export */ var table_Td = (Td_Td);
-// CONCATENATED MODULE: ./src/components/table/Th.js
+/* harmony default export */ __webpack_exports__["a"] = (Header);
 
+/***/ }),
 
+/***/ "./src/components/pagination/DefaultPagination.js":
+/*!********************************************************!*\
+  !*** ./src/components/pagination/DefaultPagination.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-
-function Th_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function Th_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { Th_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { Th_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-/**
- * Th Options
- * 
- * @typedef { Object } Th.Options
- * @property { Object } attrs - DOM attributes
- * @property { Number } attrs.colspan - colspan of this th
- */
-
-/**
- * Th class
- *
- * @class Th
- */
-
-var Th_Th = /*#__PURE__*/function () {
-  /**
-   * Creates an instance of Th.
-   * 
-   * @param { Object } payload
-   * @param { string } payload.key
-   * @param { string } payload.label
-   * @param { ProTable } payload.proTable
-   * @param { Th.Options } payload.options
-   * @memberof Th
-   */
-  function Th(_ref) {
-    var key = _ref.key,
-        label = _ref.label,
-        proTable = _ref.proTable,
-        options = _ref.options;
-
-    classCallCheck_default()(this, Th);
-
-    this.key = key;
-    this.label = label;
-    this.proTable = proTable;
-    this.$dom = document.createElement('th');
-    /**
-     * @type { Th.Options }
-     */
-
-    this.options = Th_objectSpread({
-      attrs: {
-        colspan: 1
-      },
-      orderabel: true
-    }, options);
-
-    this._createContainer();
-
-    this._createSpan();
-
-    this._applyAttributes();
-
-    this._applyClasses();
-
-    this._applyOrderable();
-  }
-
-  createClass_default()(Th, [{
-    key: "_createContainer",
-    value: function _createContainer() {
-      this.$container = document.createElement('div');
-      this.$container.style.display = 'flex';
-      this.$container.style.justifyContent = 'space-between';
-      this.$container.style.alignItems = 'center';
-      this.$dom.appendChild(this.$container);
-    }
-  }, {
-    key: "_applyAttributes",
-    value: function _applyAttributes() {
-      for (var attr in this.options.attrs) {
-        this.$dom.setAttribute(attr, this.options.attrs[attr]);
-      }
-    }
-  }, {
-    key: "_applyClasses",
-    value: function _applyClasses() {
-      var _this$options$classes;
-
-      if ((_this$options$classes = this.options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-        var _this$$dom$classList;
-
-        (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-      }
-    }
-  }, {
-    key: "_createSpan",
-    value: function _createSpan() {
-      this.$spanLabel = document.createElement('span');
-      this.$spanLabel.innerHTML = this.label || '-';
-      this.$container.appendChild(this.$spanLabel);
-    }
-  }, {
-    key: "_isOrderable",
-    value: function _isOrderable() {
-      return this.options.orderable && this.options.attrs.colspan === 1;
-    }
-  }, {
-    key: "_applyOrderable",
-    value: function _applyOrderable() {
-      var _this = this;
-
-      if (!this._isOrderable()) {
-        return;
-      }
-
-      this.$container.style.cursor = 'pointer'; // caret top
-
-      this.$spanTop = document.createElement('span');
-      this.$spanTop.innerHTML = '▴';
-      this.$spanTop.style.marginBottom = '-.3rem'; // caret bottom
-
-      this.$spanBottom = document.createElement('span');
-      this.$spanBottom.innerHTML = '▾';
-      this.$spanBottom.style.marginTop = '-.3rem';
-      this.$orderDom = document.createElement('div');
-      this.$orderDom.appendChild(this.$spanTop);
-      this.$orderDom.appendChild(this.$spanBottom);
-      this.$orderDom.style.display = 'inline-flex';
-      this.$orderDom.style.flexDirection = 'column';
-      this.$orderDom.style.justifyContent = 'center';
-      this.$orderDom.style.fontSize = '80%';
-      this.$orderDom.style.height = '1rem';
-      this.$orderDom.style.opacity = 0.3;
-      this.$orderDom.style.marginLeft = '.5rem';
-      this.$orderDom.style.userSelect = 'none';
-      this.$container.appendChild(this.$orderDom);
-      this.$dom.addEventListener('click', function (e) {
-        _this._toggleOrder();
-      });
-    }
-  }, {
-    key: "_toggleOrder",
-    value: function _toggleOrder() {
-      var order = this.proTable.options.order;
-      var payload = {
-        key: this.key,
-        direction: 'asc'
-      };
-
-      if (order.key === this.key) {
-        payload.direction = order.direction === 'desc' ? 'asc' : 'desc';
-      }
-
-      this.proTable.setOrder(payload);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this._isOrderable()) {
-        var order = this.proTable.options.order;
-        this.$spanTop.style.visibility = order.key === this.key && order.direction === 'desc' ? 'hidden' : '';
-        this.$spanBottom.style.visibility = order.key === this.key && order.direction === 'asc' ? 'hidden' : '';
-      }
-    }
-  }]);
-
-  return Th;
-}();
-
-/* harmony default export */ var table_Th = (Th_Th);
-// CONCATENATED MODULE: ./src/components/table/Tr.js
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _RowsPerPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RowsPerPage */ "./src/components/pagination/RowsPerPage.js");
+/* harmony import */ var _helpers_pagination_pages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../helpers/pagination-pages */ "./src/helpers/pagination-pages.js");
 
 
 
 
 
 
-var Tr_Tr = /*#__PURE__*/function () {
-  /**
-   * @param { Object } options
-   * @param { string[] } options.classes
-   */
-  function Tr(options) {
-    var _this$options, _this$options$classes;
-
-    classCallCheck_default()(this, Tr);
-
-    this.options = options;
-    this.$dom = document.createElement('tr');
-    this.childs = []; // apply classes
-
-    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-      var _this$$dom$classList;
-
-      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-    }
-  }
-
-  createClass_default()(Tr, [{
-    key: "addTd",
-    value: function addTd(_ref) {
-      var key = _ref.key,
-          label = _ref.label,
-          options = _ref.options;
-      var td = new table_Td({
-        key: key,
-        child: label,
-        options: options
-      });
-      this.childs.push(td);
-      this.$dom.appendChild(td.$dom);
-    }
-  }, {
-    key: "pushTd",
-    value: function pushTd(td) {
-      this.childs.push(td);
-      this.$dom.appendChild(td.$dom);
-    }
-  }, {
-    key: "addTds",
-    value: function addTds(array) {
-      var _this = this;
-
-      // _item = { key, label }
-      array.forEach(function (_item) {
-        _this.addTd(_item);
-      });
-      return this;
-    }
-  }, {
-    key: "addTh",
-    value: function addTh(column, options) {
-      var th = new table_Th(column, options);
-      this.childs.push(th);
-      this.$dom.appendChild(th.$dom);
-    }
-  }, {
-    key: "pushTh",
-    value: function pushTh(th) {
-      this.childs.push(th);
-      this.$dom.appendChild(th.$dom);
-    }
-  }, {
-    key: "addThs",
-    value: function addThs(array) {
-      var _this2 = this;
-
-      array.forEach(function (_item) {
-        _this2.addTh(_item);
-      });
-      return this;
-    }
-  }]);
-
-  return Tr;
-}();
-
-/* harmony default export */ var table_Tr = (Tr_Tr);
-
-// CONCATENATED MODULE: ./src/components/table/THead.js
-
-
-
-
-
-function THead_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function THead_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { THead_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { THead_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-/**
- * @typedef { Object } THead.Options
- * @property { string[] } classes - `thead` classes
- * @property { string[] } trClasses - `thead > tr` classes
- * @property { string[] } thClasses - `thead > tr > th` classes
- */
-
-/**
- * @class THead
- * @property { THead.Options } options
- */
-
-var THead_THead = /*#__PURE__*/function () {
-  /**
-   * Creates an instance of THead.
-   *
-   * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
-   * 
-   * @param { Object } payload
-   * @param { ProTable } payload.proTable
-   * @param { THead.Options } payload.options
-   * @memberof THead
-   * @constructor
-   */
-  function THead(_ref) {
-    var _this = this,
-        _this$options,
-        _this$options$classes;
-
-    var proTable = _ref.proTable,
-        options = _ref.options;
-
-    classCallCheck_default()(this, THead);
+var DefaultPagination = /*#__PURE__*/function () {
+  function DefaultPagination(proTable) {
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, DefaultPagination);
 
     this.proTable = proTable;
-    this.options = options;
-    this.$dom = document.createElement('thead');
-    this.trs = this.generateTrs(this.proTable.columns);
+    this.$dom = document.createElement('div');
+    this.$dom.style.display = 'flex';
+    this.$dom.style.justifyContent = 'space-between';
+    this.$dom.style.alignItems = 'center';
 
-    this.columnsCount = function () {
-      return _this.trs[0].childs.map(function (th) {
-        return th.options.attrs.colspan;
-      }).reduce(function (a, b) {
-        return a + b;
-      });
-    }();
+    this._buildRowsPerPage();
 
-    console.log('trs', this.trs); // apply thead classes
-
-    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-      var _this$$dom$classList;
-
-      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-    } // append child
-
-
-    this.trs.forEach(function (tr) {
-      return _this.$dom.appendChild(tr.$dom);
-    });
-  }
-  /**
-   * This function will generate one <tr> tag if its simple.
-   * But for complex headers, it will generate more than one <tr> tags.
-   * 
-   * @param { string[] } columns 
-   * @returns { Tr[] } trs
-   */
-
-
-  createClass_default()(THead, [{
-    key: "generateTrs",
-    value: function generateTrs(columns) {
-      var _this$options2;
-
-      var trs = [];
-
-      var _this$generateThs = this.generateThs(columns),
-          ths = _this$generateThs.ths,
-          childs = _this$generateThs.childs;
-
-      var tr = new table_Tr({
-        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
-      });
-      ths.forEach(function (_th) {
-        return tr.pushTh(_th);
-      });
-      trs.push(tr);
-      console.log('childs', childs);
-
-      if (Object.keys(childs).length) {
-        trs = trs.concat(this.generateTrs(childs));
-      } // add rowspan to th that has not colspan attr
-      // and fix colspan as its child
-
-
-      tr.childs.forEach(function (_th) {
-        if (_th.options.attrs.colspan === 1) {
-          _th.$dom.setAttribute('rowspan', trs.length);
-        }
-      });
-      return trs;
-    }
-    /**
-     * Generate th elements of the head
-     * 
-     * @param { Object } columns 
-     */
-
-  }, {
-    key: "generateThs",
-    value: function generateThs(columns) {
-      var ths = [];
-      var childs = {};
-
-      for (var _key in columns) {
-        var _this$options3;
-
-        var _col = columns[_key];
-        ths.push(new table_Th({
-          key: _key,
-          label: _col.label,
-          proTable: this.proTable,
-          options: {
-            classes: (((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.thClasses) || []).concat(_col.classes),
-            attrs: {
-              colspan: this.getColspan(_col.childs)
-            },
-            orderable: typeof _col.orderable === 'boolean' ? !!_col.orderable : true
-          }
-        }));
-
-        if (_col.childs) {
-          childs = THead_objectSpread(THead_objectSpread({}, childs), _col.childs);
-        }
-      }
-
-      return {
-        ths: ths,
-        childs: childs
-      };
-    }
-    /**
-     * Return the count of colspan of a given childs
-     * 
-     * @param { Object } childs 
-     */
-
-  }, {
-    key: "getColspan",
-    value: function getColspan(childs) {
-      if (!childs) {
-        return 1;
-      }
-
-      var length = Object.keys(childs).length;
-
-      for (var _key in childs) {
-        if (childs[_key].childs) {
-          length += this.getColspan(childs[_key].childs);
-        }
-      }
-
-      return length;
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      this.trs.forEach(function (_tr) {
-        _tr.childs.forEach(function (_child) {
-          return _child.render();
-        });
-      });
-    }
-  }]);
-
-  return THead;
-}();
-
-/* harmony default export */ var table_THead = (THead_THead);
-// CONCATENATED MODULE: ./src/components/table/TBody.js
-
-
-
-
-
-function TBody_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function TBody_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { TBody_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { TBody_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-
-
-
-/**
- * TBody Options
- * 
- * @typedef { Object } TBody.Options
- * @property { string[] } classes - classes of tbody
- * @property { string[] } trClasses - classes of each tr
- * @property { string[] } tdClasses - classes of each td
- */
-
-/**
- * @class TBody
- * @param { TBody.Options } options
- */
-
-var TBody_TBody = /*#__PURE__*/function () {
-  /**
-   * Creates an instance of TBody.
-   * 
-   * @param { Object } payload
-   * @param { ProTable } payload.proTable
-   * @param { TBody.Options } payload.options
-   * @memberof TBody
-   */
-  function TBody(_ref) {
-    var _this$options, _this$options$classes;
-
-    var proTable = _ref.proTable,
-        options = _ref.options;
-
-    classCallCheck_default()(this, TBody);
-
-    this.$dom = document.createElement('tbody');
-    this.proTable = proTable;
-    this.options = options;
-    this.generateTrs(); // apply tbody classes
-
-    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-      var _this$$dom$classList;
-
-      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-    }
+    this._buildControls();
 
     this.render();
   }
 
-  createClass_default()(TBody, [{
-    key: "generateTrs",
-    value: function generateTrs() {
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(DefaultPagination, [{
+    key: "_buildRowsPerPage",
+    value: function _buildRowsPerPage() {
+      this.rowsPerPage = new _RowsPerPage__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"](this.proTable);
+      this.$dom.appendChild(this.rowsPerPage.$dom);
+    }
+  }, {
+    key: "_buildControls",
+    value: function _buildControls() {
+      var options = this.proTable.options;
+      this.$controls = document.createElement(options.pagination.containerElement || 'div');
+      this.$controls.style.margin = '0';
+
+      if (options.pagination.containerClasses) {
+        var _this$$controls$class;
+
+        (_this$$controls$class = this.$controls.classList).add.apply(_this$$controls$class, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.containerClasses));
+      }
+
+      this.$dom.appendChild(this.$controls);
+      this.pageButtons = [];
+
+      this._buildPrevButton();
+
+      this._buildNextButton();
+
+      this._buildPageButtons();
+    }
+  }, {
+    key: "_buildNextButton",
+    value: function _buildNextButton() {
       var _this = this;
 
-      var columns = this.proTable.columns;
-      var rows = this.proTable.rows;
-      this.trs = [];
-      rows.forEach(function (_row) {
-        var _this$options2;
+      this.btnNext = this._buildButton('Next'); // apply classes from options
 
-        var tr = new table_Tr({
-          classes: (_this$options2 = _this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
-        });
-        tr.addTds(_this.generateTds(columns, _row));
+      if (this.proTable.options.pagination.btnClasses) {
+        var _this$btnNext$$btn$cl;
 
-        _this.trs.push(tr);
+        (_this$btnNext$$btn$cl = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.proTable.options.pagination.btnClasses));
+      }
+
+      this.$controls.appendChild(this.btnNext.$wrapper);
+      this.btnNext.$btn.addEventListener('click', function (e) {
+        _this.proTable.setPage(_this.proTable.options.page + 1);
       });
-      this.trs;
+    }
+  }, {
+    key: "_buildPrevButton",
+    value: function _buildPrevButton() {
+      var _this2 = this;
+
+      this.btnPrev = this._buildButton('Prev'); // apply classes from options
+
+      if (this.proTable.options.pagination.btnClasses) {
+        var _this$btnPrev$$btn$cl;
+
+        (_this$btnPrev$$btn$cl = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.proTable.options.pagination.btnClasses));
+      }
+
+      this.$controls.appendChild(this.btnPrev.$wrapper);
+      this.btnPrev.$btn.addEventListener('click', function (e) {
+        _this2.proTable.setPage(_this2.proTable.options.page - 1);
+      });
+    }
+  }, {
+    key: "_buildPageButtons",
+    value: function _buildPageButtons() {
+      var _this3 = this;
+
+      var options = this.proTable.options;
+      var lastPage = this.proTable.lastPage;
+
+      while (this.pageButtons.length) {
+        var btn = this.pageButtons.pop();
+        this.$controls.removeChild(btn.$wrapper);
+      }
+
+      Object(_helpers_pagination_pages__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"])(options.page, lastPage, 2).forEach(function (page) {
+        var btn = _this3._buildButton(page);
+
+        if (page === options.page) {
+          btn.$btn.style.fontWeight = 800;
+
+          if (options.pagination.btnActiveClasses) {
+            var _btn$$btn$classList;
+
+            (_btn$$btn$classList = btn.$btn.classList).add.apply(_btn$$btn$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnActiveClasses));
+          }
+
+          if (options.pagination.btnWrapperActiveClasses) {
+            var _btn$$wrapper$classLi;
+
+            (_btn$$wrapper$classLi = btn.$wrapper.classList).add.apply(_btn$$wrapper$classLi, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnWrapperActiveClasses));
+          }
+        } // apply classes from options
+
+
+        if (options.pagination.btnClasses) {
+          var _btn$$btn$classList2;
+
+          (_btn$$btn$classList2 = btn.$btn.classList).add.apply(_btn$$btn$classList2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnClasses));
+        }
+
+        btn.$btn.addEventListener('click', function (e) {
+          _this3.proTable.setPage(page);
+        });
+
+        _this3.pageButtons.push(btn);
+
+        _this3.$controls.insertBefore(btn.$wrapper, _this3.btnNext.$wrapper);
+      });
     }
     /**
-     * Generate object array. The return of this function will next be
-     * generated to object Tds
+     * Create DOM button
      * 
-     * @param { Object } columns 
-     * @param { Object[] } _row 
+     * @returns { Object } object of $btn and $wrapper
      */
 
   }, {
-    key: "generateTds",
-    value: function generateTds(columns, _row) {
-      var tds = [];
+    key: "_buildButton",
+    value: function _buildButton(text) {
+      var _options$pagination;
 
-      for (var _key in columns) {
-        var _this$options3, _this$proTable$option, _this$proTable$option2;
+      var options = this.proTable.options;
+      var $btn = document.createElement(((_options$pagination = options.pagination) === null || _options$pagination === void 0 ? void 0 : _options$pagination.btnElement) || 'button');
+      $btn.innerText = text; // if there is a wrapper
 
-        /**
-         * the corresponding column of this row
-         */
-        var _col = columns[_key];
-        /**
-         * Row Content could be an array that consits with 2 items 
-         *  - ['content', { classes: [...] }]
-         *  - first item is the content
-         *  - the second is the options
-         * 
-         * And could be just a string/Node
-         */
+      if (options.pagination.btnWrapper) {
+        var $wrapper = document.createElement(options.pagination.btnWrapper);
+        $wrapper.appendChild($btn);
 
-        var rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key];
-        var rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {};
+        if (options.pagination.btnWrapperClasses) {
+          var _$wrapper$classList;
 
-        if ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) {
-          var _this$options4;
-
-          rowOptions.classes = (rowOptions.classes || []).concat((_this$options4 = this.options) === null || _this$options4 === void 0 ? void 0 : _this$options4.tdClasses);
-        } // override content if user defines targetIndex
-
-
-        if (Number.isInteger(_col.targetIndex)) {
-          var contentTmp = _row[Object.keys(this.proTable.columns)[_col.targetIndex]];
-
-          rowContent = Array.isArray(contentTmp) ? contentTmp[0] : contentTmp;
-          rowOptions = TBody_objectSpread(TBody_objectSpread({}, rowOptions), Array.isArray(contentTmp) ? contentTmp[1] : {});
-        } // override content if user defines contents callback
-
-
-        if ((_this$proTable$option = this.proTable.options) === null || _this$proTable$option === void 0 ? void 0 : (_this$proTable$option2 = _this$proTable$option.contents) === null || _this$proTable$option2 === void 0 ? void 0 : _this$proTable$option2[_key]) {
-          // we pass 2 params:
-          // - rowContent: content for this specific cell
-          // - _row: contents of the current row
-          rowContent = this.proTable.options.contents[_key](rowContent, _row); // check if the callback return is [content, { classes: [...] }]
-
-          if (Array.isArray(rowContent) && rowContent.length > 1) {
-            var _rowContent$;
-
-            rowOptions.classes = (rowOptions.classes || []).concat(((_rowContent$ = rowContent[1]) === null || _rowContent$ === void 0 ? void 0 : _rowContent$.classes) || []);
-            rowContent = rowContent[0];
-          }
+          (_$wrapper$classList = $wrapper.classList).add.apply(_$wrapper$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnWrapperClasses));
         }
 
-        if (_col.childs) {
-          // call generateTds recursively
-          tds = tds.concat(this.generateTds(_col.childs, _row[_key]));
-        } else {
-          tds.push({
-            key: _key,
-            label: rowContent,
-            options: TBody_objectSpread(TBody_objectSpread({}, rowOptions), {}, {
-              searchable: typeof _col.searchable === 'boolean' ? !!_col.searchable : true
-            })
-          });
-        }
-      } // console.log('generateTds', tds)
+        return {
+          $wrapper: $wrapper,
+          $btn: $btn
+        };
+      }
 
-
-      return tds;
+      return {
+        $btn: $btn,
+        $wrapper: $btn
+      };
     }
-    /**
-     * rendering trs
-     *
-     * @memberof TBody
-     */
-
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var options = this.proTable.options;
+      var page = options.page;
+      var lastPage = this.proTable.lastPage;
+      this.btnPrev.$btn.disabled = page === 1;
+      this.btnNext.$btn.disabled = page === lastPage;
 
-      // delete rendered trs
-      while (this.$dom.lastChild) {
-        this.$dom.removeChild(this.$dom.lastChild);
-      }
+      if (page === 1) {
+        var _options$pagination2, _options$pagination2$;
 
-      if (this.proTable.options.fromServer) {
-        this.generateTrs();
-        this.trs.forEach(function (_tr) {
-          return _this2.$dom.appendChild(_tr.$dom);
-        });
+        this.btnPrev.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.btnDisabledClasses) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.length) {
+          var _this$btnPrev$$btn$cl2;
+
+          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
+        }
       } else {
-        var limit = this.proTable.options.limit;
-        var page = this.proTable.options.page;
-        var start = (page - 1) * limit;
-        this.filteredTrs.sort(this._sort.bind(this)).slice(start, this.proTable.options.limit * page).forEach(function (_tr) {
-          return _this2.$dom.appendChild(_tr.$dom);
-        });
-      } // if there is no result for given keyword
+        var _options$pagination3, _options$pagination3$;
 
+        this.btnPrev.$wrapper.classList.remove('disabled');
 
-      if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
-        var _this$proTable$option3;
+        if ((_options$pagination3 = options.pagination) === null || _options$pagination3 === void 0 ? void 0 : (_options$pagination3$ = _options$pagination3.btnDisabledClasses) === null || _options$pagination3$ === void 0 ? void 0 : _options$pagination3$.length) {
+          var _this$btnPrev$$btn$cl3;
 
-        var tr = new table_Tr();
-        var td = new table_Td({
-          child: ((_this$proTable$option3 = this.proTable.options.search) === null || _this$proTable$option3 === void 0 ? void 0 : _this$proTable$option3.notFoundText) || 'Not matching records found',
-          options: {
-            attrs: {
-              colspan: this.proTable.thead.columnsCount
-            },
-            style: {
-              textAlign: 'center'
-            }
-          }
-        });
-        tr.pushTd(td);
-        this.$dom.appendChild(tr.$dom);
-      }
-    }
-  }, {
-    key: "_filter",
-
-    /**
-     * Filter by Tr
-     *
-     * @param { Tr } _tr
-     * @memberof TBody
-     */
-    value: function _filter(_tr) {
-      var keyword = this.proTable.options.keyword || '';
-      return !!_tr.childs.find(function (_child) {
-        var _child$$dom, _child$$dom$innerText, _child$$dom$innerText2;
-
-        return _child.options.searchable && (_child === null || _child === void 0 ? void 0 : (_child$$dom = _child.$dom) === null || _child$$dom === void 0 ? void 0 : (_child$$dom$innerText = _child$$dom.innerText) === null || _child$$dom$innerText === void 0 ? void 0 : (_child$$dom$innerText2 = _child$$dom$innerText.toLowerCase()) === null || _child$$dom$innerText2 === void 0 ? void 0 : _child$$dom$innerText2.indexOf(keyword.toLowerCase())) > -1;
-      });
-    }
-  }, {
-    key: "_sort",
-    value: function _sort(a, b) {
-      var order = this.proTable.options.order;
-
-      if (order.key) {
-        var tdA = a.childs.find(function (_td) {
-          return _td.key === order.key;
-        });
-        var tdB = b.childs.find(function (_td) {
-          return _td.key === order.key;
-        }); // check if the value is valid number or not
-
-        var contentA = !isNaN(tdA.$dom.innerText) ? parseFloat(tdA.$dom.innerText) : tdA.$dom.innerText;
-        var contentB = !isNaN(tdB.$dom.innerText) ? parseFloat(tdB.$dom.innerText) : tdB.$dom.innerText; // ascending
-
-        if (order.direction === 'asc') {
-          return contentA > contentB ? 1 : -1;
-        } else {
-          return contentA > contentB ? -1 : 1;
+          (_this$btnPrev$$btn$cl3 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl3, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
         }
       }
 
-      return 0;
-    }
-  }, {
-    key: "filteredTrs",
-    get: function get() {
-      return this.trs.filter(this._filter.bind(this));
+      if (page === lastPage) {
+        var _options$pagination4, _options$pagination4$;
+
+        this.btnNext.$wrapper.classList.add('disabled');
+
+        if ((_options$pagination4 = options.pagination) === null || _options$pagination4 === void 0 ? void 0 : (_options$pagination4$ = _options$pagination4.btnDisabledClasses) === null || _options$pagination4$ === void 0 ? void 0 : _options$pagination4$.length) {
+          var _this$btnNext$$btn$cl2;
+
+          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
+        }
+      } else {
+        var _options$pagination5, _options$pagination5$;
+
+        this.btnNext.$wrapper.classList.remove('disabled');
+
+        if ((_options$pagination5 = options.pagination) === null || _options$pagination5 === void 0 ? void 0 : (_options$pagination5$ = _options$pagination5.btnDisabledClasses) === null || _options$pagination5$ === void 0 ? void 0 : _options$pagination5$.length) {
+          var _this$btnNext$$btn$cl3;
+
+          (_this$btnNext$$btn$cl3 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl3, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
+        }
+      }
+
+      this._buildPageButtons();
     }
   }]);
 
-  return TBody;
+  return DefaultPagination;
 }();
 
-/* harmony default export */ var table_TBody = (TBody_TBody);
-// CONCATENATED MODULE: ./src/components/pagination/RowsPerPage.js
+/* harmony default export */ __webpack_exports__["a"] = (DefaultPagination);
+
+/***/ }),
+
+/***/ "./src/components/pagination/RowsPerPage.js":
+/*!**************************************************!*\
+  !*** ./src/components/pagination/RowsPerPage.js ***!
+  \**************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _table_ProTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../table/ProTable */ "./src/components/table/ProTable.js");
 
 
 
 
 
-var RowsPerPage_RowsPerPage = /*#__PURE__*/function () {
+var RowsPerPage = /*#__PURE__*/function () {
   /**
    * 
    * @param { ProTable } proTable 
    */
   function RowsPerPage(proTable) {
-    classCallCheck_default()(this, RowsPerPage);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, RowsPerPage);
 
     this.proTable = proTable;
     this.$dom = document.createElement('div');
@@ -1890,7 +1435,7 @@ var RowsPerPage_RowsPerPage = /*#__PURE__*/function () {
     this._createSelect();
   }
 
-  createClass_default()(RowsPerPage, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(RowsPerPage, [{
     key: "_createSpan",
     value: function _createSpan() {
       var _this$proTable$option, _this$proTable$option2, _this$proTable$option3;
@@ -1917,7 +1462,7 @@ var RowsPerPage_RowsPerPage = /*#__PURE__*/function () {
       if ((_options$pagination = options.pagination) === null || _options$pagination === void 0 ? void 0 : (_options$pagination$r = _options$pagination.rowsPerPage) === null || _options$pagination$r === void 0 ? void 0 : _options$pagination$r.selectClasses) {
         var _this$$select$classLi;
 
-        (_this$$select$classLi = this.$select.classList).add.apply(_this$$select$classLi, toConsumableArray_default()(options.pagination.rowsPerPage.selectClasses));
+        (_this$$select$classLi = this.$select.classList).add.apply(_this$$select$classLi, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.rowsPerPage.selectClasses));
       }
 
       var ranges = ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.rowsPerPage) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.ranges) || [5, 10, 25, 50, 100, 250, 500]; // if selectedLimit doesn't exist in ranges array
@@ -1948,15 +1493,34 @@ var RowsPerPage_RowsPerPage = /*#__PURE__*/function () {
   return RowsPerPage;
 }();
 
-/* harmony default export */ var pagination_RowsPerPage = (RowsPerPage_RowsPerPage);
-// CONCATENATED MODULE: ./src/components/pagination/SimplePagination.js
+/* harmony default export */ __webpack_exports__["a"] = (RowsPerPage);
+
+/***/ }),
+
+/***/ "./src/components/pagination/SimplePagination.js":
+/*!*******************************************************!*\
+  !*** ./src/components/pagination/SimplePagination.js ***!
+  \*******************************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _RowsPerPage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./RowsPerPage */ "./src/components/pagination/RowsPerPage.js");
+/* harmony import */ var _table_ProTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../table/ProTable */ "./src/components/table/ProTable.js");
 
 
 
 
 
 
-var SimplePagination_SimplePagination = /*#__PURE__*/function () {
+var SimplePagination = /*#__PURE__*/function () {
   /**
    * Create SimplePagination
    * 
@@ -1964,7 +1528,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
    * @memberof SimplePagination
    */
   function SimplePagination(proTable) {
-    classCallCheck_default()(this, SimplePagination);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, SimplePagination);
 
     this.proTable = proTable;
     this.$dom = document.createElement('div');
@@ -1981,10 +1545,10 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
     this.render();
   }
 
-  createClass_default()(SimplePagination, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(SimplePagination, [{
     key: "_buildRowsPerPage",
     value: function _buildRowsPerPage() {
-      this.rowsPerPage = new pagination_RowsPerPage(this.proTable);
+      this.rowsPerPage = new _RowsPerPage__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"](this.proTable);
       this.$dom.appendChild(this.rowsPerPage.$dom);
     }
   }, {
@@ -2004,7 +1568,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
       if (options.pagination.containerClasses) {
         var _this$$controls$class;
 
-        (_this$$controls$class = this.$controls.classList).add.apply(_this$$controls$class, toConsumableArray_default()(options.pagination.containerClasses));
+        (_this$$controls$class = this.$controls.classList).add.apply(_this$$controls$class, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.containerClasses));
       }
 
       this.$dom.appendChild(this.$controls);
@@ -2053,7 +1617,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
       if (this.proTable.options.pagination.btnClasses) {
         var _$btn$classList;
 
-        (_$btn$classList = $btn.classList).add.apply(_$btn$classList, toConsumableArray_default()(this.proTable.options.pagination.btnClasses));
+        (_$btn$classList = $btn.classList).add.apply(_$btn$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.proTable.options.pagination.btnClasses));
       } // if there is a wrapper
 
 
@@ -2064,7 +1628,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
         if (options.pagination.btnWrapperClasses) {
           var _$wrapper$classList;
 
-          (_$wrapper$classList = $wrapper.classList).add.apply(_$wrapper$classList, toConsumableArray_default()(options.pagination.btnWrapperClasses));
+          (_$wrapper$classList = $wrapper.classList).add.apply(_$wrapper$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnWrapperClasses));
         }
 
         return {
@@ -2100,7 +1664,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
         if ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.btnDisabledClasses) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.length) {
           var _this$btnPrev$$btn$cl;
 
-          (_this$btnPrev$$btn$cl = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl, toConsumableArray_default()(options.pagination.btnDisabledClasses));
+          (_this$btnPrev$$btn$cl = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
         }
       } else {
         var _options$pagination3, _options$pagination3$;
@@ -2110,7 +1674,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
         if ((_options$pagination3 = options.pagination) === null || _options$pagination3 === void 0 ? void 0 : (_options$pagination3$ = _options$pagination3.btnDisabledClasses) === null || _options$pagination3$ === void 0 ? void 0 : _options$pagination3$.length) {
           var _this$btnPrev$$btn$cl2;
 
-          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl2, toConsumableArray_default()(options.pagination.btnDisabledClasses));
+          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
         }
       }
 
@@ -2122,7 +1686,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
         if ((_options$pagination4 = options.pagination) === null || _options$pagination4 === void 0 ? void 0 : (_options$pagination4$ = _options$pagination4.btnDisabledClasses) === null || _options$pagination4$ === void 0 ? void 0 : _options$pagination4$.length) {
           var _this$btnNext$$btn$cl;
 
-          (_this$btnNext$$btn$cl = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl, toConsumableArray_default()(options.pagination.btnDisabledClasses));
+          (_this$btnNext$$btn$cl = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
         }
       } else {
         var _options$pagination5, _options$pagination5$;
@@ -2132,7 +1696,7 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
         if ((_options$pagination5 = options.pagination) === null || _options$pagination5 === void 0 ? void 0 : (_options$pagination5$ = _options$pagination5.btnDisabledClasses) === null || _options$pagination5$ === void 0 ? void 0 : _options$pagination5$.length) {
           var _this$btnNext$$btn$cl2;
 
-          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl2, toConsumableArray_default()(options.pagination.btnDisabledClasses));
+          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl2, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.pagination.btnDisabledClasses));
         }
       }
     }
@@ -2141,371 +1705,32 @@ var SimplePagination_SimplePagination = /*#__PURE__*/function () {
   return SimplePagination;
 }();
 
-/* harmony default export */ var pagination_SimplePagination = (SimplePagination_SimplePagination);
-// CONCATENATED MODULE: ./src/helpers/pagination-pages.js
-var getRange = function getRange(start, end) {
-  return Array(end - start).fill().map(function (v, i) {
-    return i + start;
-  });
-};
+/* harmony default export */ __webpack_exports__["a"] = (SimplePagination);
 
-/* harmony default export */ var pagination_pages = (function (currentPage, totalPage) {
-  var visiblePages = 10; // default
+/***/ }),
 
-  if (visiblePages > totalPage) {
-    visiblePages = totalPage;
-  }
+/***/ "./src/components/search/Input.js":
+/*!****************************************!*\
+  !*** ./src/components/search/Input.js ***!
+  \****************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-  var start = currentPage;
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _table_ProTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../table/ProTable */ "./src/components/table/ProTable.js");
 
-  if (currentPage <= Math.floor(visiblePages / 2)) {
-    start = 1;
-  } else {
-    start = currentPage - Math.floor(visiblePages / 2);
-  }
 
-  if (start + visiblePages >= totalPage) {
-    start = totalPage - visiblePages + 1;
-  }
 
-  return getRange(start, start + visiblePages);
-});
-// CONCATENATED MODULE: ./src/components/pagination/DefaultPagination.js
 
 
-
-
-
-
-var DefaultPagination_DefaultPagination = /*#__PURE__*/function () {
-  function DefaultPagination(proTable) {
-    classCallCheck_default()(this, DefaultPagination);
-
-    this.proTable = proTable;
-    this.$dom = document.createElement('div');
-    this.$dom.style.display = 'flex';
-    this.$dom.style.justifyContent = 'space-between';
-    this.$dom.style.alignItems = 'center';
-
-    this._buildRowsPerPage();
-
-    this._buildControls();
-
-    this.render();
-  }
-
-  createClass_default()(DefaultPagination, [{
-    key: "_buildRowsPerPage",
-    value: function _buildRowsPerPage() {
-      this.rowsPerPage = new pagination_RowsPerPage(this.proTable);
-      this.$dom.appendChild(this.rowsPerPage.$dom);
-    }
-  }, {
-    key: "_buildControls",
-    value: function _buildControls() {
-      var options = this.proTable.options;
-      this.$controls = document.createElement(options.pagination.containerElement || 'div');
-      this.$controls.style.margin = '0';
-
-      if (options.pagination.containerClasses) {
-        var _this$$controls$class;
-
-        (_this$$controls$class = this.$controls.classList).add.apply(_this$$controls$class, toConsumableArray_default()(options.pagination.containerClasses));
-      }
-
-      this.$dom.appendChild(this.$controls);
-      this.pageButtons = [];
-
-      this._buildPrevButton();
-
-      this._buildNextButton();
-
-      this._buildPageButtons();
-    }
-  }, {
-    key: "_buildNextButton",
-    value: function _buildNextButton() {
-      var _this = this;
-
-      this.btnNext = this._buildButton('Next'); // apply classes from options
-
-      if (this.proTable.options.pagination.btnClasses) {
-        var _this$btnNext$$btn$cl;
-
-        (_this$btnNext$$btn$cl = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl, toConsumableArray_default()(this.proTable.options.pagination.btnClasses));
-      }
-
-      this.$controls.appendChild(this.btnNext.$wrapper);
-      this.btnNext.$btn.addEventListener('click', function (e) {
-        _this.proTable.setPage(_this.proTable.options.page + 1);
-      });
-    }
-  }, {
-    key: "_buildPrevButton",
-    value: function _buildPrevButton() {
-      var _this2 = this;
-
-      this.btnPrev = this._buildButton('Prev'); // apply classes from options
-
-      if (this.proTable.options.pagination.btnClasses) {
-        var _this$btnPrev$$btn$cl;
-
-        (_this$btnPrev$$btn$cl = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl, toConsumableArray_default()(this.proTable.options.pagination.btnClasses));
-      }
-
-      this.$controls.appendChild(this.btnPrev.$wrapper);
-      this.btnPrev.$btn.addEventListener('click', function (e) {
-        _this2.proTable.setPage(_this2.proTable.options.page - 1);
-      });
-    }
-  }, {
-    key: "_buildPageButtons",
-    value: function _buildPageButtons() {
-      var _this3 = this;
-
-      var options = this.proTable.options;
-      var lastPage = this.proTable.lastPage;
-
-      while (this.pageButtons.length) {
-        var btn = this.pageButtons.pop();
-        this.$controls.removeChild(btn.$wrapper);
-      }
-
-      pagination_pages(options.page, lastPage, 2).forEach(function (page) {
-        var btn = _this3._buildButton(page);
-
-        if (page === options.page) {
-          btn.$btn.style.fontWeight = 800;
-
-          if (options.pagination.btnActiveClasses) {
-            var _btn$$btn$classList;
-
-            (_btn$$btn$classList = btn.$btn.classList).add.apply(_btn$$btn$classList, toConsumableArray_default()(options.pagination.btnActiveClasses));
-          }
-
-          if (options.pagination.btnWrapperActiveClasses) {
-            var _btn$$wrapper$classLi;
-
-            (_btn$$wrapper$classLi = btn.$wrapper.classList).add.apply(_btn$$wrapper$classLi, toConsumableArray_default()(options.pagination.btnWrapperActiveClasses));
-          }
-        } // apply classes from options
-
-
-        if (options.pagination.btnClasses) {
-          var _btn$$btn$classList2;
-
-          (_btn$$btn$classList2 = btn.$btn.classList).add.apply(_btn$$btn$classList2, toConsumableArray_default()(options.pagination.btnClasses));
-        }
-
-        btn.$btn.addEventListener('click', function (e) {
-          _this3.proTable.setPage(page);
-        });
-
-        _this3.pageButtons.push(btn);
-
-        _this3.$controls.insertBefore(btn.$wrapper, _this3.btnNext.$wrapper);
-      });
-    }
-    /**
-     * Create DOM button
-     * 
-     * @returns { Object } object of $btn and $wrapper
-     */
-
-  }, {
-    key: "_buildButton",
-    value: function _buildButton(text) {
-      var _options$pagination;
-
-      var options = this.proTable.options;
-      var $btn = document.createElement(((_options$pagination = options.pagination) === null || _options$pagination === void 0 ? void 0 : _options$pagination.btnElement) || 'button');
-      $btn.innerText = text; // if there is a wrapper
-
-      if (options.pagination.btnWrapper) {
-        var $wrapper = document.createElement(options.pagination.btnWrapper);
-        $wrapper.appendChild($btn);
-
-        if (options.pagination.btnWrapperClasses) {
-          var _$wrapper$classList;
-
-          (_$wrapper$classList = $wrapper.classList).add.apply(_$wrapper$classList, toConsumableArray_default()(options.pagination.btnWrapperClasses));
-        }
-
-        return {
-          $wrapper: $wrapper,
-          $btn: $btn
-        };
-      }
-
-      return {
-        $btn: $btn,
-        $wrapper: $btn
-      };
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var options = this.proTable.options;
-      var page = options.page;
-      var lastPage = this.proTable.lastPage;
-      this.btnPrev.$btn.disabled = page === 1;
-      this.btnNext.$btn.disabled = page === lastPage;
-
-      if (page === 1) {
-        var _options$pagination2, _options$pagination2$;
-
-        this.btnPrev.$wrapper.classList.add('disabled');
-
-        if ((_options$pagination2 = options.pagination) === null || _options$pagination2 === void 0 ? void 0 : (_options$pagination2$ = _options$pagination2.btnDisabledClasses) === null || _options$pagination2$ === void 0 ? void 0 : _options$pagination2$.length) {
-          var _this$btnPrev$$btn$cl2;
-
-          (_this$btnPrev$$btn$cl2 = this.btnPrev.$btn.classList).add.apply(_this$btnPrev$$btn$cl2, toConsumableArray_default()(options.pagination.btnDisabledClasses));
-        }
-      } else {
-        var _options$pagination3, _options$pagination3$;
-
-        this.btnPrev.$wrapper.classList.remove('disabled');
-
-        if ((_options$pagination3 = options.pagination) === null || _options$pagination3 === void 0 ? void 0 : (_options$pagination3$ = _options$pagination3.btnDisabledClasses) === null || _options$pagination3$ === void 0 ? void 0 : _options$pagination3$.length) {
-          var _this$btnPrev$$btn$cl3;
-
-          (_this$btnPrev$$btn$cl3 = this.btnPrev.$btn.classList).remove.apply(_this$btnPrev$$btn$cl3, toConsumableArray_default()(options.pagination.btnDisabledClasses));
-        }
-      }
-
-      if (page === lastPage) {
-        var _options$pagination4, _options$pagination4$;
-
-        this.btnNext.$wrapper.classList.add('disabled');
-
-        if ((_options$pagination4 = options.pagination) === null || _options$pagination4 === void 0 ? void 0 : (_options$pagination4$ = _options$pagination4.btnDisabledClasses) === null || _options$pagination4$ === void 0 ? void 0 : _options$pagination4$.length) {
-          var _this$btnNext$$btn$cl2;
-
-          (_this$btnNext$$btn$cl2 = this.btnNext.$btn.classList).add.apply(_this$btnNext$$btn$cl2, toConsumableArray_default()(options.pagination.btnDisabledClasses));
-        }
-      } else {
-        var _options$pagination5, _options$pagination5$;
-
-        this.btnNext.$wrapper.classList.remove('disabled');
-
-        if ((_options$pagination5 = options.pagination) === null || _options$pagination5 === void 0 ? void 0 : (_options$pagination5$ = _options$pagination5.btnDisabledClasses) === null || _options$pagination5$ === void 0 ? void 0 : _options$pagination5$.length) {
-          var _this$btnNext$$btn$cl3;
-
-          (_this$btnNext$$btn$cl3 = this.btnNext.$btn.classList).remove.apply(_this$btnNext$$btn$cl3, toConsumableArray_default()(options.pagination.btnDisabledClasses));
-        }
-      }
-
-      this._buildPageButtons();
-    }
-  }]);
-
-  return DefaultPagination;
-}();
-
-/* harmony default export */ var pagination_DefaultPagination = (DefaultPagination_DefaultPagination);
-// CONCATENATED MODULE: ./src/components/table/TFoot.js
-
-
-
-
-
-
-
-/**
- * @typedef { Object } TFoot.Options
- * @property { string[] } classes - `tfoot` classes
- * @property { string[] } trClasses - `tfoot > tr` classes
- * @property { string[] } thClasses - `tfoot > tr > th` classes
- */
-
-/**
- * @class TFoot
- * @property { TFoot.Options } options
- */
-
-var TFoot_TFoot = /*#__PURE__*/function () {
-  function TFoot(_ref) {
-    var _this = this,
-        _this$options,
-        _this$options$classes;
-
-    var proTable = _ref.proTable,
-        options = _ref.options;
-
-    classCallCheck_default()(this, TFoot);
-
-    this.proTable = proTable;
-    this.options = options;
-    this.$dom = document.createElement('tfoot');
-    this.trs = [];
-    this.createPagination();
-    this.trs.forEach(function (_tr) {
-      return _this.$dom.appendChild(_tr.$dom);
-    }); // apply tfoot classes
-
-    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
-      var _this$$dom$classList;
-
-      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, toConsumableArray_default()(this.options.classes));
-    }
-  }
-
-  createClass_default()(TFoot, [{
-    key: "createPagination",
-    value: function createPagination() {
-      var _this$options2, _this$options3;
-
-      var options = this.proTable.options;
-
-      if (this.proTable.totalRows < this.proTable.options.limit || !!!options.pagination) {
-        return;
-      }
-
-      if (options.pagination === 'simple' || options.pagination.type === 'simple') {
-        this.pagination = new pagination_SimplePagination(this.proTable);
-      } else {
-        this.pagination = new pagination_DefaultPagination(this.proTable);
-      }
-
-      var columnsCount = this.proTable.thead.columnsCount;
-      var tr = new table_Tr({
-        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
-      });
-      var td = new table_Td({
-        child: this.pagination.$dom,
-        options: {
-          classes: ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) || [],
-          attrs: {
-            colspan: columnsCount
-          },
-          style: {
-            textAlign: 'right'
-          }
-        }
-      });
-      tr.pushTd(td);
-      this.trs.push(tr);
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      if (this.pagination) {
-        this.pagination.render();
-      }
-    }
-  }]);
-
-  return TFoot;
-}();
-
-/* harmony default export */ var table_TFoot = (TFoot_TFoot);
-// CONCATENATED MODULE: ./src/components/search/Input.js
-
-
-
-
-
-var Input_Input = /*#__PURE__*/function () {
+var Input = /*#__PURE__*/function () {
   /**
    * 
    * @param { Object } payload
@@ -2516,7 +1741,7 @@ var Input_Input = /*#__PURE__*/function () {
 
     var proTable = _ref.proTable;
 
-    classCallCheck_default()(this, Input);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, Input);
 
     this.proTable = proTable;
 
@@ -2532,7 +1757,7 @@ var Input_Input = /*#__PURE__*/function () {
     }
   }
 
-  createClass_default()(Input, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(Input, [{
     key: "_createInput",
     value: function _createInput() {
       var _options$search, _options$search2;
@@ -2546,7 +1771,7 @@ var Input_Input = /*#__PURE__*/function () {
       if ((_options$search2 = options.search) === null || _options$search2 === void 0 ? void 0 : _options$search2.classes) {
         var _this$$input$classLis;
 
-        (_this$$input$classLis = this.$input.classList).add.apply(_this$$input$classLis, toConsumableArray_default()(options.search.classes));
+        (_this$$input$classLis = this.$input.classList).add.apply(_this$$input$classLis, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(options.search.classes));
       }
 
       this.$input.style.width = 'fit-content';
@@ -2562,7 +1787,7 @@ var Input_Input = /*#__PURE__*/function () {
       if ((_this$proTable$option3 = this.proTable.options.search) === null || _this$proTable$option3 === void 0 ? void 0 : (_this$proTable$option4 = _this$proTable$option3.wrapperClasses) === null || _this$proTable$option4 === void 0 ? void 0 : _this$proTable$option4.length) {
         var _this$$wrapper$classL, _this$proTable$option5;
 
-        (_this$$wrapper$classL = this.$wrapper.classList).add.apply(_this$$wrapper$classL, toConsumableArray_default()((_this$proTable$option5 = this.proTable.options.search) === null || _this$proTable$option5 === void 0 ? void 0 : _this$proTable$option5.wrapperClasses));
+        (_this$$wrapper$classL = this.$wrapper.classList).add.apply(_this$$wrapper$classL, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()((_this$proTable$option5 = this.proTable.options.search) === null || _this$proTable$option5 === void 0 ? void 0 : _this$proTable$option5.wrapperClasses));
       }
     }
   }, {
@@ -2583,54 +1808,35 @@ var Input_Input = /*#__PURE__*/function () {
   return Input;
 }();
 
-/* harmony default export */ var search_Input = (Input_Input);
-// CONCATENATED MODULE: ./src/components/Header.js
+/* harmony default export */ __webpack_exports__["a"] = (Input);
 
+/***/ }),
 
+/***/ "./src/components/table/ProTable.js":
+/*!******************************************!*\
+  !*** ./src/components/table/ProTable.js ***!
+  \******************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-
-
-var Header_Header = /*#__PURE__*/function () {
-  /**
-   * @param { Object } payload
-   * @param { ProTable } payload.proTable 
-   */
-  function Header(_ref) {
-    var proTable = _ref.proTable;
-
-    classCallCheck_default()(this, Header);
-
-    this.proTable = proTable;
-    this.$dom = document.createElement('header');
-
-    this._applyStyles();
-
-    if (this.proTable.options.search !== false) {
-      this._createSearch();
-    }
-  }
-
-  createClass_default()(Header, [{
-    key: "_applyStyles",
-    value: function _applyStyles() {
-      this.$dom.style.textAlign = 'right';
-      this.$dom.style.marginBottom = '1rem';
-    }
-  }, {
-    key: "_createSearch",
-    value: function _createSearch() {
-      this.search = new search_Input({
-        proTable: this.proTable
-      });
-      this.$dom.appendChild(this.search.$dom);
-    }
-  }]);
-
-  return Header;
-}();
-
-/* harmony default export */ var components_Header = (Header_Header);
-// CONCATENATED MODULE: ./src/components/table/ProTable.js
+"use strict";
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _THead__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./THead */ "./src/components/table/THead.js");
+/* harmony import */ var _TBody__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./TBody */ "./src/components/table/TBody.js");
+/* harmony import */ var _TFoot__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./TFoot */ "./src/components/table/TFoot.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../Header */ "./src/components/Header.js");
 
 
 
@@ -2638,9 +1844,9 @@ var Header_Header = /*#__PURE__*/function () {
 
 
 
-function ProTable_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function ProTable_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ProTable_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ProTable_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_3___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
@@ -2681,7 +1887,7 @@ function ProTable_objectSpread(target) { for (var i = 1; i < arguments.length; i
  * @property { ProTable.Options } options
  */
 
-var ProTable_ProTable = /*#__PURE__*/function () {
+var ProTable = /*#__PURE__*/function () {
   /**
    * Creates an instance of ProTable.
    * @param { string } selector - DOM selector where the ProTable should replace
@@ -2689,7 +1895,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
    * @memberof ProTable
    */
   function ProTable(selector, options) {
-    classCallCheck_default()(this, ProTable);
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4___default()(this, ProTable);
 
     this.selector = selector;
     /**
@@ -2715,7 +1921,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
      * @type { ProTable.Options }
      */
 
-    this.options = ProTable_objectSpread(ProTable_objectSpread({}, defaultOptions), options);
+    this.options = _objectSpread(_objectSpread({}, defaultOptions), options);
     this.thead = null;
     this.tbody = null;
     this.$dom = document.createElement('section');
@@ -2723,7 +1929,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
     this._listeners = {};
   }
 
-  createClass_default()(ProTable, [{
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5___default()(ProTable, [{
     key: "generateTable",
     value: function generateTable(_ref) {
       var columns = _ref.columns,
@@ -2745,7 +1951,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
       if (this.options.classes) {
         var _this$$table$classLis;
 
-        (_this$$table$classLis = this.$table.classList).add.apply(_this$$table$classLis, toConsumableArray_default()(this.options.classes));
+        (_this$$table$classLis = this.$table.classList).add.apply(_this$$table$classLis, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_2___default()(this.options.classes));
       }
     }
   }, {
@@ -2761,9 +1967,9 @@ var ProTable_ProTable = /*#__PURE__*/function () {
           if (Number.isInteger(_col.targetIndex)) {
             var _targetKey = Object.keys(this.columns)[_col.targetIndex];
 
-            this.columns[_targetKey] = ProTable_objectSpread(ProTable_objectSpread({}, this.columns[_targetKey]), _col);
+            this.columns[_targetKey] = _objectSpread(_objectSpread({}, this.columns[_targetKey]), _col);
           } else if (this.columns[_key]) {
-            this.columns[_key] = ProTable_objectSpread(ProTable_objectSpread({}, this.columns[_key]), _col);
+            this.columns[_key] = _objectSpread(_objectSpread({}, this.columns[_key]), _col);
           }
         }
       }
@@ -2802,7 +2008,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   }, {
     key: "_generateHeader",
     value: function _generateHeader() {
-      this.header = new components_Header({
+      this.header = new _Header__WEBPACK_IMPORTED_MODULE_9__[/* default */ "a"]({
         proTable: this
       });
       this.$dom.prepend(this.header.$dom);
@@ -2810,7 +2016,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   }, {
     key: "_generateThead",
     value: function _generateThead() {
-      this.thead = new table_THead({
+      this.thead = new _THead__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"]({
         proTable: this,
         options: this.options.thead
       });
@@ -2823,7 +2029,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
         this.$table.removeChild(this.tbody.$dom);
       }
 
-      this.tbody = new table_TBody({
+      this.tbody = new _TBody__WEBPACK_IMPORTED_MODULE_7__[/* default */ "a"]({
         proTable: this,
         options: this.options.tbody
       });
@@ -2836,7 +2042,7 @@ var ProTable_ProTable = /*#__PURE__*/function () {
         this.$table.removeChild(this.tfoot.$dom);
       }
 
-      this.tfoot = new table_TFoot({
+      this.tfoot = new _TFoot__WEBPACK_IMPORTED_MODULE_8__[/* default */ "a"]({
         proTable: this,
         options: this.options.tfoot
       });
@@ -2851,10 +2057,10 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   }, {
     key: "setPage",
     value: function () {
-      var _setPage = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(page) {
+      var _setPage = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(page) {
         var _this$tbody, _this$tfoot;
 
-        return regenerator_default.a.wrap(function _callee$(_context) {
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
@@ -2975,8 +2181,1086 @@ var ProTable_ProTable = /*#__PURE__*/function () {
   return ProTable;
 }();
 
-/* harmony default export */ var table_ProTable = (ProTable_ProTable);
-// CONCATENATED MODULE: ./src/helpers/from-array.js
+/* harmony default export */ __webpack_exports__["a"] = (ProTable);
+
+/***/ }),
+
+/***/ "./src/components/table/TBody.js":
+/*!***************************************!*\
+  !*** ./src/components/table/TBody.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
+/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
+/* harmony import */ var _ProTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProTable */ "./src/components/table/ProTable.js");
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+/**
+ * TBody Options
+ * 
+ * @typedef { Object } TBody.Options
+ * @property { string[] } classes - classes of tbody
+ * @property { string[] } trClasses - classes of each tr
+ * @property { string[] } tdClasses - classes of each td
+ */
+
+/**
+ * @class TBody
+ * @param { TBody.Options } options
+ */
+
+var TBody = /*#__PURE__*/function () {
+  /**
+   * Creates an instance of TBody.
+   * 
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable
+   * @param { TBody.Options } payload.options
+   * @memberof TBody
+   */
+  function TBody(_ref) {
+    var _this$options, _this$options$classes;
+
+    var proTable = _ref.proTable,
+        options = _ref.options;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, TBody);
+
+    this.$dom = document.createElement('tbody');
+    this.proTable = proTable;
+    this.options = options;
+    this.generateTrs(); // apply tbody classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.options.classes));
+    }
+
+    this.render();
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(TBody, [{
+    key: "generateTrs",
+    value: function generateTrs() {
+      var _this = this;
+
+      var columns = this.proTable.columns;
+      var rows = this.proTable.rows;
+      this.trs = [];
+      rows.forEach(function (_row) {
+        var _this$options2;
+
+        var tr = new _Tr__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]({
+          classes: (_this$options2 = _this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+        });
+        tr.addTds(_this.generateTds(columns, _row));
+
+        _this.trs.push(tr);
+      });
+      this.trs;
+    }
+    /**
+     * Generate object array. The return of this function will next be
+     * generated to object Tds
+     * 
+     * @param { Object } columns 
+     * @param { Object[] } _row 
+     */
+
+  }, {
+    key: "generateTds",
+    value: function generateTds(columns, _row) {
+      var tds = [];
+
+      for (var _key in columns) {
+        var _this$options3, _this$proTable$option, _this$proTable$option2;
+
+        /**
+         * the corresponding column of this row
+         */
+        var _col = columns[_key];
+        /**
+         * Row Content could be an array that consits with 2 items 
+         *  - ['content', { classes: [...] }]
+         *  - first item is the content
+         *  - the second is the options
+         * 
+         * And could be just a string/Node
+         */
+
+        var rowContent = Array.isArray(_row[_key]) ? _row[_key][0] : _row[_key];
+        var rowOptions = Array.isArray(_row[_key]) ? _row[_key][1] : {};
+
+        if ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) {
+          var _this$options4;
+
+          rowOptions.classes = (rowOptions.classes || []).concat((_this$options4 = this.options) === null || _this$options4 === void 0 ? void 0 : _this$options4.tdClasses);
+        } // override content if user defines targetIndex
+
+
+        if (Number.isInteger(_col.targetIndex)) {
+          var contentTmp = _row[Object.keys(this.proTable.columns)[_col.targetIndex]];
+
+          rowContent = Array.isArray(contentTmp) ? contentTmp[0] : contentTmp;
+          rowOptions = _objectSpread(_objectSpread({}, rowOptions), Array.isArray(contentTmp) ? contentTmp[1] : {});
+        } // override content if user defines contents callback
+
+
+        if ((_this$proTable$option = this.proTable.options) === null || _this$proTable$option === void 0 ? void 0 : (_this$proTable$option2 = _this$proTable$option.contents) === null || _this$proTable$option2 === void 0 ? void 0 : _this$proTable$option2[_key]) {
+          // we pass 2 params:
+          // - rowContent: content for this specific cell
+          // - _row: contents of the current row
+          rowContent = this.proTable.options.contents[_key](rowContent, _row); // check if the callback return is [content, { classes: [...] }]
+
+          if (Array.isArray(rowContent) && rowContent.length > 1) {
+            var _rowContent$;
+
+            rowOptions.classes = (rowOptions.classes || []).concat(((_rowContent$ = rowContent[1]) === null || _rowContent$ === void 0 ? void 0 : _rowContent$.classes) || []);
+            rowContent = rowContent[0];
+          }
+        }
+
+        if (_col.childs) {
+          // call generateTds recursively
+          tds = tds.concat(this.generateTds(_col.childs, _row[_key]));
+        } else {
+          tds.push({
+            key: _key,
+            label: rowContent,
+            options: _objectSpread(_objectSpread({}, rowOptions), {}, {
+              searchable: typeof _col.searchable === 'boolean' ? !!_col.searchable : true
+            })
+          });
+        }
+      } // console.log('generateTds', tds)
+
+
+      return tds;
+    }
+    /**
+     * rendering trs
+     *
+     * @memberof TBody
+     */
+
+  }, {
+    key: "render",
+    value: function render() {
+      var _this2 = this;
+
+      // delete rendered trs
+      while (this.$dom.lastChild) {
+        this.$dom.removeChild(this.$dom.lastChild);
+      }
+
+      if (this.proTable.options.fromServer) {
+        this.generateTrs();
+        this.trs.forEach(function (_tr) {
+          return _this2.$dom.appendChild(_tr.$dom);
+        });
+      } else {
+        var limit = this.proTable.options.limit;
+        var page = this.proTable.options.page;
+        var start = (page - 1) * limit;
+        this.filteredTrs.sort(this._sort.bind(this)).slice(start, this.proTable.options.limit * page).forEach(function (_tr) {
+          return _this2.$dom.appendChild(_tr.$dom);
+        });
+      } // if there is no result for given keyword
+
+
+      if (this.filteredTrs.length < 1 && this.proTable.options.keyword) {
+        var _this$proTable$option3;
+
+        var tr = new _Tr__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]();
+        var td = new _Td__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"]({
+          child: ((_this$proTable$option3 = this.proTable.options.search) === null || _this$proTable$option3 === void 0 ? void 0 : _this$proTable$option3.notFoundText) || 'Not matching records found',
+          options: {
+            attrs: {
+              colspan: this.proTable.thead.columnsCount
+            },
+            style: {
+              textAlign: 'center'
+            }
+          }
+        });
+        tr.pushTd(td);
+        this.$dom.appendChild(tr.$dom);
+      }
+    }
+  }, {
+    key: "_filter",
+
+    /**
+     * Filter by Tr
+     *
+     * @param { Tr } _tr
+     * @memberof TBody
+     */
+    value: function _filter(_tr) {
+      var keyword = this.proTable.options.keyword || '';
+      return !!_tr.childs.find(function (_child) {
+        var _child$$dom, _child$$dom$innerText, _child$$dom$innerText2;
+
+        return _child.options.searchable && (_child === null || _child === void 0 ? void 0 : (_child$$dom = _child.$dom) === null || _child$$dom === void 0 ? void 0 : (_child$$dom$innerText = _child$$dom.innerText) === null || _child$$dom$innerText === void 0 ? void 0 : (_child$$dom$innerText2 = _child$$dom$innerText.toLowerCase()) === null || _child$$dom$innerText2 === void 0 ? void 0 : _child$$dom$innerText2.indexOf(keyword.toLowerCase())) > -1;
+      });
+    }
+  }, {
+    key: "_sort",
+    value: function _sort(a, b) {
+      var order = this.proTable.options.order;
+
+      if (order.key) {
+        var tdA = a.childs.find(function (_td) {
+          return _td.key === order.key;
+        });
+        var tdB = b.childs.find(function (_td) {
+          return _td.key === order.key;
+        }); // check if the value is valid number or not
+
+        var contentA = !isNaN(tdA.$dom.innerText) ? parseFloat(tdA.$dom.innerText) : tdA.$dom.innerText;
+        var contentB = !isNaN(tdB.$dom.innerText) ? parseFloat(tdB.$dom.innerText) : tdB.$dom.innerText; // ascending
+
+        if (order.direction === 'asc') {
+          return contentA > contentB ? 1 : -1;
+        } else {
+          return contentA > contentB ? -1 : 1;
+        }
+      }
+
+      return 0;
+    }
+  }, {
+    key: "filteredTrs",
+    get: function get() {
+      return this.trs.filter(this._filter.bind(this));
+    }
+  }]);
+
+  return TBody;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (TBody);
+
+/***/ }),
+
+/***/ "./src/components/table/TFoot.js":
+/*!***************************************!*\
+  !*** ./src/components/table/TFoot.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
+/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
+/* harmony import */ var _pagination_SimplePagination__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../pagination/SimplePagination */ "./src/components/pagination/SimplePagination.js");
+/* harmony import */ var _pagination_DefaultPagination__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../pagination/DefaultPagination */ "./src/components/pagination/DefaultPagination.js");
+
+
+
+
+
+
+
+/**
+ * @typedef { Object } TFoot.Options
+ * @property { string[] } classes - `tfoot` classes
+ * @property { string[] } trClasses - `tfoot > tr` classes
+ * @property { string[] } thClasses - `tfoot > tr > th` classes
+ */
+
+/**
+ * @class TFoot
+ * @property { TFoot.Options } options
+ */
+
+var TFoot = /*#__PURE__*/function () {
+  function TFoot(_ref) {
+    var _this = this,
+        _this$options,
+        _this$options$classes;
+
+    var proTable = _ref.proTable,
+        options = _ref.options;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, TFoot);
+
+    this.proTable = proTable;
+    this.options = options;
+    this.$dom = document.createElement('tfoot');
+    this.trs = [];
+    this.createPagination();
+    this.trs.forEach(function (_tr) {
+      return _this.$dom.appendChild(_tr.$dom);
+    }); // apply tfoot classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.options.classes));
+    }
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(TFoot, [{
+    key: "createPagination",
+    value: function createPagination() {
+      var _this$options2, _this$options3;
+
+      var options = this.proTable.options;
+
+      if (this.proTable.totalRows < this.proTable.options.limit || !!!options.pagination) {
+        return;
+      }
+
+      if (options.pagination === 'simple' || options.pagination.type === 'simple') {
+        this.pagination = new _pagination_SimplePagination__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"](this.proTable);
+      } else {
+        this.pagination = new _pagination_DefaultPagination__WEBPACK_IMPORTED_MODULE_6__[/* default */ "a"](this.proTable);
+      }
+
+      var columnsCount = this.proTable.thead.columnsCount;
+      var tr = new _Tr__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]({
+        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+      });
+      var td = new _Td__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]({
+        child: this.pagination.$dom,
+        options: {
+          classes: ((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.tdClasses) || [],
+          attrs: {
+            colspan: columnsCount
+          },
+          style: {
+            textAlign: 'right'
+          }
+        }
+      });
+      tr.pushTd(td);
+      this.trs.push(tr);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this.pagination) {
+        this.pagination.render();
+      }
+    }
+  }]);
+
+  return TFoot;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (TFoot);
+
+/***/ }),
+
+/***/ "./src/components/table/THead.js":
+/*!***************************************!*\
+  !*** ./src/components/table/THead.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _Tr__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Tr */ "./src/components/table/Tr.js");
+/* harmony import */ var _Th__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Th */ "./src/components/table/Th.js");
+/* harmony import */ var _ProTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./ProTable */ "./src/components/table/ProTable.js");
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+
+
+/**
+ * @typedef { Object } THead.Options
+ * @property { string[] } classes - `thead` classes
+ * @property { string[] } trClasses - `thead > tr` classes
+ * @property { string[] } thClasses - `thead > tr > th` classes
+ */
+
+/**
+ * @class THead
+ * @property { THead.Options } options
+ */
+
+var THead = /*#__PURE__*/function () {
+  /**
+   * Creates an instance of THead.
+   *
+   * The params columns can be like: ["a", "b", { c: ["d", "e", "f"] }]
+   * 
+   * @param { Object } payload
+   * @param { ProTable } payload.proTable
+   * @param { THead.Options } payload.options
+   * @memberof THead
+   * @constructor
+   */
+  function THead(_ref) {
+    var _this = this,
+        _this$options,
+        _this$options$classes;
+
+    var proTable = _ref.proTable,
+        options = _ref.options;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, THead);
+
+    this.proTable = proTable;
+    this.options = options;
+    this.$dom = document.createElement('thead');
+    this.trs = this.generateTrs(this.proTable.columns);
+
+    this.columnsCount = function () {
+      return _this.trs[0].childs.map(function (th) {
+        return th.options.attrs.colspan;
+      }).reduce(function (a, b) {
+        return a + b;
+      });
+    }();
+
+    console.log('trs', this.trs); // apply thead classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_1___default()(this.options.classes));
+    } // append child
+
+
+    this.trs.forEach(function (tr) {
+      return _this.$dom.appendChild(tr.$dom);
+    });
+  }
+  /**
+   * This function will generate one <tr> tag if its simple.
+   * But for complex headers, it will generate more than one <tr> tags.
+   * 
+   * @param { string[] } columns 
+   * @returns { Tr[] } trs
+   */
+
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(THead, [{
+    key: "generateTrs",
+    value: function generateTrs(columns) {
+      var _this$options2;
+
+      var trs = [];
+
+      var _this$generateThs = this.generateThs(columns),
+          ths = _this$generateThs.ths,
+          childs = _this$generateThs.childs;
+
+      var tr = new _Tr__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"]({
+        classes: (_this$options2 = this.options) === null || _this$options2 === void 0 ? void 0 : _this$options2.trClasses
+      });
+      ths.forEach(function (_th) {
+        return tr.pushTh(_th);
+      });
+      trs.push(tr);
+      console.log('childs', childs);
+
+      if (Object.keys(childs).length) {
+        trs = trs.concat(this.generateTrs(childs));
+      } // add rowspan to th that has not colspan attr
+      // and fix colspan as its child
+
+
+      tr.childs.forEach(function (_th) {
+        if (_th.options.attrs.colspan === 1) {
+          _th.$dom.setAttribute('rowspan', trs.length);
+        }
+      });
+      return trs;
+    }
+    /**
+     * Generate th elements of the head
+     * 
+     * @param { Object } columns 
+     */
+
+  }, {
+    key: "generateThs",
+    value: function generateThs(columns) {
+      var ths = [];
+      var childs = {};
+
+      for (var _key in columns) {
+        var _this$options3;
+
+        var _col = columns[_key];
+        ths.push(new _Th__WEBPACK_IMPORTED_MODULE_5__[/* default */ "a"]({
+          key: _key,
+          label: _col.label,
+          proTable: this.proTable,
+          options: {
+            classes: (((_this$options3 = this.options) === null || _this$options3 === void 0 ? void 0 : _this$options3.thClasses) || []).concat(_col.classes || []),
+            attrs: {
+              colspan: this.getColspan(_col.childs)
+            },
+            orderable: typeof _col.orderable === 'boolean' ? !!_col.orderable : true
+          }
+        }));
+
+        if (_col.childs) {
+          childs = _objectSpread(_objectSpread({}, childs), _col.childs);
+        }
+      }
+
+      return {
+        ths: ths,
+        childs: childs
+      };
+    }
+    /**
+     * Return the count of colspan of a given childs
+     * 
+     * @param { Object } childs 
+     */
+
+  }, {
+    key: "getColspan",
+    value: function getColspan(childs) {
+      if (!childs) {
+        return 1;
+      }
+
+      var length = Object.keys(childs).length;
+
+      for (var _key in childs) {
+        if (childs[_key].childs) {
+          length += this.getColspan(childs[_key].childs);
+        }
+      }
+
+      return length;
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      this.trs.forEach(function (_tr) {
+        _tr.childs.forEach(function (_child) {
+          return _child.render();
+        });
+      });
+    }
+  }]);
+
+  return THead;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (THead);
+
+/***/ }),
+
+/***/ "./src/components/table/Td.js":
+/*!************************************!*\
+  !*** ./src/components/table/Td.js ***!
+  \************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+var Td = /*#__PURE__*/function () {
+  function Td(_ref) {
+    var key = _ref.key,
+        child = _ref.child,
+        options = _ref.options;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, Td);
+
+    this.key = key;
+
+    if (child instanceof Node) {
+      this.buildDOMFromNode(child);
+    } else {
+      this.buildDOMFromString(child);
+    }
+
+    this.options = _objectSpread({
+      attrs: {
+        colspan: 1
+      },
+      style: {},
+      searchable: true
+    }, options);
+
+    this._applyAttributes();
+
+    this._applyClasses();
+
+    this._applyStyles();
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Td, [{
+    key: "buildDOMFromString",
+    value: function buildDOMFromString(child) {
+      this.$dom = document.createElement('td');
+      this.$dom.innerHTML = child === null || child === undefined ? '-' : child;
+    }
+  }, {
+    key: "buildDOMFromNode",
+    value: function buildDOMFromNode(node) {
+      this.$dom = document.createElement('td');
+      this.$dom.appendChild(node);
+    }
+  }, {
+    key: "_applyClasses",
+    value: function _applyClasses() {
+      var _this$options$classes;
+
+      if ((_this$options$classes = this.options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+        var _this$$dom$classList;
+
+        (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.options.classes));
+      }
+    }
+  }, {
+    key: "_applyAttributes",
+    value: function _applyAttributes() {
+      for (var attr in this.options.attrs) {
+        this.$dom.setAttribute(attr, this.options.attrs[attr]);
+      }
+    }
+  }, {
+    key: "_applyStyles",
+    value: function _applyStyles() {
+      for (var style in this.options.style) {
+        this.$dom.style[style] = this.options.style[style];
+      }
+    }
+  }]);
+
+  return Td;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Td);
+
+/***/ }),
+
+/***/ "./src/components/table/Th.js":
+/*!************************************!*\
+  !*** ./src/components/table/Th.js ***!
+  \************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _ProTable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ProTable */ "./src/components/table/ProTable.js");
+
+
+
+
+
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+
+/**
+ * Th Options
+ * 
+ * @typedef { Object } Th.Options
+ * @property { Object } attrs - DOM attributes
+ * @property { Number } attrs.colspan - colspan of this th
+ */
+
+/**
+ * Th class
+ *
+ * @class Th
+ */
+
+var Th = /*#__PURE__*/function () {
+  /**
+   * Creates an instance of Th.
+   * 
+   * @param { Object } payload
+   * @param { string } payload.key
+   * @param { string } payload.label
+   * @param { ProTable } payload.proTable
+   * @param { Th.Options } payload.options
+   * @memberof Th
+   */
+  function Th(_ref) {
+    var key = _ref.key,
+        label = _ref.label,
+        proTable = _ref.proTable,
+        options = _ref.options;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_2___default()(this, Th);
+
+    this.key = key;
+    this.label = label;
+    this.proTable = proTable;
+    this.$dom = document.createElement('th');
+    /**
+     * @type { Th.Options }
+     */
+
+    this.options = _objectSpread({
+      attrs: {
+        colspan: 1
+      },
+      orderabel: true
+    }, options);
+
+    this._createContainer();
+
+    this._createSpan();
+
+    this._applyAttributes();
+
+    this._applyClasses();
+
+    this._applyOrderable();
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_3___default()(Th, [{
+    key: "_createContainer",
+    value: function _createContainer() {
+      this.$container = document.createElement('div');
+      this.$container.classList.add('th-container');
+      this.$dom.appendChild(this.$container);
+    }
+  }, {
+    key: "_applyAttributes",
+    value: function _applyAttributes() {
+      for (var attr in this.options.attrs) {
+        this.$dom.setAttribute(attr, this.options.attrs[attr]);
+      }
+    }
+  }, {
+    key: "_applyClasses",
+    value: function _applyClasses() {
+      var _this$options$classes;
+
+      if ((_this$options$classes = this.options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+        var _this$$dom$classList;
+
+        (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.options.classes));
+      }
+    }
+  }, {
+    key: "_createSpan",
+    value: function _createSpan() {
+      this.$spanLabel = document.createElement('span');
+      this.$spanLabel.innerHTML = this.label || '-';
+      this.$container.appendChild(this.$spanLabel);
+    }
+  }, {
+    key: "_isOrderable",
+    value: function _isOrderable() {
+      return this.options.orderable && this.options.attrs.colspan === 1;
+    }
+  }, {
+    key: "_applyOrderable",
+    value: function _applyOrderable() {
+      var _this = this;
+
+      if (!this._isOrderable()) {
+        return;
+      }
+
+      this.$container.style.cursor = 'pointer'; // caret top
+
+      this.$arrowUp = document.createElement('span');
+      this.$arrowUp.innerHTML = "<svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      viewBox=\"6 2 12 12\" width=\"9\" height=\"12\">\n      <path fill=\"none\" d=\"M0 0h24v24H0z\"/>\n      <path d=\"M12 8l6 6H6z\"/>\n    </svg>";
+      this.$arrowUp.classList.add('caret-up'); // caret bottom
+
+      this.$arrowBottom = document.createElement('span');
+      this.$arrowBottom.innerHTML = "<svg\n      xmlns=\"http://www.w3.org/2000/svg\"\n      viewBox=\"6 10 12 12\" width=\"9\" height=\"12\">\n      <path fill=\"none\" d=\"M0 0h24v24H0z\"/>\n      <path d=\"M12 16l-6-6h12z\"/>\n    </svg>";
+      this.$arrowBottom.classList.add('caret-down');
+      this.$orderDom = document.createElement('div');
+      this.$orderDom.classList.add('arrows');
+      this.$orderDom.appendChild(this.$arrowUp);
+      this.$orderDom.appendChild(this.$arrowBottom);
+      this.$container.appendChild(this.$orderDom);
+      this.$dom.addEventListener('click', function (e) {
+        _this._toggleOrder();
+      });
+    }
+  }, {
+    key: "_toggleOrder",
+    value: function _toggleOrder() {
+      var order = this.proTable.options.order;
+      var payload = {
+        key: this.key,
+        direction: 'asc'
+      };
+
+      if (order.key === this.key) {
+        payload.direction = order.direction === 'desc' ? 'asc' : 'desc';
+      }
+
+      this.proTable.setOrder(payload);
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      if (this._isOrderable()) {
+        var _this$$orderDom$class;
+
+        var order = this.proTable.options.order;
+
+        (_this$$orderDom$class = this.$orderDom.classList).remove.apply(_this$$orderDom$class, ['asc', 'desc']);
+
+        if (order.key === this.key) {
+          this.$orderDom.classList.add(order.direction);
+        }
+      }
+    }
+  }]);
+
+  return Th;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Th);
+
+/***/ }),
+
+/***/ "./src/components/table/Tr.js":
+/*!************************************!*\
+  !*** ./src/components/table/Tr.js ***!
+  \************************************/
+/*! exports provided: default, Tr */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* unused harmony export Tr */
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ "./node_modules/@babel/runtime/helpers/toConsumableArray.js");
+/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/classCallCheck */ "./node_modules/@babel/runtime/helpers/classCallCheck.js");
+/* harmony import */ var _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @babel/runtime/helpers/createClass */ "./node_modules/@babel/runtime/helpers/createClass.js");
+/* harmony import */ var _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _Td__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Td */ "./src/components/table/Td.js");
+/* harmony import */ var _Th__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Th */ "./src/components/table/Th.js");
+
+
+
+
+
+
+var Tr = /*#__PURE__*/function () {
+  /**
+   * @param { Object } options
+   * @param { string[] } options.classes
+   */
+  function Tr(options) {
+    var _this$options, _this$options$classes;
+
+    _babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, Tr);
+
+    this.options = options;
+    this.$dom = document.createElement('tr');
+    this.childs = []; // apply classes
+
+    if ((_this$options = this.options) === null || _this$options === void 0 ? void 0 : (_this$options$classes = _this$options.classes) === null || _this$options$classes === void 0 ? void 0 : _this$options$classes.length) {
+      var _this$$dom$classList;
+
+      (_this$$dom$classList = this.$dom.classList).add.apply(_this$$dom$classList, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(this.options.classes));
+    }
+  }
+
+  _babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(Tr, [{
+    key: "addTd",
+    value: function addTd(_ref) {
+      var key = _ref.key,
+          label = _ref.label,
+          options = _ref.options;
+      var td = new _Td__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"]({
+        key: key,
+        child: label,
+        options: options
+      });
+      this.childs.push(td);
+      this.$dom.appendChild(td.$dom);
+    }
+  }, {
+    key: "pushTd",
+    value: function pushTd(td) {
+      this.childs.push(td);
+      this.$dom.appendChild(td.$dom);
+    }
+  }, {
+    key: "addTds",
+    value: function addTds(array) {
+      var _this = this;
+
+      // _item = { key, label }
+      array.forEach(function (_item) {
+        _this.addTd(_item);
+      });
+      return this;
+    }
+  }, {
+    key: "addTh",
+    value: function addTh(column, options) {
+      var th = new _Th__WEBPACK_IMPORTED_MODULE_4__[/* default */ "a"](column, options);
+      this.childs.push(th);
+      this.$dom.appendChild(th.$dom);
+    }
+  }, {
+    key: "pushTh",
+    value: function pushTh(th) {
+      this.childs.push(th);
+      this.$dom.appendChild(th.$dom);
+    }
+  }, {
+    key: "addThs",
+    value: function addThs(array) {
+      var _this2 = this;
+
+      array.forEach(function (_item) {
+        _this2.addTh(_item);
+      });
+      return this;
+    }
+  }]);
+
+  return Tr;
+}();
+
+/* harmony default export */ __webpack_exports__["a"] = (Tr);
+
+
+/***/ }),
+
+/***/ "./src/const/bootstrap-options.json":
+/*!******************************************!*\
+  !*** ./src/const/bootstrap-options.json ***!
+  \******************************************/
+/*! exports provided: normal, sm, default */
+/*! exports used: default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"normal\":{\"classes\":[\"table\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\"]}},\"search\":{\"classes\":[\"form-control\"]}},\"sm\":{\"classes\":[\"table\",\"table-sm\",\"table-striped\",\"table-bordered\"],\"thead\":{\"thClasses\":[\"align-middle\"]},\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\",\"pagination-sm\"],\"btnWrapper\":\"li\",\"btnWrapperClasses\":[\"page-item\"],\"btnWrapperActiveClasses\":[\"active\"],\"btnClasses\":[\"page-link\"],\"rowsPerPage\":{\"selectClasses\":[\"form-control\",\"form-control-sm\"]}},\"search\":{\"classes\":[\"form-control\",\"form-control-sm\"]}}}");
+
+/***/ }),
+
+/***/ "./src/const/foundation.json":
+/*!***********************************!*\
+  !*** ./src/const/foundation.json ***!
+  \***********************************/
+/*! exports provided: pagination, search, default */
+/*! exports used: default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"pagination\":{\"containerElement\":\"ul\",\"containerClasses\":[\"pagination\"],\"btnWrapper\":\"li\",\"btnElement\":\"a\",\"btnDisabledClasses\":[\"disabled\"],\"rowsPerPage\":{\"selectClasses\":[\"margin-0\"]}},\"search\":{\"classes\":[\"margin-0\"]}}");
+
+/***/ }),
+
+/***/ "./src/const/semantic-ui-options.json":
+/*!********************************************!*\
+  !*** ./src/const/semantic-ui-options.json ***!
+  \********************************************/
+/*! exports provided: classes, pagination, search, default */
+/*! exports used: default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"classes\":[\"ui\",\"celled\",\"striped\",\"table\"],\"pagination\":{\"containerClasses\":[\"ui\",\"pagination\",\"menu\"],\"btnElement\":\"a\",\"btnClasses\":[\"item\"],\"rowsPerPage\":{\"selectClasses\":[\"ui\",\"dropdown\"]}},\"search\":{\"wrapperElement\":\"div\",\"wrapperClasses\":[\"ui\",\"input\"]}}");
+
+/***/ }),
+
+/***/ "./src/const/tailwind.json":
+/*!*********************************!*\
+  !*** ./src/const/tailwind.json ***!
+  \*********************************/
+/*! exports provided: classes, thead, tbody, tfoot, pagination, search, default */
+/*! exports used: default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"classes\":[\"w-full\",\"table-auto\"],\"thead\":{\"thClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"tbody\":{\"tdClasses\":[\"bg-even-200\",\"odd:bg-gray-200\",\"px-3\",\"py-2\",\"border\"]},\"tfoot\":{\"tdClasses\":[\"px-3\",\"py-2\",\"bg-gray-100\",\"border\"]},\"pagination\":{\"containerClasses\":[\"flex\"],\"btnClasses\":[\"px-2\",\"py-1\",\"border\"],\"btnActiveClasses\":[\"bg-gray-100\"],\"btnDisabledClasses\":[\"text-gray-500\"],\"rowsPerPage\":{\"selectClasses\":[\"px-2\",\"py-1\",\"border\"]}},\"search\":{\"classes\":[\"px-2\",\"py-1\",\"border\"]}}");
+
+/***/ }),
+
+/***/ "./src/helpers/from-array.js":
+/*!***********************************!*\
+  !*** ./src/helpers/from-array.js ***!
+  \***********************************/
+/*! exports provided: generateColumns, fromArray, default */
+/*! exports used: default, generateColumns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return generateColumns; });
+/* unused harmony export fromArray */
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
 
 
 /**
@@ -2993,10 +3277,10 @@ var ProTable_ProTable = /*#__PURE__*/function () {
  * @param { ProTable.Options } options 
  */
 
-var from_array_fromArray = function fromArray(elId, data, options) {
-  var columns = data.columns || from_array_generateColumns(data);
+var fromArray = function fromArray(elId, data, options) {
+  var columns = data.columns || generateColumns(data);
   console.log('fromArray', columns);
-  var proTable = new table_ProTable(elId, options);
+  var proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"](elId, options);
   proTable.generateTable({
     columns: columns,
     rows: data.rows || data
@@ -3020,7 +3304,7 @@ var from_array_fromArray = function fromArray(elId, data, options) {
  */
 
 
-var from_array_generateColumns = function generateColumns(array) {
+var generateColumns = function generateColumns(array) {
   var columns = [];
   var objectColumns = [];
   array.forEach(function (_item) {
@@ -3035,7 +3319,7 @@ var from_array_generateColumns = function generateColumns(array) {
             return _objectColumn === key;
           })) {
             objectColumns.push(key);
-            columns.push(defineProperty_default()({}, key, generateColumns([_item[key]])));
+            columns.push(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()({}, key, generateColumns([_item[key]])));
           }
         } else {
           columns.push(key);
@@ -3051,27 +3335,41 @@ var from_array_generateColumns = function generateColumns(array) {
 };
 
 
-/* harmony default export */ var from_array = (from_array_fromArray);
-// CONCATENATED MODULE: ./src/helpers/from-dom-table.js
+/* harmony default export */ __webpack_exports__["a"] = (fromArray);
+
+/***/ }),
+
+/***/ "./src/helpers/from-dom-table.js":
+/*!***************************************!*\
+  !*** ./src/helpers/from-dom-table.js ***!
+  \***************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/defineProperty */ "./node_modules/@babel/runtime/helpers/defineProperty.js");
+/* harmony import */ var _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
 
 
-function from_dom_table_ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function from_dom_table_objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { from_dom_table_ownKeys(Object(source), true).forEach(function (key) { defineProperty_default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { from_dom_table_ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 
 
-var from_dom_table_fromDOMTable = function fromDOMTable(selector, options) {
+var fromDOMTable = function fromDOMTable(selector, options) {
   var dom = document.querySelector(selector);
   var columns = getColumnsFromDom(dom);
   var rows = getRowsFromDom(dom, columns);
   console.log({
     columns: columns
   });
-  options = from_dom_table_objectSpread({
+  options = _objectSpread({
     classes: Array.from(dom.classList)
   }, options);
-  var proTable = new table_ProTable(null, options);
+  var proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"](null, options);
   proTable.generateTable({
     columns: columns,
     rows: rows
@@ -3106,8 +3404,25 @@ function getRowsFromDom(table, columns) {
   });
 }
 
-/* harmony default export */ var from_dom_table = (from_dom_table_fromDOMTable);
-// CONCATENATED MODULE: ./src/helpers/from-server.js
+/* harmony default export */ __webpack_exports__["a"] = (fromDOMTable);
+
+/***/ }),
+
+/***/ "./src/helpers/from-server.js":
+/*!************************************!*\
+  !*** ./src/helpers/from-server.js ***!
+  \************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ "./node_modules/@babel/runtime/helpers/asyncToGenerator.js");
+/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/table/ProTable */ "./src/components/table/ProTable.js");
+/* harmony import */ var _from_array__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./from-array */ "./src/helpers/from-array.js");
 
 
 
@@ -3125,17 +3440,17 @@ function getRowsFromDom(table, columns) {
  * @param { Callbacks } callbacks 
  */
 
-var from_server_fromServer = function fromServer(elId, _ref) {
+var fromServer = function fromServer(elId, _ref) {
   var url = _ref.url,
       success = _ref.success,
       options = _ref.options;
-  var proTable = new table_ProTable(elId, options);
+  var proTable = new _components_table_ProTable__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"](elId, options);
   proTable.options.fromServer = true;
   var firstLoad = true;
   proTable.on('pageChanged', /*#__PURE__*/function () {
-    var _ref2 = asyncToGenerator_default()( /*#__PURE__*/regenerator_default.a.mark(function _callee(page) {
+    var _ref2 = _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_1___default()( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee(page) {
       var query, response, result, columns;
-      return regenerator_default.a.wrap(function _callee$(_context) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
@@ -3173,7 +3488,7 @@ var from_server_fromServer = function fromServer(elId, _ref) {
               proTable.options.lastPage = parseInt(result.meta.last_page);
 
               if (firstLoad) {
-                columns = result.data.columns || from_array_generateColumns(result.data);
+                columns = result.data.columns || Object(_from_array__WEBPACK_IMPORTED_MODULE_3__[/* generateColumns */ "b"])(result.data);
                 proTable.generateTable({
                   columns: columns,
                   rows: result.data.rows || result.data
@@ -3208,20 +3523,77 @@ var from_server_fromServer = function fromServer(elId, _ref) {
   return proTable;
 };
 
-/* harmony default export */ var from_server = (from_server_fromServer);
-// EXTERNAL MODULE: ./src/const/bootstrap-options.json
-var bootstrap_options = __webpack_require__(6);
+/* harmony default export */ __webpack_exports__["a"] = (fromServer);
 
-// EXTERNAL MODULE: ./src/const/semantic-ui-options.json
-var semantic_ui_options = __webpack_require__(8);
+/***/ }),
 
-// EXTERNAL MODULE: ./src/const/foundation.json
-var foundation = __webpack_require__(9);
+/***/ "./src/helpers/pagination-pages.js":
+/*!*****************************************!*\
+  !*** ./src/helpers/pagination-pages.js ***!
+  \*****************************************/
+/*! exports provided: default */
+/*! exports used: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-// EXTERNAL MODULE: ./src/const/tailwind.json
-var tailwind = __webpack_require__(10);
+"use strict";
+var getRange = function getRange(start, end) {
+  return Array(end - start).fill().map(function (v, i) {
+    return i + start;
+  });
+};
 
-// CONCATENATED MODULE: ./src/index.js
+/* harmony default export */ __webpack_exports__["a"] = (function (currentPage, totalPage) {
+  var visiblePages = 10; // default
+
+  if (visiblePages > totalPage) {
+    visiblePages = totalPage;
+  }
+
+  var start = currentPage;
+
+  if (currentPage <= Math.floor(visiblePages / 2)) {
+    start = 1;
+  } else {
+    start = currentPage - Math.floor(visiblePages / 2);
+  }
+
+  if (start + visiblePages >= totalPage) {
+    start = totalPage - visiblePages + 1;
+  }
+
+  return getRange(start, start + visiblePages);
+});
+
+/***/ }),
+
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
+/*! exports provided: default, fromArray, fromTable, fromServer, templateOptions */
+/*! all exports used */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "templateOptions", function() { return templateOptions; });
+/* harmony import */ var _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./helpers/from-array */ "./src/helpers/from-array.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromArray", function() { return _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__["a"]; });
+
+/* harmony import */ var _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./helpers/from-dom-table */ "./src/helpers/from-dom-table.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromTable", function() { return _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__["a"]; });
+
+/* harmony import */ var _helpers_from_server__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers/from-server */ "./src/helpers/from-server.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "fromServer", function() { return _helpers_from_server__WEBPACK_IMPORTED_MODULE_2__["a"]; });
+
+/* harmony import */ var _const_bootstrap_options_json__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./const/bootstrap-options.json */ "./src/const/bootstrap-options.json");
+var _const_bootstrap_options_json__WEBPACK_IMPORTED_MODULE_3___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./const/bootstrap-options.json */ "./src/const/bootstrap-options.json", 1);
+/* harmony import */ var _const_semantic_ui_options_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./const/semantic-ui-options.json */ "./src/const/semantic-ui-options.json");
+var _const_semantic_ui_options_json__WEBPACK_IMPORTED_MODULE_4___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./const/semantic-ui-options.json */ "./src/const/semantic-ui-options.json", 1);
+/* harmony import */ var _const_foundation_json__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./const/foundation.json */ "./src/const/foundation.json");
+var _const_foundation_json__WEBPACK_IMPORTED_MODULE_5___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./const/foundation.json */ "./src/const/foundation.json", 1);
+/* harmony import */ var _const_tailwind_json__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./const/tailwind.json */ "./src/const/tailwind.json");
+var _const_tailwind_json__WEBPACK_IMPORTED_MODULE_6___namespace = /*#__PURE__*/__webpack_require__.t(/*! ./const/tailwind.json */ "./src/const/tailwind.json", 1);
 
 
 
@@ -3230,26 +3602,53 @@ var tailwind = __webpack_require__(10);
 
 
 var templateOptions = {
-  bootstrap: bootstrap_options.normal,
-  bootstrapSm: bootstrap_options.sm,
-  semanticUI: semantic_ui_options,
-  foundation: foundation,
-  tailwind: tailwind
+  bootstrap: _const_bootstrap_options_json__WEBPACK_IMPORTED_MODULE_3__.normal,
+  bootstrapSm: _const_bootstrap_options_json__WEBPACK_IMPORTED_MODULE_3__.sm,
+  semanticUI: _const_semantic_ui_options_json__WEBPACK_IMPORTED_MODULE_4__,
+  foundation: _const_foundation_json__WEBPACK_IMPORTED_MODULE_5__,
+  tailwind: _const_tailwind_json__WEBPACK_IMPORTED_MODULE_6__
 };
 window.ProTable = {
-  fromArray: from_array,
-  fromTable: from_dom_table,
-  fromServer: from_server,
+  fromArray: _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"],
+  fromTable: _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"],
+  fromServer: _helpers_from_server__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"],
   templateOptions: templateOptions
 };
-/* harmony default export */ var src = __webpack_exports__["default"] = ({
-  fromArray: from_array,
-  fromTable: from_dom_table,
-  fromServer: from_server,
+/* harmony default export */ __webpack_exports__["default"] = ({
+  fromArray: _helpers_from_array__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"],
+  fromTable: _helpers_from_dom_table__WEBPACK_IMPORTED_MODULE_1__[/* default */ "a"],
+  fromServer: _helpers_from_server__WEBPACK_IMPORTED_MODULE_2__[/* default */ "a"],
   templateOptions: templateOptions
 });
 
 
+/***/ }),
+
+/***/ "./src/scss/protable.scss":
+/*!********************************!*\
+  !*** ./src/scss/protable.scss ***!
+  \********************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!*****************************************************!*\
+  !*** multi ./src/index.js ./src/scss/protable.scss ***!
+  \*****************************************************/
+/*! no static exports found */
+/*! all exports used */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ./src/index.js */"./src/index.js");
+module.exports = __webpack_require__(/*! ./src/scss/protable.scss */"./src/scss/protable.scss");
+
+
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=protable.js.map

@@ -50,9 +50,7 @@ class Th {
 
   _createContainer () {
     this.$container = document.createElement('div')
-    this.$container.style.display = 'flex'
-    this.$container.style.justifyContent = 'space-between'
-    this.$container.style.alignItems = 'center'
+    this.$container.classList.add('th-container')
 
     this.$dom.appendChild(this.$container)
   }
@@ -87,25 +85,28 @@ class Th {
     this.$container.style.cursor = 'pointer'
 
     // caret top
-    this.$spanTop = document.createElement('span')
-    this.$spanTop.innerHTML = '▴'
-    this.$spanTop.style.marginBottom = '-.3rem'
+    this.$arrowUp = document.createElement('span')
+    this.$arrowUp.innerHTML = `<svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="6 2 12 12" width="9" height="12">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path d="M12 8l6 6H6z"/>
+    </svg>`;
+    this.$arrowUp.classList.add('caret-up')
     // caret bottom
-    this.$spanBottom = document.createElement('span')
-    this.$spanBottom.innerHTML = '▾'
-    this.$spanBottom.style.marginTop = '-.3rem'
+    this.$arrowBottom = document.createElement('span')
+    this.$arrowBottom.innerHTML = `<svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="6 10 12 12" width="9" height="12">
+      <path fill="none" d="M0 0h24v24H0z"/>
+      <path d="M12 16l-6-6h12z"/>
+    </svg>`
+    this.$arrowBottom.classList.add('caret-down')
 
     this.$orderDom = document.createElement('div')
-    this.$orderDom.appendChild(this.$spanTop)
-    this.$orderDom.appendChild(this.$spanBottom)
-    this.$orderDom.style.display = 'inline-flex'
-    this.$orderDom.style.flexDirection = 'column'
-    this.$orderDom.style.justifyContent = 'center'
-    this.$orderDom.style.fontSize = '80%'
-    this.$orderDom.style.height = '1rem'
-    this.$orderDom.style.opacity = 0.3
-    this.$orderDom.style.marginLeft = '.5rem'
-    this.$orderDom.style.userSelect = 'none'
+    this.$orderDom.classList.add('arrows')
+    this.$orderDom.appendChild(this.$arrowUp)
+    this.$orderDom.appendChild(this.$arrowBottom)
     this.$container.appendChild(this.$orderDom)
 
     this.$dom.addEventListener('click', e => {
@@ -131,11 +132,11 @@ class Th {
     if (this._isOrderable()) {
       const order = this.proTable.options.order;
   
-      this.$spanTop.style.visibility = order.key === this.key &&
-        order.direction === 'desc' ? 'hidden' : ''
-  
-      this.$spanBottom.style.visibility = order.key === this.key &&
-        order.direction === 'asc' ? 'hidden' : ''
+      this.$orderDom.classList.remove(...['asc', 'desc'])
+
+      if (order.key === this.key) {
+        this.$orderDom.classList.add(order.direction)
+      }
     }
   }
 }

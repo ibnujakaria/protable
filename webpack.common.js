@@ -1,11 +1,13 @@
 const path = require('path')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: {
-    ['protable']: './src/index.js',
+    protable: [
+      './src/index.js',
+      './src/scss/protable.scss'
+    ],
   },
   optimization: {
     usedExports: true
@@ -19,13 +21,8 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'css/protable.css',
+      filename: '[name].css',
       chunkFilename: '[id].css',
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: path.resolve(__dirname, 'example/data'), to: 'data' }
-      ]
     })
   ],
   module: {
@@ -38,26 +35,16 @@ module.exports = {
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.s[ac]ss$/i,
         use: [
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              publicPath: '../',
-              hmr: process.env.NODE_ENV === 'development',
+              // only enable hot in development
+              hmr: process.env.NODE_ENV === 'development'
             },
           },
           'css-loader',
-          {
-            loader: 'postcss-loader', // Run postcss actions
-            options: {
-              plugins: function () { // postcss plugins, can be exported to postcss.config.js
-                return [
-                  require('autoprefixer')
-                ];
-              }
-            }
-          },
           'sass-loader'
         ]
       },
