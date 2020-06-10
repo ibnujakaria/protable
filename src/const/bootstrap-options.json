@@ -7,7 +7,7 @@
     "pagination": {
       "containerElement": "ul",
       "containerClasses": [
-        "pagination"
+        "pagination", "mb-0"
       ],
       "btnWrapper": "li",
       "btnWrapperClasses": [
@@ -35,7 +35,7 @@
     "pagination": {
       "containerElement": "ul",
       "containerClasses": [
-        "pagination", "pagination-sm"
+        "pagination", "pagination-sm", "mb-0"
       ],
       "btnWrapper": "li",
       "btnWrapperClasses": [

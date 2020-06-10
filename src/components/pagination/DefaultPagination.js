@@ -6,9 +6,6 @@ class DefaultPagination {
     this.proTable = proTable
 
     this.$dom = document.createElement('div')
-    this.$dom.style.display = 'flex'
-    this.$dom.style.justifyContent = 'space-between'
-    this.$dom.style.alignItems = 'center'
 
     this._buildRowsPerPage()
     this._buildControls()
@@ -25,7 +22,6 @@ class DefaultPagination {
     this.$controls = document.createElement(
       options.pagination.containerElement || 'div'
     )
-    this.$controls.style.margin = '0'
 
     if (options.pagination.containerClasses) {
       this.$controls.classList.add(...options.pagination.containerClasses)
@@ -83,11 +79,9 @@ class DefaultPagination {
         const btn = this._buildButton(page)
 
         if (page === options.page) {
-          btn.$btn.style.fontWeight = 800
-
-          if (options.pagination.btnActiveClasses) {
-            btn.$btn.classList.add(...options.pagination.btnActiveClasses)
-          }
+          btn.$btn.classList.add(
+            ...(options?.pagination?.btnActiveClasses || []).concat(['active'])
+          )
 
           if (options.pagination.btnWrapperActiveClasses) {
             btn.$wrapper.classList.add(...options.pagination.btnWrapperActiveClasses)

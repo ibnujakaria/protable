@@ -1,0 +1,51 @@
+thead {
+  th {
+    box-sizing: border-box;
+    
+    .th-container {
+      position: relative;
+      padding-right: 1rem;
+      
+      .arrows {
+        position: absolute;
+        margin-left: 1rem;
+        top: 50%;
+        right: 0;
+        transform: translateY(-50%);
+
+        span {
+          display: block;
+          color: rgba(0, 0, 0, 0.4);
+          
+          svg {
+            fill: currentColor;
+            display: block;
+          }
+        }
+
+        &.asc, &.desc {
+          span {
+            color: blue;
+          }
+        }
+
+        &.asc {
+          span {
+            &.caret-down {
+              visibility: hidden;
+            }
+          }
+        }
+
+        &.desc {
+          span {
+            &.caret-up {
+              visibility: hidden;
+            }
+          }
+        }
+      }
+    }
+
+  }
+}
