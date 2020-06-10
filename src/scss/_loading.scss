@@ -1,0 +1,58 @@
+&.loading {
+  table {
+    tbody td, thead th {
+      color: transparent !important;
+      
+      * {
+        display: inline-block;
+        color: transparent !important;
+        background: linear-gradient(90deg, 
+          rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)
+        );
+        opacity: 0.3;
+        border-radius: 2px;
+        -webkit-animation: Gradient 2s ease ;
+        -moz-animation: Gradient 2s ease ;
+        animation: Gradient 2s ease ;
+        background-size: 200% 100%;
+        background-origin: content-box;
+      }
+    }
+  }
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-moz-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}
+
+@-webkit-keyframes Gradient {
+  0% {
+    background-position: 0% 50%
+  }
+  50% {
+    background-position: 100% 50%
+  }
+  100% {
+    background-position: 0% 50%
+  }
+}

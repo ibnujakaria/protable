@@ -109,6 +109,14 @@ class TBody {
           rowOptions.classes = (rowOptions.classes || []).concat(rowContent[1]?.classes || [])
           rowContent = rowContent[0]
         }
+
+      }
+      
+      // if loading, add a div
+      if (this.proTable.loading) {
+        const tmp = document.createElement('div')
+        tmp.innerHTML = new Array(Math.floor((Math.random() * 20) + 20)).fill('-').join('')
+        rowContent = tmp
       }
 
       if (_col.childs) {

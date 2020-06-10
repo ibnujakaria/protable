@@ -75,10 +75,15 @@ class ProTable {
     this.tbody = null
     this.$dom = document.createElement('section')
     this.$dom.classList.add('protable')
-    this._listeners = {}
+    this._listeners = {}    
+    this.loading = false
   }
 
   generateTable ({ columns, rows }) {
+    if (this.$table && this.$dom) {
+      this.$dom.removeChild(this.$table)
+    }
+
     this.$table = document.createElement('table')
     this.$dom.appendChild(this.$table)
 
@@ -158,10 +163,6 @@ class ProTable {
   }
   
   _generateTbody () {
-    if (this.tbody) {
-      this.$table.removeChild(this.tbody.$dom)
-    }
-
     this.tbody = new TBody({
       proTable: this,
       options: this.options.tbody
@@ -170,10 +171,6 @@ class ProTable {
   }
 
   _generateTFoot () {
-    if (this.tfoot) {
-      this.$table.removeChild(this.tfoot.$dom)
-    }
-
     this.tfoot = new TFoot({ proTable: this, options: this.options.tfoot })
     this.$table.appendChild(this.tfoot.$dom)
   }
@@ -191,8 +188,7 @@ class ProTable {
     }
 
     if (!this.options.fromServer) {
-      this.tbody?.render()
-      this.tfoot?.render()
+      this.rerender()
     }
 
     this.emit('pageChanged', page)
@@ -210,6 +206,15 @@ class ProTable {
     
     this.thead.render()
     this.setPage(1)
+  }
+
+  setLoading (loading) {
+    this.loading = !!loading
+    this.$dom.classList[this.loading ? 'add' : 'remove']('loading')
+
+    if (loading) {
+      this.rerender()
+    }
   }
 
   get totalRows () {
@@ -262,8 +267,15 @@ class ProTable {
     }
   }
 
+  rerender () {
+    this.tbody?.render()
+    this.tfoot?.render()
+  }
+
   draw () {
-    document.querySelector(this.selector).appendChild(this.$dom)
+    const container = document.querySelector(this.selector)
+
+    container.appendChild(this.$dom)
   }
 }
 

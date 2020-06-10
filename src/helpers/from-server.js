@@ -26,8 +26,10 @@ const fromServer = (elId, { url, success, options }) => {
       order: proTable.options.order
     }
 
+    proTable.setLoading(true)
     let response =  await fetch(url(query))
     let result = await success?.(response, query) || (await response.json())
+    proTable.setLoading(false)
 
     proTable.options.totalRows = parseInt(result.meta.total_rows)
     proTable.options.lastPage = parseInt(result.meta.last_page)
@@ -42,20 +44,20 @@ const fromServer = (elId, { url, success, options }) => {
       firstLoad = false
     } else {
       proTable.setRows(result.data.rows || result.data)
-      proTable.tbody.render()
-      proTable.tfoot.render()
-
-      console.log('server', proTable)
+      proTable.rerender()
     }
   })
 
   proTable.emit('pageChanged', 1)
 
   if (elId) {
+    // generate loading table
+    proTable.generateTable({
+      columns: new Array(3).fill().map((v, i) => `Loading-${i}`)      ,
+      rows: new Array(5).fill({})
+    })
     proTable.draw()
   }
-
-  console.log('server', proTable)
 
   return proTable
 }
